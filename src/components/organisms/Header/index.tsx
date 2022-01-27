@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import styled from 'styled-components';
 
-import { BannerText } from 'src/components/atoms';
+import { BannerText, SlideSwitch } from 'src/components/atoms';
 
 const HeaderContainer = styled.header`
   position: sticky;
@@ -30,6 +30,7 @@ interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
   const { path } = props;
+
   return (
     <>
       <BannerContainer>
@@ -38,7 +39,8 @@ export const Header = (props: HeaderProps) => {
         </div>
       </BannerContainer>
       <HeaderContainer>
-        <BannerText>평범한 개발자 나의 블로그{path}</BannerText>
+        <BannerText>평범한 개발자의 블로그{path}</BannerText>
+        <SlideSwitch />
       </HeaderContainer>
     </>
   );
