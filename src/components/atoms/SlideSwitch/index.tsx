@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 const SlideSwitchElement = styled.div<{ state: boolean }>`
@@ -24,17 +23,20 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
   }
 `;
 
-const SlideSwitchBall = styled.div<{ state: boolean }>``;
+interface SlideSwitchProps {
+  initState: boolean;
+  onChange: (mode: boolean) => void;
+}
 
-export const SlideSwitch = () => {
-  const [switchState, setSwitchState] = useState(false);
+export const SlideSwitch = (props: SlideSwitchProps) => {
+  const { initState, onChange } = props;
 
   const onClickSwitch = () => {
-    setSwitchState(state => !state);
+    onChange(!initState);
   };
 
   return (
-    <SlideSwitchElement onClick={() => onClickSwitch()} state={switchState}>
+    <SlideSwitchElement onClick={() => onClickSwitch()} state={initState}>
       <div></div>
     </SlideSwitchElement>
   );

@@ -3,45 +3,60 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import { BannerText, SlideSwitch } from 'src/components/atoms';
+import { StyleStore } from 'src/store/style';
+import { inject, observer } from 'mobx-react';
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled.header<{ darkMode: boolean }>`
   position: sticky;
   top: 0px;
   max-width: 1024px;
   margin: auto;
   padding: 10px 0px;
-  background-color: #fff;
+  background-color: ${props => (props.darkMode ? '#000' : '#fff')};
+  color: ${props => (props.darkMode ? '#fff' : '#000')};
   z-index: 10;
+  transition: background-color 400ms linear, color 400ms linear;
 `;
 
-const BannerContainer = styled.div`
+const BannerContainer = styled.div<{ darkMode: boolean }>`
   & > div {
     display: flex;
     justify-content: center;
     max-width: 1024px;
     width: 100%;
     margin: auto;
+    background-color: ${props => (props.darkMode ? '#000' : 'inhetit')};
+    transition: background-color 400ms linear;
   }
 `;
 
 interface HeaderProps {
   path: string;
+  style: StyleStore;
 }
 
-export const Header = (props: HeaderProps) => {
-  const { path } = props;
+const HeaderComponent = (props: HeaderProps) => {
+  const { path, style } = props;
+
+  const { darkMode, changeMode } = style;
 
   return (
     <>
-      <BannerContainer>
+      <BannerContainer darkMode={darkMode}>
         <div>
-          <Image src='/assets/img/banner-light.png' width='800px' height='250px' />
+          <Image
+            src={darkMode ? '/assets/img/banner-dark.png' : '/assets/img/banner-light.png'}
+            width='800px'
+            height='250px'
+          />
         </div>
       </BannerContainer>
-      <HeaderContainer>
+      <HeaderContainer darkMode={darkMode}>
         <BannerText>평범한 개발자의 블로그{path}</BannerText>
-        <SlideSwitch />
+        <SlideSwitch initState={darkMode} onChange={changeMode} />
       </HeaderContainer>
     </>
   );
 };
+
+export const Header = inject('style')(observer(HeaderComponent));

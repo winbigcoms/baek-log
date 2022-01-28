@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+
 import { useEffect, useRef, useState } from 'react';
 
 import { HomeTmp } from 'src/components/templates';

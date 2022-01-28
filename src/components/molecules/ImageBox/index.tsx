@@ -14,7 +14,8 @@ const ThumbnailText = styled.p`
   left: 5px;
   bottom: 5px;
   font-size: 14px;
-  background-color: #fff;
+  background-color: #fff !important;
+  color: #000 !important;
   margin: 0px;
 `;
 

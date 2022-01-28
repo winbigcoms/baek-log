@@ -1,3 +1,4 @@
+import { inject, observer } from 'mobx-react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 import { ServerStyleSheet } from 'styled-components';
@@ -28,6 +29,7 @@ export default class MyDocument extends Document {
       sheet.seal();
     }
   }
+
   render(): JSX.Element {
     return (
       <Html>

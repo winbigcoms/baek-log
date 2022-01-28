@@ -36,10 +36,11 @@ const CategoryBoxContentElement = styled.div`
 
 interface CategoryBoxProps extends CategoryItem {
   index: number;
+  zigzag: boolean;
 }
 
 export const CategoryBox = (props: CategoryBoxProps) => {
-  const { categoryTitle, categoryContents, index, route } = props;
+  const { categoryTitle, categoryContents, index, route, zigzag = true } = props;
 
   const router = useRouter();
 
@@ -49,7 +50,7 @@ export const CategoryBox = (props: CategoryBoxProps) => {
 
   return (
     <CategoryBoxElement>
-      <CategoryBoxHeaderElement index={Boolean(index % 2)}>
+      <CategoryBoxHeaderElement index={zigzag ? Boolean(index % 2) : zigzag}>
         <CategoryText>{categoryTitle}</CategoryText>
         <MoreButton onClick={() => onClickMore('category/' + route)} />
       </CategoryBoxHeaderElement>
