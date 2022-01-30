@@ -3,12 +3,13 @@ import Head from 'next/head';
 
 import { useEffect, useRef, useState } from 'react';
 
-import { HomeTmp } from 'src/components/templates';
+import { HomeHiddenModal, HomeTmp } from 'src/components/templates';
 import { checkHiddenCommand } from 'src/const';
+import { useModal } from 'src/Hooks';
 
 const Home: NextPage = () => {
-  const command = useRef([]);
-  const [showHidden, setHidden] = useState(false);
+  const command = useRef<string[]>([]);
+  const {ModalComponent,modalState,switchModalState} = useModal({Contents:HomeHiddenModal})
 
   useEffect(() => {
     const hiddenCommand = (e: KeyboardEvent) => {
@@ -17,8 +18,8 @@ const Home: NextPage = () => {
 
       if (isHiddenCommand === undefined) return; // 커맨드는 맞지만 다 누르지않음
 
-      if (showHidden !== isHiddenCommand) {
-        setHidden(isHiddenCommand);
+      if (modalState !== isHiddenCommand) {
+        switchModalState(isHiddenCommand);
       }
 
       if (isHiddenCommand || isHiddenCommand === false) {
@@ -39,7 +40,7 @@ const Home: NextPage = () => {
         <meta name='description' content='웹 개발자 백승일의 개발자 블로그' />
       </Head>
       <HomeTmp />
-      {showHidden && <div>히든 퀘 성공!</div>}
+      {modalState && ModalComponent}
     </>
   );
 };

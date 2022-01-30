@@ -36,8 +36,9 @@ export default class MyDocument extends Document {
         <Head>
           <meta name='keyword' content='개발자 블로그, 카페 추천, 스트리머 추천, TIL' />
         </Head>
-        <body>
+        <body id='body'>
           <Main />
+          <div id='portal'></div>
           <NextScript />
         </body>
       </Html>
