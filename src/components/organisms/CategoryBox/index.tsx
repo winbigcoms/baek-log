@@ -36,7 +36,7 @@ const CategoryBoxContentElement = styled.div`
 
 interface CategoryBoxProps extends CategoryItem {
   index: number;
-  zigzag: boolean;
+  zigzag?: boolean;
 }
 
 export const CategoryBox = (props: CategoryBoxProps) => {
