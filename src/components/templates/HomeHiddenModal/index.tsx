@@ -1,4 +1,4 @@
-import { ModalPortal } from "src/components/atoms"
+import { CloseButton, ModalPortal } from "src/components/atoms"
 import styled from "styled-components";
 
 const HomeHiddenModalContainer = styled.div`
@@ -20,17 +20,16 @@ const HomeHiddenModalContainer = styled.div`
     left:50%;
     top:50%;
     transform: translate(-50%,-50%);
-    background-color:#ccc;
+    background-color:#fff;
   }
 `
 
-const CloseModalButton = styled.button`
-  width: 50px;
-  height: 50px;
-  position:absolute;
-  top:10px;
-  right:10px;
+const ModalHeader = styled.div`
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  height: 80px;
 `
+
 
 interface HomeHiddenModalProps {
   switchModalState: (state:boolean)=>void;
@@ -46,7 +45,10 @@ export const HomeHiddenModal = (props:HomeHiddenModalProps)=>{
   return (
     <HomeHiddenModalContainer>
       <div>
-        <CloseModalButton onClick={closeModal}>닫기</CloseModalButton>
+      <ModalHeader>
+        <CloseButton onClose={closeModal}/>
+
+      </ModalHeader>
           히든퀘스트!
       </div>
     </HomeHiddenModalContainer>
