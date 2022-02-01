@@ -13,15 +13,17 @@ export const categoryToKorean = (category: string) => {
   }
 };
 
-export const checkHiddenCommand = (command: string[]) => {
-  const targetCommand = ['ArrowUp', 'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
-
-  for (let i = 0; i < command.length; i++) {
-    if (command[i] !== targetCommand[i]) {
-      return false;
-    }
-    if (i === targetCommand.length - 1) {
-      return true;
-    }
+export const categoryMiddelTitleToKorean = (category: string) => {
+  switch (category) {
+    case 'all':
+      return '모든 포스팅을 최신순으로 봅니다';
+    case 'study':
+      return '나의 관심사, 배운 것을 적어봅니다.';
+    case 'cafe':
+      return '상큼한 음료, 달콤한 디저트를 좋아하는 페이지 주인장의 카페 추천';
+    case 'twitch':
+      return '개인방송 시청 경력 10년의 페이지 주인장의 트위치 스트리머 추천';
+    default:
+      return '';
   }
 };

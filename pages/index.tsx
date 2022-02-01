@@ -1,20 +1,22 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+
+import { checkHomeHiddenCommand } from 'src/utills';
+import { useModal } from 'src/Hooks';
 
 import { HomeHiddenModal, HomeTmp } from 'src/components/templates';
-import { checkHiddenCommand } from 'src/const';
-import { useModal } from 'src/Hooks';
 
 const Home: NextPage = () => {
   const command = useRef<string[]>([]);
-  const {ModalComponent,modalState,switchModalState} = useModal({Contents:HomeHiddenModal})
+  const { ModalComponent, modalState, switchModalState } = useModal({ Contents: HomeHiddenModal });
 
   useEffect(() => {
     const hiddenCommand = (e: KeyboardEvent) => {
       command.current.push(e.code);
-      const isHiddenCommand = checkHiddenCommand(command.current);
+
+      const isHiddenCommand = checkHomeHiddenCommand(command.current);
 
       if (isHiddenCommand === undefined) return; // 커맨드는 맞지만 다 누르지않음
 
@@ -26,6 +28,7 @@ const Home: NextPage = () => {
         command.current = [];
       }
     };
+
     window.addEventListener('keydown', hiddenCommand);
 
     return () => {
