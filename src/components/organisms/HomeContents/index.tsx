@@ -1,6 +1,8 @@
 import { inject, observer } from 'mobx-react';
-import { StyleStore } from 'src/store/style';
+
 import styled from 'styled-components';
+
+import { StyleStore } from 'src/store/style';
 import { CategoryBox } from '..';
 
 const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
