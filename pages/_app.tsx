@@ -20,11 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   console.log(store);
   return (
     <Provider {...store}>
-      <div data-mode={store.style.darkMode}>
-        <Header path={categoryToKorean(category)} />
-        <Component {...pageProps} />
-        <Footer />
-      </div>
+      <Header path={categoryToKorean(category)} />
+      <Component {...pageProps} />
+      <Footer />
     </Provider>
   );
 }

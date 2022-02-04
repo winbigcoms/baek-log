@@ -5,7 +5,7 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
   height: 30px;
   border-radius: 15px;
   position: absolute;
-  right: 0px;
+  right: 50px;
   top: 15px;
   background-color: ${props => (props.state ? '#fff' : '#000')};
   border: 1px solid ${props => (props.state ? '#000' : '#fff')};

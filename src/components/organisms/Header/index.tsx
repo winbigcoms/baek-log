@@ -9,13 +9,17 @@ import { inject, observer } from 'mobx-react';
 const HeaderContainer = styled.header<{ darkMode: boolean }>`
   position: sticky;
   top: 0px;
-  max-width: 1024px;
   margin: auto;
   padding: 10px 0px;
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   z-index: 10;
   transition: background-color 400ms linear, color 400ms linear;
+
+  h1 {
+    max-width: 1024px;
+    margin: auto;
+  }
 `;
 
 const BannerContainer = styled.div<{ darkMode: boolean }>`
@@ -25,9 +29,9 @@ const BannerContainer = styled.div<{ darkMode: boolean }>`
     max-width: 1024px;
     width: 100%;
     margin: auto;
-    background-color: ${props => (props.darkMode ? '#000' : 'inhetit')};
-    transition: background-color 400ms linear;
   }
+  background-color: ${props => (props.darkMode ? '#000' : 'inhetit')};
+  transition: background-color 400ms linear;
 `;
 
 interface HeaderProps {
