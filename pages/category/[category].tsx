@@ -1,8 +1,11 @@
-import { inject, observer } from 'mobx-react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { useEffect, useRef } from 'react';
+import { inject, observer } from 'mobx-react';
+
+import styled from 'styled-components';
+
 import { CategoryMiddleText } from 'src/components/atoms';
 
 import { CategoryHiddenModal } from 'src/components/templates';
@@ -11,7 +14,6 @@ import { categoryMiddelTitleToKorean } from 'src/const';
 import { useModal } from 'src/Hooks';
 import { StyleStore } from 'src/store/style';
 import { checkCategoryHiddenCommand } from 'src/utills';
-import styled from 'styled-components';
 
 const CategoryMain = styled.main<{ darkMode: boolean }>`
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
@@ -76,6 +78,7 @@ const CategoryComponent = (props: CategoryComponentProps) => {
       </Head>
       <CategoryMain darkMode={darkMode}>
         <CategoryMiddleText text={categoryMiddelTitleToKorean(category as string)} />
+        <div></div>
       </CategoryMain>
       {modalState && ModalComponent}
     </>

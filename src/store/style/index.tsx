@@ -12,6 +12,8 @@ export class StyleStore {
 
   @action changeMode = (mode: boolean) => {
     this.darkMode = mode;
+
+    localStorage.setItem('mode', JSON.stringify(mode));
   };
 
   @action hydrate = data => {
