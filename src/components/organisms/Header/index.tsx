@@ -20,6 +20,16 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
     max-width: 1024px;
     margin: auto;
   }
+
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 25px;
+
+      span {
+        display: block;
+      }
+    }
+  }
 `;
 
 const BannerContainer = styled.div<{ darkMode: boolean }>`
@@ -30,6 +40,7 @@ const BannerContainer = styled.div<{ darkMode: boolean }>`
     width: 100%;
     margin: auto;
   }
+
   background-color: ${props => (props.darkMode ? '#000' : 'inhetit')};
   transition: background-color 400ms linear;
 `;
@@ -56,7 +67,9 @@ const HeaderComponent = (props: HeaderProps) => {
         </div>
       </BannerContainer>
       <HeaderContainer darkMode={darkMode}>
-        <BannerText>평범한 개발자의 블로그{path}</BannerText>
+        <BannerText>
+          평범한 개발자의 블로그 <span>{path}</span>
+        </BannerText>
         <SlideSwitch initState={darkMode} onChange={changeMode} />
       </HeaderContainer>
     </>

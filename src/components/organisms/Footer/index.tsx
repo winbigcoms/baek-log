@@ -4,7 +4,7 @@ import { StyleStore } from 'src/store/style';
 
 import styled from 'styled-components';
 
-const FooterElement = styled.footer<{darkMode:boolean}>`
+const FooterElement = styled.footer<{ darkMode: boolean }>`
   height: 100px;
 
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
@@ -12,23 +12,21 @@ const FooterElement = styled.footer<{darkMode:boolean}>`
   border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
 
   transition: background-color 400ms linear, color 400ms linear;
-  
+
   & > div {
     max-width: 1024px;
-    min-width: 800px;
     display: flex;
     margin: 15px auto 0px;
     justify-content: space-between;
     padding: 0px 10px;
   }
-
 `;
 
 interface FooterProps {
   style: StyleStore;
 }
 
-export const FooterComponent = (props:FooterProps) => {
+export const FooterComponent = (props: FooterProps) => {
   const { style } = props;
 
   const { darkMode } = style;

@@ -3,13 +3,16 @@ import styled from 'styled-components';
 const SlideSwitchElement = styled.div<{ state: boolean }>`
   width: 60px;
   height: 30px;
+
   border-radius: 15px;
   position: absolute;
   right: 50px;
   top: 15px;
+
   background-color: ${props => (props.state ? '#fff' : '#000')};
   border: 1px solid ${props => (props.state ? '#000' : '#fff')};
   transition: background-color 400ms linear, border 400ms linear;
+  overflow: hidden;
 
   & > div {
     position: relative;
@@ -20,6 +23,19 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
     height: 30px;
     background-color: #c4c4c4;
     border-radius: 15px;
+  }
+
+  @media (max-width: 800px) {
+    right: 10px;
+    width: 50px;
+    height: 25px;
+    top: 50%;
+    transform: translatey(-50%);
+    & > div {
+      width: 25px;
+      height: 25px;
+      transform: translateX(${props => (props.state ? '-2px' : '25px')});
+    }
   }
 `;
 

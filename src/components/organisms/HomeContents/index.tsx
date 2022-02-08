@@ -6,7 +6,6 @@ import { StyleStore } from 'src/store/style';
 import { CategoryBox } from '..';
 
 const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
-  min-width: 800px;
   margin: auto;
   padding: 30px 0px;
 

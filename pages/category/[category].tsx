@@ -20,12 +20,18 @@ const CategoryMain = styled.main<{ darkMode: boolean }>`
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   transition: background-color 400ms linear, color 400ms linear;
 
-  padding-top: 30px;
+  padding: 10px;
 
   * {
     background-color: ${props => (props.darkMode ? '#000' : '#fff')};
     color: ${props => (props.darkMode ? '#fff' : '#000')};
     transition: background-color 400ms linear, color 400ms linear;
+  }
+
+  @media (max-width: 800px) {
+    & > p {
+      font-size: 3.5vw;
+    }
   }
 `;
 
@@ -78,7 +84,6 @@ const CategoryComponent = (props: CategoryComponentProps) => {
       </Head>
       <CategoryMain darkMode={darkMode}>
         <CategoryMiddleText text={categoryMiddelTitleToKorean(category as string)} />
-        <div></div>
       </CategoryMain>
       {modalState && ModalComponent}
     </>

@@ -7,7 +7,6 @@ import { ImageBox } from 'src/components/molecules';
 
 const CategoryBoxElement = styled.article`
   max-width: 1024px;
-  min-width: 800px;
   margin: auto;
   height: 250px;
   padding: 20px 15px 15px;
