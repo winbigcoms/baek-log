@@ -1,6 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config({ path: './config/.env.development' });
+} else {
+  require('dotenv').config({ path: './config/.env.production' });
 }
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: true,
+  env: {
+    EDITOR_KEY: process.env.EDITOR_KEY
+  }
+};
+
+console.log(process.env);
+
+module.exports = nextConfig;

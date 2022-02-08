@@ -12,14 +12,16 @@ const HomeHiddenModalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 
   & > div {
-    width: 800px;
-    height: 600px;
+    width: 1000px;
+    height: 800px;
     position: absolute;
 
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
+
+    overflow: hidden;
   }
 `;
 

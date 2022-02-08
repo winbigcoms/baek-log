@@ -1,1 +1,2 @@
-export * from './UseModal';
+export * from './useModal';
+export * from './useNewWrite';

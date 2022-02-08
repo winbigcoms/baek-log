@@ -9,7 +9,6 @@ import { useModal } from 'src/Hooks';
 import { HomeHiddenModal, HomeTmp } from 'src/components/templates';
 
 const Home: NextPage = props => {
-  console.log(props);
   const command = useRef<string[]>([]);
   const { ModalComponent, modalState, switchModalState } = useModal({ Contents: HomeHiddenModal });
 

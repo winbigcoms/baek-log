@@ -17,13 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { category } = router.query;
 
   useEffect(() => {
-    console.log(store);
     const clientMode = localStorage.getItem('mode');
-    const { changeMode, darkmode } = store.style;
+    const { changeMode } = store.style;
 
     if (!clientMode) {
-      localStorage.setItem('mode', JSON.stringify(darkmode));
-    } else if (clientMode && darkmode !== clientMode) {
+      localStorage.setItem('mode', JSON.stringify(false));
+    } else if (clientMode && clientMode) {
       changeMode(clientMode);
     }
   }, []);

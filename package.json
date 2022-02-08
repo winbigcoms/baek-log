@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tinymce/tinymce-react": "^3.13.0",
     "dotenv": "^14.3.2",
     "mobx": "^6.3.13",
     "mobx-react": "^7.2.1",

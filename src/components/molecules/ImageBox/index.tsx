@@ -19,19 +19,28 @@ const ThumbnailText = styled.p`
   margin: 0px;
 `;
 
+const NoImgBox = styled.div`
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+`;
+
 interface ImageBoxProps {
-  title: string;
-  imgUrl: string;
+  title?: string;
+  imgUrl?: string;
 }
 
 export const ImageBox = (props: ImageBoxProps) => {
   const { title, imgUrl } = props;
+
   return (
     <ImageBoxElement>
       <div>
-        <Image src={imgUrl} layout='fill' />
+        {imgUrl ? <Image src={imgUrl} layout='fill' /> : <NoImgBox>이미지를 넣어주세요</NoImgBox>}
       </div>
-      <ThumbnailText>{title}</ThumbnailText>
+      {Boolean(title) && <ThumbnailText>{title}</ThumbnailText>}
     </ImageBoxElement>
   );
 };
