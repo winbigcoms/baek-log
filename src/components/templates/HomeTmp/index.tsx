@@ -14,7 +14,13 @@ const contents = [
   {
     categoryTitle: 'Study',
     route: 'study',
-    categoryContents: [{ thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' }]
+    categoryContents: [
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' }
+    ]
   },
   {
     categoryTitle: 'Cafe/Food/Travel',
