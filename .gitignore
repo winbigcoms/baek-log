@@ -26,7 +26,6 @@ yarn-error.log*
 
 # local env files
 /config
-
 .local.env
 .development.env
 .production.env
