@@ -1,0 +1,46 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    ["styled-components", { "fileName": true, "displayName": true, "pure": true, "ssr": true }],
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "pages": "./pages",
+          "src": "./src",
+          "service": "./src/service",
+          "const": "./src/const",
+          "store": "./src/store",
+          "model": "./src/model",
+          "components": "./src/components"
+        },
+        "extensions": [".js", ".jsx", ".tsx"]
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-methods",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-property-in-object",
+      {
+        "loose": true
+      }
+    ]
+  ]
+}
