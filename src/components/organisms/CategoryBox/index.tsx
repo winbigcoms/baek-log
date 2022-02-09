@@ -52,8 +52,11 @@ const CategoryBoxContentElement = styled.div<{ itemLength: number; swipe: boolea
     left: 1%;
     top: 50%;
 
-    width: 80px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+
+    font-size: 18px;
 
     border:none;
     background-color: rgba(0,0,0,0.1);
@@ -68,7 +71,7 @@ const CategoryBoxContentElement = styled.div<{ itemLength: number; swipe: boolea
     }
 
     &: nth-child(3){
-      left:90%;
+      left:93%;
       display: ${props => (props.itemLength < 5 || props.swipe ? 'none' : 'block')};
 
       &:hover{
@@ -110,7 +113,9 @@ export const CategoryBox = (props: CategoryBoxProps) => {
         <MoreButton onClick={() => onClickMore('category/' + route)} />
       </CategoryBoxHeaderElement>
       <CategoryBoxContentElement swipe={swipe} itemLength={categoryContents.length}>
-        <button disabled={!swipe} onClick={() => onSwipe(false)}></button>
+        <button disabled={!swipe} onClick={() => onSwipe(false)}>
+          {'<'}
+        </button>
         <div>
           {categoryContents.map((data, idx) => (
             <article key={idx}>
@@ -118,7 +123,9 @@ export const CategoryBox = (props: CategoryBoxProps) => {
             </article>
           ))}
         </div>
-        <button disabled={swipe} onClick={() => onSwipe(true)}></button>
+        <button disabled={swipe} onClick={() => onSwipe(true)}>
+          {'>'}
+        </button>
       </CategoryBoxContentElement>
     </CategoryBoxElement>
   );

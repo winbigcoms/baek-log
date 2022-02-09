@@ -3,7 +3,12 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { Editor } from '@tinymce/tinymce-react';
 
-import { BlockItemContainer, ContentsEditor, ModalContainer } from 'src/components/atoms';
+import {
+  BlockItemContainer,
+  ContentsEditor,
+  ModalContainer,
+  SubmitButton
+} from 'src/components/atoms';
 import { ImageBox, ModalHeader } from 'src/components/molecules';
 
 import { useNewWrite } from 'src/Hooks';
@@ -43,13 +48,14 @@ const ModalMain = styled.main`
   }
 
   label:nth-child(5) {
-    height: 200px;
+    height: 180px;
 
     & > div:nth-child(2) {
       width: 80%;
 
       input {
-        width: 100%;
+        width: 1px;
+        height: 1px;
         border: none;
       }
     }
@@ -62,7 +68,7 @@ interface CategoryHiddenModalProps {
 }
 
 export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
-  const { switchModalState } = props;
+  const { switchModalState, initValue } = props;
 
   const router = useRouter();
   const { category } = router.query;
@@ -126,6 +132,7 @@ export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
             </div>
           </label>
           <ContentsEditor onChangeContents={onChangeContents} height={700} />
+          <SubmitButton text={initValue ? '수정' : '저장'} />
         </div>
       </ModalMain>
     </ModalContainer>

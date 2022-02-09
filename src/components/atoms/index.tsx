@@ -5,6 +5,7 @@ export * from './ContentsEditor';
 
 export * from './MoreButton';
 export * from './CloseButton';
+export * from './SubmitButton';
 
 export * from './SlideSwitch';
 export * from './PortalModal';

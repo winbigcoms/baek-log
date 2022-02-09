@@ -25,6 +25,7 @@ const NoImgBox = styled.div`
   align-items: center;
   justify-content: center;
   height: 150px;
+  cursor: pointer;
 `;
 
 interface ImageBoxProps {

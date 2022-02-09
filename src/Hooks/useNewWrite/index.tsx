@@ -78,14 +78,13 @@ export const useNewWrite = (category: string) => {
 
   const uploadThumbnail = useCallback(
     (e: Event) => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== 'undefined' && e.target.files[0]) {
         const thumbnailPreviewSrc = window.URL.createObjectURL(e.target.files[0]);
-        console.log(thumbnailPreviewSrc);
 
         setThumbnailPreview(thumbnailPreviewSrc);
       }
     },
-    [typeof window]
+    [typeof window, writeState.thumbnail]
   );
 
   return {
