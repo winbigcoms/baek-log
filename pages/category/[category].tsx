@@ -53,7 +53,13 @@ const CategoryComponent = (props: CategoryComponentProps) => {
 
   const { category } = router.query;
 
+  const checkCategory = categoryMiddelTitleToKorean(category as string);
+
   useEffect(() => {
+    if (!Boolean(checkCategory)) {
+      router.push('/404');
+    }
+
     const hiddenCommand = (e: KeyboardEvent) => {
       command.current.push(e.code);
       const isHiddenCommand = checkCategoryHiddenCommand(command.current);
@@ -83,7 +89,7 @@ const CategoryComponent = (props: CategoryComponentProps) => {
         <meta name='description' content='웹 개발자 백승일의 개발자 블로그' />
       </Head>
       <CategoryMain darkMode={darkMode}>
-        <CategoryMiddleText text={categoryMiddelTitleToKorean(category as string)} />
+        <CategoryMiddleText text={checkCategory} />
       </CategoryMain>
       {modalState && ModalComponent}
     </>

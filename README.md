@@ -1,7 +1,7 @@
 # Baek-log
 
-제 관심사인 공부, 카페, 맛집, 여행 그리고 트수인 제가 스트리머를 소개하는 페이지입니다.
+웹 공부를 한 흔적, 내가 가보고 싶은 카페나 여행지를 기록하고, 트위치 스트리머들을 추천해줍니다?
 
 ## 스택
 
-nextjs, mobx, styled-components
+nextjs, mobx, styled-components, tinyMCE,

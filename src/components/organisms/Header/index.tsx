@@ -8,7 +8,7 @@ import { inject, observer } from 'mobx-react';
 
 const HeaderContainer = styled.header<{ darkMode: boolean }>`
   position: sticky;
-  top: 0px;
+  top: -1px;
   margin: auto;
   padding: 10px 0px;
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
@@ -21,9 +21,19 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
     margin: auto;
   }
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     h1 {
       font-size: 25px;
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    h1 {
+      font-size: 20px;
 
       span {
         display: block;

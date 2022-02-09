@@ -37,6 +37,19 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
       transform: translateX(${props => (props.state ? '-2px' : '25px')});
     }
   }
+
+  @media (max-width: 360px) {
+    right: 10px;
+    width: 36px;
+    height: 18px;
+    top: 50%;
+    transform: translatey(-50%);
+    & > div {
+      width: 18px;
+      height: 18px;
+      transform: translateX(${props => (props.state ? '-2px' : '18px')});
+    }
+  }
 `;
 
 interface SlideSwitchProps {
