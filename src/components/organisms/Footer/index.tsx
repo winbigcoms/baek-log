@@ -17,8 +17,22 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
     max-width: 1024px;
     display: flex;
     margin: 15px auto 0px;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0px 10px;
+    flex-direction: column;
+
+    div {
+      text-align: center;
+      a {
+        margin-right: 10px;
+        width: 35px;
+        display: inline-block;
+        height: 35px;
+      }
+      & > a:last-child {
+        margin: 0px;
+      }
+    }
   }
 `;
 
@@ -34,12 +48,23 @@ export const FooterComponent = (props: FooterProps) => {
   return (
     <FooterElement darkMode={darkMode}>
       <div>
-        <div>제작, 기획, 디자인: 백승일</div>
         <div>
           <a href='https://github.com/winbigcoms'>
-            <Image src='/assets/img/github.png' width='25px' height='25px' />
+            <Image
+              src={darkMode ? '/assets/img/github-white.png' : '/assets/img/github.png'}
+              width='35px'
+              height='35px'
+            />
+          </a>
+          <a href='https://github.com/winbigcoms'>
+            <Image src={'/assets/img/velog.png'} width='35px' height='35px' />
+          </a>
+          <a href='https://github.com/winbigcoms'>
+            <Image src={'/assets/img/Logo.png'} width='35px' height='35px' />
           </a>
         </div>
+        <div>제작, 기획, 디자인: 백승일</div>
+        <div>&#169; SeungIl Beak. All rights reserved</div>
       </div>
     </FooterElement>
   );

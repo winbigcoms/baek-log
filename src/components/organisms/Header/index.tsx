@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { BannerText, SlideSwitch } from 'src/components/atoms';
 import { StyleStore } from 'src/store/style';
 import { inject, observer } from 'mobx-react';
+import { useRouter } from 'next/router';
 
 const HeaderContainer = styled.header<{ darkMode: boolean }>`
   position: sticky;
@@ -65,6 +66,10 @@ const HeaderComponent = (props: HeaderProps) => {
 
   const { darkMode, changeMode } = style;
 
+  const router = useRouter();
+
+  const route = router.asPath;
+
   return (
     <>
       <BannerContainer darkMode={darkMode}>
@@ -78,7 +83,14 @@ const HeaderComponent = (props: HeaderProps) => {
       </BannerContainer>
       <HeaderContainer darkMode={darkMode}>
         <BannerText>
-          평범한 개발자의 블로그 <span>{path}</span>
+          {route.includes('whoami') ? (
+            <>
+              프론트엔드 개발자 <span>백승일의 포트폴리오</span>
+            </>
+          ) : (
+            '평범한 개발자의 블로그'
+          )}
+          <span>{path}</span>
         </BannerText>
         <SlideSwitch initState={darkMode} onChange={changeMode} />
       </HeaderContainer>
