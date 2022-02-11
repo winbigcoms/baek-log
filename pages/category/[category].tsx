@@ -56,8 +56,10 @@ const CategoryComponent = (props: CategoryComponentProps) => {
   const checkCategory = categoryMiddelTitleToKorean(category as string);
 
   useEffect(() => {
-    if (!Boolean(checkCategory)) {
-      router.push('/404');
+    if (router.query.category) {
+      if (!Boolean(categoryMiddelTitleToKorean(router.query.category as string))) {
+        router.push('/404');
+      }
     }
 
     const hiddenCommand = (e: KeyboardEvent) => {
@@ -80,7 +82,7 @@ const CategoryComponent = (props: CategoryComponentProps) => {
     return () => {
       window.removeEventListener('keydown', hiddenCommand);
     };
-  }, []);
+  }, [checkCategory]);
 
   return (
     <>

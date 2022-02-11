@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { imgUploader } from 'src/utills';
 
 interface WriteState {
   keywords: string[];
@@ -77,8 +78,10 @@ export const useNewWrite = (category: string) => {
   };
 
   const uploadThumbnail = useCallback(
-    (e: Event) => {
+    async (e: Event) => {
       if (typeof window !== 'undefined' && e.target.files[0]) {
+        const url = await imgUploader(e.target.files[0]);
+        console.log(url);
         const thumbnailPreviewSrc = window.URL.createObjectURL(e.target.files[0]);
 
         setThumbnailPreview(thumbnailPreviewSrc);
