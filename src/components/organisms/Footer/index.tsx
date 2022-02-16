@@ -59,7 +59,7 @@ export const FooterComponent = (props: FooterProps) => {
           <a href='https://github.com/winbigcoms'>
             <Image src={'/assets/img/velog.png'} width='35px' height='35px' />
           </a>
-          <a href='https://github.com/winbigcoms'>
+          <a href='/'>
             <Image src={'/assets/img/Logo.png'} width='35px' height='35px' />
           </a>
         </div>
