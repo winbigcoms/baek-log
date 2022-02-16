@@ -1,8 +1,6 @@
 import nextConnect from 'next-connect';
 
-const AWS = require('aws-sdk');
-const multer = require('multer');
-const multerS3 = require('multer-s3');
+import AWS from 'aws-sdk';
 
 const app = nextConnect({
   onError(error, req, res) {
@@ -13,27 +11,52 @@ const app = nextConnect({
   }
 });
 
-AWS.config.region = process.env.AWS_REGION;
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-  IdentityPoolId: process.env.AWS_POOL_ID
-});
+const makeRoute = options => {
+  const router = async (req, res) => {
+    const config = {
+      accessKeyId: process.env.AWS_ACCESS_ID,
+      secretAccessKey: process.env.AWS_ACCSES_PW,
+      region: process.env.AWS_REGION
+    };
 
-const upload = multer({
-  storeage: multerS3({
-    s3: new AWS.S3(),
-    bucket: process.env.AWS_IMG_BUCKET,
-    acl: 'public-read',
-    key(req, file, cb) {
-      console.log(file);
-      const nowDate = Date.now();
+    const bucket = process.env.AWS_IMG_BUCKET;
 
-      cb(null, `origin/${nowDate}_${file.originalname}`);
-    }
-  })
-});
+    const filename = req.query.filename;
+    const category = req.query.category;
+    const nowDate = Date.now();
 
-app.post(upload.single('image'), (req, res) => {
-  return res.json(req.files?.map(v => v.loaction));
-});
+    const key = `category/${nowDate}/${filename.replace(/\s/g, '-')}`;
 
-export default app;
+    const policy = {
+      Statment: [
+        {
+          Sid: 'Stmt1S3UploadAssets',
+          Effect: 'Allow',
+          Action: ['s3:PutObject', 's3:PutObjectAcl'],
+          Resource: [`arn:aws:s3:::${bucket}/${key}`]
+        }
+      ]
+    };
+
+    const sts = new AWS.STS(config);
+
+    const token = await sts
+      .getFederationToken({
+        Name: 'S3UploadWebToken',
+        Policy: JSON.stringify(policy),
+        DurationSeconds: 60 * 60 // 1 hour
+      })
+      .promise();
+
+    res.json({
+      token,
+      key,
+      bucket,
+      region: process.env.AWS_REGION
+    });
+  };
+};
+
+const apiRouter = makeRoute();
+
+export { APIRoute:apiRouter }

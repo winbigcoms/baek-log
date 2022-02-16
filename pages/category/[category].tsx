@@ -22,12 +22,6 @@ const CategoryMain = styled.main<{ darkMode: boolean }>`
 
   padding: 10px;
 
-  * {
-    background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-    color: ${props => (props.darkMode ? '#fff' : '#000')};
-    transition: background-color 400ms linear, color 400ms linear;
-  }
-
   @media (max-width: 800px) {
     & > p {
       font-size: 3.5vw;

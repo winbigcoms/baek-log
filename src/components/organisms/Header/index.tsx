@@ -16,6 +16,7 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   z-index: 10;
   transition: background-color 400ms linear, color 400ms linear;
+  border-bottom: 1px solid #000;
 
   h1 {
     max-width: 1024px;
@@ -90,9 +91,13 @@ const HeaderComponent = (props: HeaderProps) => {
           ) : (
             '평범한 개발자의 블로그'
           )}
-          <span>{path}</span>
+          {path && (
+            <div>
+              <span>{path}</span>
+            </div>
+          )}
+          <SlideSwitch initState={darkMode} onChange={changeMode} />
         </BannerText>
-        <SlideSwitch initState={darkMode} onChange={changeMode} />
       </HeaderContainer>
     </>
   );

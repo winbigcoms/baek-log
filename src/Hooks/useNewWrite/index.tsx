@@ -1,6 +1,8 @@
 import { useCallback, useRef, useState } from 'react';
 import { imgUploader } from 'src/utills';
 
+import S3 from 'aws-sdk/clients/s3';
+
 interface WriteState {
   keywords: string[];
   thumbnail: null | File;
@@ -80,11 +82,38 @@ export const useNewWrite = (category: string) => {
   const uploadThumbnail = useCallback(
     async (e: Event) => {
       if (typeof window !== 'undefined' && e.target.files[0]) {
-        const url = await imgUploader(e.target.files[0]);
-        console.log(url);
+        // const url = await imgUploader(e.target.files[0]);
+        let filename = encodeURIComponent(file.name);
+        let res = await fetch(`/api/imgupload?filename=${filename}&category=${category}`);
+        let data = await res.json();
+
+        const file = e.target.files[0];
+
+        const s3 = new S3({
+          accessKeyId: process.env.AWS_ACCESS_ID,
+          secretAccessKey: process.env.AWS_ACCSES_PW,
+          region: process.env.AWS_REGION
+        });
+
+        const nowDate = Date.now();
+
+        const config = {
+          ACL: 'public-read',
+          Bucket: process.env.AWS_IMG_BUCKET,
+          Body: file,
+          ContentType: file.type,
+          Key: `origin/${nowDate}_tumbnail`
+        };
+
+        const s3Upload = s3.upload(config);
+
         const thumbnailPreviewSrc = window.URL.createObjectURL(e.target.files[0]);
 
         setThumbnailPreview(thumbnailPreviewSrc);
+
+        const result = await s3Upload.promise();
+        console.log(result);
+        return result.Location;
       }
     },
     [typeof window, writeState.thumbnail]

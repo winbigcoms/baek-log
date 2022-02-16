@@ -5,8 +5,6 @@ import { StyleStore } from 'src/store/style';
 import styled from 'styled-components';
 
 const FooterElement = styled.footer<{ darkMode: boolean }>`
-  height: 100px;
-
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
@@ -23,6 +21,12 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
 
     div {
       text-align: center;
+      margin-bottom: 10px;
+
+      &:first-child {
+        margin-top: 15px;
+      }
+
       a {
         margin-right: 10px;
         width: 35px;
@@ -57,10 +61,10 @@ export const FooterComponent = (props: FooterProps) => {
             />
           </a>
           <a href='https://github.com/winbigcoms'>
-            <Image src={'/assets/img/velog.png'} width='35px' height='35px' />
+            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' />
           </a>
           <a href='/'>
-            <Image src={'/assets/img/Logo.png'} width='35px' height='35px' />
+            <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' />
           </a>
         </div>
         <div>제작, 기획, 디자인: 백승일</div>
