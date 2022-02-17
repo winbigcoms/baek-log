@@ -82,38 +82,30 @@ export const useNewWrite = (category: string) => {
   const uploadThumbnail = useCallback(
     async (e: Event) => {
       if (typeof window !== 'undefined' && e.target.files[0]) {
-        // const url = await imgUploader(e.target.files[0]);
-        let filename = encodeURIComponent(file.name);
-        let res = await fetch(`/api/imgupload?filename=${filename}&category=${category}`);
-        let data = await res.json();
+        try {
+          const file = e.target.files[0];
 
-        const file = e.target.files[0];
+          const filename = encodeURIComponent(file.name);
+          const paramCategory = encodeURIComponent(category);
 
-        const s3 = new S3({
-          accessKeyId: process.env.AWS_ACCESS_ID,
-          secretAccessKey: process.env.AWS_ACCSES_PW,
-          region: process.env.AWS_REGION
-        });
+          const { url } = await fetch(
+            `/api/imgupload?filename=${filename}&category=${paramCategory}`
+          ).then(res => res.json());
 
-        const nowDate = Date.now();
+          await fetch(`${url}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': file.type
+            },
+            body: file
+          });
 
-        const config = {
-          ACL: 'public-read',
-          Bucket: process.env.AWS_IMG_BUCKET,
-          Body: file,
-          ContentType: file.type,
-          Key: `origin/${nowDate}_tumbnail`
-        };
+          const imgUrl = url.split('?')[0];
 
-        const s3Upload = s3.upload(config);
-
-        const thumbnailPreviewSrc = window.URL.createObjectURL(e.target.files[0]);
-
-        setThumbnailPreview(thumbnailPreviewSrc);
-
-        const result = await s3Upload.promise();
-        console.log(result);
-        return result.Location;
+          setThumbnailPreview(imgUrl);
+        } catch (err) {
+          return '';
+        }
       }
     },
     [typeof window, writeState.thumbnail]

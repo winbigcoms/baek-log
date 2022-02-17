@@ -18,12 +18,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     const clientMode = localStorage.getItem('mode');
+
+    const stringClientMode = Boolean(clientMode) ? JSON.parse(clientMode) : '';
     const { changeMode } = store.style;
 
-    if (!clientMode) {
+    if (!Boolean(stringClientMode)) {
       localStorage.setItem('mode', JSON.stringify(false));
-    } else if (clientMode && clientMode) {
-      changeMode(clientMode);
+    } else if (stringClientMode) {
+      changeMode(stringClientMode);
     }
   }, []);
 

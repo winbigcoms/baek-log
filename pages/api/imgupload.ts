@@ -1,62 +1,29 @@
-import nextConnect from 'next-connect';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 import AWS from 'aws-sdk';
 
-const app = nextConnect({
-  onError(error, req, res) {
-    res.status(501).json({ error: `img upload error ${error.massage}` });
-  },
-  onNoMatch(req, res) {
-    res.status(405).json({ error: 'not allow' });
-  }
-});
-
-const makeRoute = options => {
-  const router = async (req, res) => {
-    const config = {
-      accessKeyId: process.env.AWS_ACCESS_ID,
-      secretAccessKey: process.env.AWS_ACCSES_PW,
-      region: process.env.AWS_REGION
-    };
-
-    const bucket = process.env.AWS_IMG_BUCKET;
-
-    const filename = req.query.filename;
-    const category = req.query.category;
-    const nowDate = Date.now();
-
-    const key = `category/${nowDate}/${filename.replace(/\s/g, '-')}`;
-
-    const policy = {
-      Statment: [
-        {
-          Sid: 'Stmt1S3UploadAssets',
-          Effect: 'Allow',
-          Action: ['s3:PutObject', 's3:PutObjectAcl'],
-          Resource: [`arn:aws:s3:::${bucket}/${key}`]
-        }
-      ]
-    };
-
-    const sts = new AWS.STS(config);
-
-    const token = await sts
-      .getFederationToken({
-        Name: 'S3UploadWebToken',
-        Policy: JSON.stringify(policy),
-        DurationSeconds: 60 * 60 // 1 hour
-      })
-      .promise();
-
-    res.json({
-      token,
-      key,
-      bucket,
-      region: process.env.AWS_REGION
-    });
+export default async function imgUpload(req: NextApiRequest, res: NextApiResponse) {
+  const config = {
+    accessKeyId: process.env.AWS_ACCESS_ID,
+    secretAccessKey: process.env.AWS_ACCSES_PW,
+    region: process.env.AWS_REGION,
+    signatureVersion: 'v4'
   };
-};
 
-const apiRouter = makeRoute();
+  const filename = req.query.filename;
+  const category = req.query.category;
 
-export { APIRoute:apiRouter }
+  const time = Date.now();
+
+  const uploadTitle = `${category}/${time}-${filename.replace(/\s/g, '-')}`;
+
+  const s3 = new AWS.S3(config);
+
+  const uploadUrl = await s3.getSignedUrlPromise('putObject', {
+    Bucket: process.env.AWS_IMG_BUCKET,
+    Key: uploadTitle,
+    Expires: 60
+  });
+
+  res.send({ url: uploadUrl });
+}

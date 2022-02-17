@@ -14,6 +14,9 @@ const nextConfig = {
     AWS_REGION: process.env.AWS_REGION,
     AWS_ACCESS_ID: process.env.AWS_ACCESS_ID,
     AWS_ACCSES_PW: process.env.AWS_ACCSES_PW
+  },
+  images: {
+    domains: ['baek-log-img.s3.ap-northeast-2.amazonaws.com']
   }
 };
 
