@@ -16,6 +16,7 @@ import { StyleStore } from 'src/store/style';
 import { checkCategoryHiddenCommand } from 'src/utills';
 
 const CategoryMain = styled.main<{ darkMode: boolean }>`
+  min-height: calc(100vh - 230px);
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   transition: background-color 400ms linear, color 400ms linear;
