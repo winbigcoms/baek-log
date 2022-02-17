@@ -1,4 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
+import { imgUploader } from 'src/utills';
+
+import S3 from 'aws-sdk/clients/s3';
 
 interface WriteState {
   keywords: string[];
@@ -77,11 +80,32 @@ export const useNewWrite = (category: string) => {
   };
 
   const uploadThumbnail = useCallback(
-    (e: Event) => {
+    async (e: Event) => {
       if (typeof window !== 'undefined' && e.target.files[0]) {
-        const thumbnailPreviewSrc = window.URL.createObjectURL(e.target.files[0]);
+        try {
+          const file = e.target.files[0];
 
-        setThumbnailPreview(thumbnailPreviewSrc);
+          const filename = encodeURIComponent(file.name);
+          const paramCategory = encodeURIComponent(category);
+
+          const { url } = await fetch(
+            `/api/imgupload?filename=${filename}&category=${paramCategory}`
+          ).then(res => res.json());
+
+          await fetch(`${url}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': file.type
+            },
+            body: file
+          });
+
+          const imgUrl = url.split('?')[0];
+
+          setThumbnailPreview(imgUrl);
+        } catch (err) {
+          return '';
+        }
       }
     },
     [typeof window, writeState.thumbnail]

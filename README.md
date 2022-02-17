@@ -5,3 +5,17 @@
 ## 스택
 
 nextjs, mobx, styled-components, tinyMCE,
+
+## to do
+
+- 콘텐츠 이미지 업로드 s3 작업
+- api 작업
+  - 홈, 카테고리 페이지 및 콘텐츠 crud
+- 콘텐츠 페이지 작업
+- mongoDB 구조 작업
+- 도메인 구매 및 ec2 세팅
+
+  - pm2 혹은 이 외의 프로세스 매니저 세팅
+  - 서버 세팅
+
+- 콘텐츠 용 사진 많이 찍기, 이쁘게

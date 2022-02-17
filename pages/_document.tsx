@@ -28,11 +28,12 @@ export default class MyDocument extends Document {
       sheet.seal();
     }
   }
+
   render(): JSX.Element {
     return (
       <Html>
         <Head>
-          <meta name='keyword' content='개발자 블로그, 카페 추천, 스트리머 추천, TIL' />
+          <meta name='keyword' content='개인 블로그' />
         </Head>
         <body id='body'>
           <Main />

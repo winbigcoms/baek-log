@@ -85,6 +85,15 @@ const CategoryBoxContentElement = styled.div<{ itemLength: number; swipe: boolea
   & > div > article {
     margin-right: 35px;
   }
+
+  @media (max-width: 800px) {
+    & > button {
+      &: nth-child(3){
+        left: 83%;
+        display: ${props => (props.itemLength < 5 || props.swipe ? 'none' : 'block')};
+      }
+    }
+  }
 `;
 
 interface CategoryBoxProps extends CategoryItem {

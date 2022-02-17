@@ -22,12 +22,6 @@ const CategoryMain = styled.main<{ darkMode: boolean }>`
 
   padding: 10px;
 
-  * {
-    background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-    color: ${props => (props.darkMode ? '#fff' : '#000')};
-    transition: background-color 400ms linear, color 400ms linear;
-  }
-
   @media (max-width: 800px) {
     & > p {
       font-size: 3.5vw;
@@ -56,8 +50,10 @@ const CategoryComponent = (props: CategoryComponentProps) => {
   const checkCategory = categoryMiddelTitleToKorean(category as string);
 
   useEffect(() => {
-    if (!Boolean(checkCategory)) {
-      router.push('/404');
+    if (router.query.category) {
+      if (!Boolean(categoryMiddelTitleToKorean(router.query.category as string))) {
+        router.push('/404');
+      }
     }
 
     const hiddenCommand = (e: KeyboardEvent) => {
@@ -80,7 +76,7 @@ const CategoryComponent = (props: CategoryComponentProps) => {
     return () => {
       window.removeEventListener('keydown', hiddenCommand);
     };
-  }, []);
+  }, [checkCategory]);
 
   return (
     <>

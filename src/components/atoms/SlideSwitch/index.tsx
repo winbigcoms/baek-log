@@ -5,9 +5,11 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
   height: 30px;
 
   border-radius: 15px;
+
   position: absolute;
-  right: 50px;
-  top: 15px;
+  right: 0px;
+  top: 50%;
+  transform: translatey(-50%);
 
   background-color: ${props => (props.state ? '#fff' : '#000')};
   border: 1px solid ${props => (props.state ? '#000' : '#fff')};
@@ -29,8 +31,6 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
     right: 10px;
     width: 50px;
     height: 25px;
-    top: 50%;
-    transform: translatey(-50%);
     & > div {
       width: 25px;
       height: 25px;
@@ -42,8 +42,6 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
     right: 10px;
     width: 36px;
     height: 18px;
-    top: 50%;
-    transform: translatey(-50%);
     & > div {
       width: 18px;
       height: 18px;

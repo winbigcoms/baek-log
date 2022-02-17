@@ -5,8 +5,6 @@ import { StyleStore } from 'src/store/style';
 import styled from 'styled-components';
 
 const FooterElement = styled.footer<{ darkMode: boolean }>`
-  height: 100px;
-
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
@@ -17,8 +15,28 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
     max-width: 1024px;
     display: flex;
     margin: 15px auto 0px;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0px 10px;
+    flex-direction: column;
+
+    div {
+      text-align: center;
+      margin-bottom: 10px;
+
+      &:first-child {
+        margin-top: 15px;
+      }
+
+      a {
+        margin-right: 10px;
+        width: 35px;
+        display: inline-block;
+        height: 35px;
+      }
+      & > a:last-child {
+        margin: 0px;
+      }
+    }
   }
 `;
 
@@ -34,12 +52,23 @@ export const FooterComponent = (props: FooterProps) => {
   return (
     <FooterElement darkMode={darkMode}>
       <div>
-        <div>제작, 기획, 디자인: 백승일</div>
         <div>
           <a href='https://github.com/winbigcoms'>
-            <Image src='/assets/img/github.png' width='25px' height='25px' />
+            <Image
+              src={darkMode ? '/assets/img/github-white.png' : '/assets/img/github.png'}
+              width='35px'
+              height='35px'
+            />
+          </a>
+          <a href='https://github.com/winbigcoms'>
+            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' />
+          </a>
+          <a href='/'>
+            <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' />
           </a>
         </div>
+        <div>제작, 기획, 디자인: 백승일</div>
+        <div>&#169; SeungIl Beak. All rights reserved</div>
       </div>
     </FooterElement>
   );
