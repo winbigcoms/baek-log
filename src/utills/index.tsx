@@ -37,7 +37,7 @@ export const checkCategoryHiddenCommand = (command: string[]) => {
   }
 };
 
-export const imgUploader = (file: File, imgCategory = 'utill') => {
+export const imgUploader = async (file: File, imgCategory = 'utill') => {
   const filename = encodeURIComponent(file.name);
   const paramCategory = encodeURIComponent(category);
 
