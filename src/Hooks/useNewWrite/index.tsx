@@ -85,23 +85,23 @@ export const useNewWrite = (category: string) => {
         try {
           const file = e.target.files[0];
 
-          const filename = encodeURIComponent(file.name);
-          const paramCategory = encodeURIComponent(category);
+          // const filename = encodeURIComponent(file.name);
+          // const paramCategory = encodeURIComponent(category);
 
-          const { url } = await fetch(
-            `/api/imgupload?filename=${filename}&category=${paramCategory}`
-          ).then(res => res.json());
+          // const { url } = await fetch(
+          //   `/api/imgupload?filename=${filename}&category=${paramCategory}`
+          // ).then(res => res.json());
 
-          await fetch(`${url}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': file.type
-            },
-            body: file
-          });
+          // await fetch(`${url}`, {
+          //   method: 'PUT',
+          //   headers: {
+          //     'Content-Type': file.type
+          //   },
+          //   body: file
+          // });
 
-          const imgUrl = url.split('?')[0];
-
+          // const imgUrl = url.split('?')[0];
+          const imgUrl = imgUploader(file, category);
           setThumbnailPreview(imgUrl);
         } catch (err) {
           return '';

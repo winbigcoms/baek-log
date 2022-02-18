@@ -1,5 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { StyleStore } from 'src/store/style';
 
 import styled from 'styled-components';
@@ -37,6 +38,10 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
         margin: 0px;
       }
     }
+    & > a {
+      text-align: center;
+      margin-bottom: 15px;
+    }
   }
 `;
 
@@ -68,6 +73,7 @@ export const FooterComponent = (props: FooterProps) => {
           </a>
         </div>
         <div>제작, 기획, 디자인: 백승일</div>
+        <Link href='/whoami'>제작자 포트폴리오 보러가기</Link>
         <div>&#169; SeungIl Beak. All rights reserved</div>
       </div>
     </FooterElement>

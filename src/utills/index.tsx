@@ -37,21 +37,23 @@ export const checkCategoryHiddenCommand = (command: string[]) => {
   }
 };
 
-export const imgUploader = (file: File) => {
-  const formData = new FormData();
+export const imgUploader = (file: File, imgCategory = 'utill') => {
+  const filename = encodeURIComponent(file.name);
+  const paramCategory = encodeURIComponent(category);
 
-  formData.append('image', file);
+  const { url } = await fetch(`/api/imgupload?filename=${filename}&category=${paramCategory}`).then(
+    res => res.json()
+  );
 
-  const uploadConfig = {
+  await fetch(`${url}`, {
+    method: 'PUT',
     headers: {
-      'content-type': 'multipart/form-data'
-    }
-  };
+      'Content-Type': file.type
+    },
+    body: file
+  });
 
-  return axios
-    .post('http://localhost:3000/api/imgupload', formData, uploadConfig)
-    .then(res => res.data)
-    .catch(err => {
-      console.log(err);
-    });
+  const imgUrl = url.split('?')[0];
+
+  return imgUrl;
 };
