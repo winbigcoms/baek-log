@@ -36,7 +36,10 @@ const AboutItemComponent = (props: AboutItemProp) => {
 
   return (
     <AboutItemElement>
-      <img src={`/assets/img/${darkMode ? 'dark-' : ''}${aboutCategory.icon}`}></img>
+      <img
+        alt={aboutCategory.icon}
+        src={`/assets/img/${darkMode ? 'dark-' : ''}${aboutCategory.icon}`}
+      ></img>
       <div>
         {aboutCategory.about} <br />
         {aboutCategory.data}

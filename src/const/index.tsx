@@ -27,3 +27,87 @@ export const categoryMiddelTitleToKorean = (category: string) => {
       return '';
   }
 };
+
+export const aboutCategory = [
+  {
+    icon: 'user.png',
+    about: '이름',
+    data: '백승일'
+  },
+  {
+    icon: 'calender.png',
+    about: '생년월일',
+    data: '1995-10-12'
+  },
+  {
+    icon: 'location.png',
+    about: '주소',
+    data: '경기도 하남시'
+  },
+  {
+    icon: 'phone.png',
+    about: '연락처',
+    data: '010-2931-6290'
+  },
+  {
+    icon: 'mail.png',
+    about: '이메일',
+    data: 'bigcoms6290@gmail.com'
+  },
+  {
+    icon: 'pencil.png',
+    about: '최종 학력',
+    data: '명지대 철학과'
+  }
+];
+
+export const skillSet = [
+  {
+    title: 'HTML5'
+  },
+  {
+    title: 'CSS3'
+  },
+  {
+    title: 'JS'
+  },
+  {
+    title: 'TS'
+  },
+  {
+    title: 'React'
+  },
+  {
+    title: 'Next'
+  },
+  {
+    title: 'Styled-Components'
+  },
+  {
+    title: 'Redux'
+  },
+  {
+    title: 'Mobx'
+  },
+  {
+    title: 'Node.js'
+  },
+  {
+    title: 'Electron'
+  },
+  {
+    title: 'GIT'
+  },
+  {
+    title: 'Github'
+  },
+  {
+    title: 'Bitbucket'
+  },
+  {
+    title: 'Confluence'
+  },
+  {
+    title: 'Figma'
+  }
+];

@@ -128,7 +128,7 @@ export const CategoryBox = (props: CategoryBoxProps) => {
         <div>
           {categoryContents.map((data, idx) => (
             <article key={idx}>
-              <ImageBox title={data.thumbnailTitle} imgUrl={data.imgUrl} />
+              <ImageBox title={data.thumbnailTitle} imgUrl={data.imgUrl} alt='콘텐츠 썸네일' />
             </article>
           ))}
         </div>

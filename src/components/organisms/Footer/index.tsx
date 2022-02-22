@@ -63,13 +63,14 @@ export const FooterComponent = (props: FooterProps) => {
               src={darkMode ? '/assets/img/github-white.png' : '/assets/img/github.png'}
               width='35px'
               height='35px'
+              alt='깃허브 아이콘'
             />
           </a>
-          <a href='https://github.com/winbigcoms'>
-            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' />
+          <a href='https://velog.io/@winbigcoms'>
+            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' alt='벨로그 아이콘' />
           </a>
           <a href='/'>
-            <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' />
+            <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' alt='백로그 아이콘' />
           </a>
         </div>
         <div>제작, 기획, 디자인: 백승일</div>

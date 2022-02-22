@@ -12,3 +12,4 @@ export * from './PortalModal';
 
 export * from './ModalContainer';
 export * from './BlockItemContainer';
+export * from './PortpolloItemContainer';

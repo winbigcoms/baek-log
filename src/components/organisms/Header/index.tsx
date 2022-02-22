@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
 
-import { BannerText, SlideSwitch } from 'src/components/atoms';
-import { StyleStore } from 'src/store/style';
 import { inject, observer } from 'mobx-react';
-import { useRouter } from 'next/router';
+import { BannerText, SlideSwitch } from 'src/components/atoms';
+
+import { StyleStore } from 'src/store/style';
 
 const HeaderContainer = styled.header<{ darkMode: boolean }>`
   position: sticky;
@@ -16,7 +17,7 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   z-index: 10;
   transition: background-color 400ms linear, color 400ms linear;
-  border-bottom: 1px solid #000;
+  box-shadow: 0px 4px 4px -4px ${props => (props.darkMode ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.2)')};
 
   h1 {
     max-width: 1024px;
@@ -79,6 +80,7 @@ const HeaderComponent = (props: HeaderProps) => {
             src={darkMode ? '/assets/img/banner-dark.png' : '/assets/img/banner-light.png'}
             width='800px'
             height='250px'
+            alt='배너 이미지'
           />
         </div>
       </BannerContainer>
