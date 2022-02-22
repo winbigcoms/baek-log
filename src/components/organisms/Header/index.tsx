@@ -88,7 +88,7 @@ const HeaderComponent = (props: HeaderProps) => {
         <BannerText>
           {route.includes('whoami') ? (
             <>
-              프론트엔드 개발자 <span>백승일의 포트폴리오</span>
+              프론트엔드 개발자 <span>백승일의 포트폴리오 입니다.</span>
             </>
           ) : (
             '평범한 개발자의 블로그'
