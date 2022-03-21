@@ -5,6 +5,7 @@ export * from './Introduce';
 export * from './Skills';
 export * from './About';
 export * from './Skills';
+export * from './Projects';
 
 export * from './CategoryBox';
 

@@ -1,7 +1,5 @@
 import { action, makeObservable, observable } from 'mobx';
 
-let styleStore;
-
 export class StyleStore {
   @observable darkMode: boolean;
 

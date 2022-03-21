@@ -47,7 +47,7 @@ export const aboutCategory = [
   {
     icon: 'phone.png',
     about: '연락처',
-    data: '010-2931-6290'
+    data: '비밀! 메일을 주세요!'
   },
   {
     icon: 'mail.png',
@@ -63,51 +63,27 @@ export const aboutCategory = [
 
 export const skillSet = [
   {
-    title: 'HTML5'
+    title: 'publising',
+    contents: 'html, css, javascript'
   },
   {
-    title: 'CSS3'
+    title: 'front-end',
+    contents: 'html, css, javascript, typescript, react, next'
   },
   {
-    title: 'JS'
+    title: 'State Management',
+    contents: 'redux, mobx'
   },
   {
-    title: 'TS'
-  },
+    title: 'ETC',
+    contents: 'electron, git, node, figma'
+  }
+];
+
+export const ProjectItems = [
   {
-    title: 'React'
-  },
-  {
-    title: 'Next'
-  },
-  {
-    title: 'Styled-Components'
-  },
-  {
-    title: 'Redux'
-  },
-  {
-    title: 'Mobx'
-  },
-  {
-    title: 'Node.js'
-  },
-  {
-    title: 'Electron'
-  },
-  {
-    title: 'GIT'
-  },
-  {
-    title: 'Github'
-  },
-  {
-    title: 'Bitbucket'
-  },
-  {
-    title: 'Confluence'
-  },
-  {
-    title: 'Figma'
+    title: 'shoot-pos',
+    content: '아이폰 간편결제 시스템 미래에셋페이와 연동되는 가맹점용 POS프로그램',
+    img: ''
   }
 ];

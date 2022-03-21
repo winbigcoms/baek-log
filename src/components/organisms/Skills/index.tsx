@@ -1,73 +1,69 @@
 import styled from 'styled-components';
 
+import { skillSet } from 'src/const';
+
 const SkiilConatiner = styled.article`
   width: 100%;
   max-width: 1024px;
   margin: auto;
+
+  h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 30px;
+  }
 `;
 
 const SkillBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-`;
+  justify-content: space-between;
 
-const skillSet = [
-  {
-    title: 'HTML',
-    contents: 'HTML5, sementic Tag'
-  },
-  {
-    title: 'css3',
-    contents: 'box model, selector'
-  },
-  {
-    title: 'Javascript',
-    contents: 'ES5, ES Next'
-  },
-  {
-    title: 'typescript',
-    contents: 'generic'
-  },
-  {
-    title: 'React.js',
-    contents: 'functional component, custom hooks'
-  },
-  {
-    title: 'Next.js',
-    contents: 'SSG, SSR'
-  },
-  {
-    title: 'State management',
-    contents: 'Redux, Mobx'
-  },
-  {
-    title: 'Electron.js',
-    contents: 'window app'
-  },
-  {
-    title: 'Node.js',
-    contents: 'express.js'
-  },
-  {
-    title: 'database',
-    contents: 'mysql, mongoDB'
-  },
-  {
-    title: 'design tool',
-    contents: 'figma, photoshop'
+  & > div {
+    width: 33%;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+
+    div {
+      font-weight: 400;
+      font-size: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      img {
+        width: 100px;
+        object-fit: contain;
+        margin-bottom: 10px;
+
+        margin-right: 10px;
+      }
+
+      &:first-child {
+        margin-top: 15px;
+      }
+    }
   }
-];
+`;
 
 export const Skills = () => {
   return (
     <SkiilConatiner>
-      <h2>MY SKILL</h2>
+      <h2>MY SKILLS</h2>
       <SkillBox>
         {skillSet.map(skill => (
-          <div>
+          <div key={skill.title}>
             {skill.title}
-            <div>{skill.contents}</div>
+            <div>
+              {skill.contents &&
+                skill.contents
+                  .split(',')
+                  .map(text => (
+                    <img key={text} src={`/assets/img/logo/${text.trim()}.png`} alt={text} />
+                  ))}
+            </div>
           </div>
         ))}
       </SkillBox>
