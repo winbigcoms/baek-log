@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ArticleContainer = styled.div<{ color: string }>`
+const ArticleContainer = styled.div<{ color?: string }>`
   background-color: ${props => (props.color ? props.color : 'inherit')};
   padding: 50px 0px;
 `;
@@ -18,10 +18,10 @@ const PortpolloItemContainerElement = styled.article`
   }
 `;
 
-export const PortpolloItemContainer: React.FC<{ color: string }> = ({ children, color }) => {
+export const PortpolloItemContainer: React.FC<{ color?: string }> = ({ children, color }) => {
   return (
     <ArticleContainer color={color}>
-      <PortpolloItemContainerElement color={color}>{children}</PortpolloItemContainerElement>
+      <PortpolloItemContainerElement>{children}</PortpolloItemContainerElement>
     </ArticleContainer>
   );
 };

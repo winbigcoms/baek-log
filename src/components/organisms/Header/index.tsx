@@ -1,12 +1,25 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { inject, observer } from 'mobx-react';
 import { BannerText, SlideSwitch } from 'src/components/atoms';
 
 import { StyleStore } from 'src/store/style';
+import { TypeingText } from 'src/components/atoms/TypIngText';
+
+const introduceAnimation = keyframes`
+0% {
+  opacity: 1;
+}
+50% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`;
 
 const HeaderContainer = styled.header<{ darkMode: boolean }>`
   position: sticky;
@@ -22,6 +35,14 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
   h1 {
     max-width: 1024px;
     margin: auto;
+  }
+
+  .introduce {
+    min-height: 2rem;
+    height: 100%;
+    width: 1px;
+    background-color: ${props => (props.darkMode ? '#fff' : '#000')};
+    animation: ${introduceAnimation} 0.7s infinite;
   }
 
   @media screen and (max-width: 800px) {
@@ -63,6 +84,8 @@ interface HeaderProps {
   style: StyleStore;
 }
 
+const targetStrings = ['밥 값하는', '토론을 즐기는', '동료들과 협업하는', '회사와 같이 성장하는'];
+
 const HeaderComponent = (props: HeaderProps) => {
   const { path, style } = props;
 
@@ -86,12 +109,13 @@ const HeaderComponent = (props: HeaderProps) => {
       </BannerContainer>
       <HeaderContainer darkMode={darkMode}>
         <BannerText>
+          <TypeingText typeStrings={targetStrings} />
           {route.includes('whoami') ? (
             <>
               프론트엔드 개발자 <span>백승일의 포트폴리오 입니다.</span>
             </>
           ) : (
-            '평범한 개발자의 블로그'
+            '개발자 백승일의 블로그'
           )}
           {path && (
             <div>
