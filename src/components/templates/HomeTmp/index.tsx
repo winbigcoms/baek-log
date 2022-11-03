@@ -34,9 +34,5 @@ const contents = [
   }
 ];
 export const HomeTmp = () => {
-  return (
-    <>
-      <HomeContents contents={contents} />
-    </>
-  );
+  return <HomeContents contents={contents} />;
 };

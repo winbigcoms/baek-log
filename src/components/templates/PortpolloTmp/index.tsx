@@ -1,14 +1,14 @@
-import { About } from 'src/components/organisms';
 import styled from 'styled-components';
 
-const PortpolloTmpContainer = styled.div`
-  padding: 0px 10px;
-`;
+import { About, Skills, Introduce, Projects } from 'src/components/organisms';
 
 export const PortpolloTmp = () => {
   return (
-    <PortpolloTmpContainer>
+    <div>
+      <Introduce />
+      <Skills />
+      <Projects />
       <About />
-    </PortpolloTmpContainer>
+    </div>
   );
 };

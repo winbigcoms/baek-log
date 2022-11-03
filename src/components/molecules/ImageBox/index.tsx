@@ -39,7 +39,11 @@ export const ImageBox = (props: ImageBoxProps) => {
   return (
     <ImageBoxElement>
       <div>
-        {imgUrl ? <Image src={imgUrl} layout='fill' /> : <NoImgBox>이미지를 넣어주세요</NoImgBox>}
+        {imgUrl ? (
+          <Image src={imgUrl} layout='fill' alt='업로드 된 이미지' />
+        ) : (
+          <NoImgBox>이미지를 넣어주세요</NoImgBox>
+        )}
       </div>
       {Boolean(title) && <ThumbnailText>{title}</ThumbnailText>}
     </ImageBoxElement>

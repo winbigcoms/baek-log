@@ -1,11 +1,25 @@
 import Image from 'next/image';
-
-import styled from 'styled-components';
-
-import { BannerText, SlideSwitch } from 'src/components/atoms';
-import { StyleStore } from 'src/store/style';
-import { inject, observer } from 'mobx-react';
 import { useRouter } from 'next/router';
+
+import styled, { keyframes } from 'styled-components';
+
+import { inject, observer } from 'mobx-react';
+import { BannerText, SlideSwitch } from 'src/components/atoms';
+
+import { StyleStore } from 'src/store/style';
+import { TypeingText } from 'src/components/atoms/TypIngText';
+
+const introduceAnimation = keyframes`
+0% {
+  opacity: 1;
+}
+50% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`;
 
 const HeaderContainer = styled.header<{ darkMode: boolean }>`
   position: sticky;
@@ -16,11 +30,19 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   z-index: 10;
   transition: background-color 400ms linear, color 400ms linear;
-  border-bottom: 1px solid #000;
+  box-shadow: 0px 4px 4px -4px ${props => (props.darkMode ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.2)')};
 
   h1 {
     max-width: 1024px;
     margin: auto;
+  }
+
+  .introduce {
+    min-height: 2rem;
+    height: 100%;
+    width: 1px;
+    background-color: ${props => (props.darkMode ? '#fff' : '#000')};
+    animation: ${introduceAnimation} 0.7s infinite;
   }
 
   @media screen and (max-width: 800px) {
@@ -62,6 +84,8 @@ interface HeaderProps {
   style: StyleStore;
 }
 
+const targetStrings = ['밥 값하는', '토론을 즐기는', '동료들과 협업하는', '회사와 같이 성장하는'];
+
 const HeaderComponent = (props: HeaderProps) => {
   const { path, style } = props;
 
@@ -79,17 +103,19 @@ const HeaderComponent = (props: HeaderProps) => {
             src={darkMode ? '/assets/img/banner-dark.png' : '/assets/img/banner-light.png'}
             width='800px'
             height='250px'
+            alt='배너 이미지'
           />
         </div>
       </BannerContainer>
       <HeaderContainer darkMode={darkMode}>
         <BannerText>
+          <TypeingText typeStrings={targetStrings} />
           {route.includes('whoami') ? (
             <>
-              프론트엔드 개발자 <span>백승일의 포트폴리오</span>
+              프론트엔드 개발자 <span>백승일의 포트폴리오 입니다.</span>
             </>
           ) : (
-            '평범한 개발자의 블로그'
+            '개발자 백승일의 블로그'
           )}
           {path && (
             <div>

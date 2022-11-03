@@ -27,3 +27,138 @@ export const categoryMiddelTitleToKorean = (category: string) => {
       return '';
   }
 };
+
+export const aboutCategory = [
+  {
+    icon: 'user.png',
+    about: '이름',
+    data: '백승일'
+  },
+  {
+    icon: 'calender.png',
+    about: '생년월일',
+    data: '1995-10-12'
+  },
+  {
+    icon: 'location.png',
+    about: '주소',
+    data: '경기도 하남시'
+  },
+  {
+    icon: 'phone.png',
+    about: '연락처',
+    data: '비밀! 메일을 주세요!'
+  },
+  {
+    icon: 'mail.png',
+    about: '이메일',
+    data: 'bigcoms6290@gmail.com'
+  },
+  {
+    icon: 'pencil.png',
+    about: '최종 학력',
+    data: '명지대 철학과'
+  }
+];
+
+export const skillSet = [
+  {
+    title: 'publising',
+    contents: 'html, css, javascript'
+  },
+  {
+    title: 'front-end',
+    contents: 'html, css, javascript, typescript, react, next'
+  },
+  {
+    title: 'State Management',
+    contents: 'redux, mobx'
+  },
+  {
+    title: 'ETC',
+    contents: 'electron, git, node, figma'
+  }
+];
+
+export const ProjectItems = [
+  {
+    title: 'shoot-pos',
+    content: '아이폰 간편결제 시스템 미래에셋페이와 연동되는 가맹점용 POS프로그램',
+    img: ''
+  }
+];
+
+export const krChild = [
+  'ㄱ',
+  'ㄲ',
+  'ㄴ',
+  'ㄷ',
+  'ㄸ',
+  'ㄹ',
+  'ㅁ',
+  'ㅂ',
+  'ㅃ',
+  'ㅅ',
+  'ㅆ',
+  'ㅇ',
+  'ㅈ',
+  'ㅉ',
+  'ㅊ',
+  'ㅋ',
+  'ㅌ',
+  'ㅍ',
+  'ㅎ'
+];
+export const krMom = [
+  'ㅏ',
+  'ㅐ',
+  'ㅑ',
+  'ㅒ',
+  'ㅓ',
+  'ㅔ',
+  'ㅕ',
+  'ㅖ',
+  'ㅗ',
+  'ㅘ',
+  'ㅙ',
+  'ㅚ',
+  'ㅛ',
+  'ㅜ',
+  'ㅝ',
+  'ㅞ',
+  'ㅟ',
+  'ㅠ',
+  'ㅡ',
+  'ㅢ',
+  'ㅣ'
+];
+export const krChildUnder = [
+  '',
+  'ㄱ',
+  'ㄲ',
+  'ㄳ',
+  'ㄴ',
+  'ㄵ',
+  'ㄶ',
+  'ㄷ',
+  'ㄹ',
+  'ㄺ',
+  'ㄻ',
+  'ㄼ',
+  'ㄽ',
+  'ㄾ',
+  'ㄿ',
+  'ㅀ',
+  'ㅁ',
+  'ㅂ',
+  'ㅄ',
+  'ㅅ',
+  'ㅆ',
+  'ㅇ',
+  'ㅈ',
+  'ㅊ',
+  'ㅋ',
+  'ㅌ',
+  'ㅍ',
+  'ㅎ'
+];

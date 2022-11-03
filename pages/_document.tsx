@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang='ko'>
         <Head>
           <meta name='keyword' content='개인 블로그' />
         </Head>

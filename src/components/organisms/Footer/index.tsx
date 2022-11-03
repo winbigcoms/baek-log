@@ -1,5 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { StyleStore } from 'src/store/style';
 
 import styled from 'styled-components';
@@ -37,6 +38,10 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
         margin: 0px;
       }
     }
+    & > a {
+      text-align: center;
+      margin-bottom: 15px;
+    }
   }
 `;
 
@@ -58,16 +63,18 @@ export const FooterComponent = (props: FooterProps) => {
               src={darkMode ? '/assets/img/github-white.png' : '/assets/img/github.png'}
               width='35px'
               height='35px'
+              alt='깃허브 아이콘'
             />
           </a>
-          <a href='https://github.com/winbigcoms'>
-            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' />
+          <a href='https://velog.io/@winbigcoms'>
+            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' alt='벨로그 아이콘' />
           </a>
           <a href='/'>
-            <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' />
+            <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' alt='백로그 아이콘' />
           </a>
         </div>
         <div>제작, 기획, 디자인: 백승일</div>
+        <Link href='/whoami'>제작자 포트폴리오 보러가기</Link>
         <div>&#169; SeungIl Beak. All rights reserved</div>
       </div>
     </FooterElement>
