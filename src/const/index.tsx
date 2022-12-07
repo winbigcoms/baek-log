@@ -63,10 +63,6 @@ export const aboutCategory = [
 
 export const skillSet = [
   {
-    title: 'publising',
-    contents: 'html, css, javascript'
-  },
-  {
     title: 'front-end',
     contents: 'html, css, javascript, typescript, react, next'
   },

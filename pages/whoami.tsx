@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import { StyleStore } from 'src/store/style';
 
 const Wrapper = styled.div<{ darkMode: boolean }>`
-  background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-  color: ${props => (props.darkMode ? '#fff' : '#000')};
+  background-color: var(--bg-main);
+  color: var(--text-main);
 
   transition: background-color 400ms linear, color 400ms linear;
 `;
@@ -27,7 +27,7 @@ const WhoAmIPage = (props: WhoAmIProps) => {
         <meta name='description' content='웹 개발자 백승일의 포트폴리오' />
         <meta name='keyword' content='개발자 포트폴리오, 포트폴리오, 프론트엔드 개발자' />
       </Head>
-      <Wrapper darkMode={darkMode}>
+      <Wrapper className={darkMode ? 'dark' : 'light'} darkMode={darkMode}>
         <PortpolloTmp />
       </Wrapper>
     </>

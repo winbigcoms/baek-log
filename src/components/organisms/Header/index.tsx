@@ -21,16 +21,16 @@ const introduceAnimation = keyframes`
 }
 `;
 
-const HeaderContainer = styled.header<{ darkMode: boolean }>`
+const HeaderContainer = styled.header`
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 400ms linear, color 400ms linear;
+  box-shadow: 0px 4px 4px -4px var(--box-shadow);
+  z-index: 10;
   position: sticky;
   top: -1px;
   margin: auto;
   padding: 10px 0px;
-  background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-  color: ${props => (props.darkMode ? '#fff' : '#000')};
-  z-index: 10;
-  transition: background-color 400ms linear, color 400ms linear;
-  box-shadow: 0px 4px 4px -4px ${props => (props.darkMode ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.2)')};
 
   h1 {
     max-width: 1024px;
@@ -41,7 +41,7 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
     min-height: 2rem;
     height: 100%;
     width: 1px;
-    background-color: ${props => (props.darkMode ? '#fff' : '#000')};
+    background-color: var(--bg-main);
     animation: ${introduceAnimation} 0.7s infinite;
   }
 
@@ -66,7 +66,7 @@ const HeaderContainer = styled.header<{ darkMode: boolean }>`
   }
 `;
 
-const BannerContainer = styled.div<{ darkMode: boolean }>`
+const BannerContainer = styled.div`
   & > div {
     display: flex;
     justify-content: center;
@@ -75,7 +75,7 @@ const BannerContainer = styled.div<{ darkMode: boolean }>`
     margin: auto;
   }
 
-  background-color: ${props => (props.darkMode ? '#000' : 'inhetit')};
+  background-color: var(--bg-main);
   transition: background-color 400ms linear;
 `;
 
@@ -84,7 +84,13 @@ interface HeaderProps {
   style: StyleStore;
 }
 
-const targetStrings = ['밥 값하는', '토론을 즐기는', '동료들과 협업하는', '회사와 같이 성장하는'];
+const targetStrings = [
+  '밥 값하는',
+  '토론을 즐기는',
+  '동료들과 협업하는',
+  '회사와 같이 성장하는',
+  '함께 일해보고 싶은'
+];
 
 const HeaderComponent = (props: HeaderProps) => {
   const { path, style } = props;
@@ -96,8 +102,8 @@ const HeaderComponent = (props: HeaderProps) => {
   const route = router.asPath;
 
   return (
-    <>
-      <BannerContainer darkMode={darkMode}>
+    <div className={darkMode ? 'dark' : 'light'}>
+      <BannerContainer>
         <div>
           <Image
             src={darkMode ? '/assets/img/banner-dark.png' : '/assets/img/banner-light.png'}
@@ -107,13 +113,11 @@ const HeaderComponent = (props: HeaderProps) => {
           />
         </div>
       </BannerContainer>
-      <HeaderContainer darkMode={darkMode}>
+      <HeaderContainer>
         <BannerText>
           <TypeingText typeStrings={targetStrings} />
           {route.includes('whoami') ? (
-            <>
-              프론트엔드 개발자 <span>백승일의 포트폴리오 입니다.</span>
-            </>
+            <span>백승일의 포트폴리오 입니다.</span>
           ) : (
             '개발자 백승일의 블로그'
           )}
@@ -122,10 +126,10 @@ const HeaderComponent = (props: HeaderProps) => {
               <span>{path}</span>
             </div>
           )}
-          <SlideSwitch initState={darkMode} onChange={changeMode} />
         </BannerText>
       </HeaderContainer>
-    </>
+      <SlideSwitch initState={darkMode} onChange={changeMode} />
+    </div>
   );
 };
 

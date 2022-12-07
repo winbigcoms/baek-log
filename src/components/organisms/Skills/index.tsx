@@ -6,7 +6,7 @@ const SkiilConatiner = styled.article`
   width: 100%;
   max-width: 1024px;
   margin: auto;
-
+  background-color: var(--box-bg);
   h2 {
     margin-bottom: 15px;
     text-align: center;
@@ -34,16 +34,24 @@ const SkillBox = styled.div`
       justify-content: center;
 
       img {
+        padding: 10px;
         width: 100px;
         object-fit: contain;
         margin-bottom: 10px;
-
+        background-color: #fff;
         margin-right: 10px;
+        flex: 0 0 25%;
       }
 
       &:first-child {
         margin-top: 15px;
       }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    & > div {
+      width: 100%;
     }
   }
 `;

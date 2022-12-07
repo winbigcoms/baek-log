@@ -1,4 +1,4 @@
-import { ReactPortal, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ModalPortal } from 'src/components/atoms';
 
 interface useModalProps {
