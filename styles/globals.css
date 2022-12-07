@@ -13,6 +13,24 @@ a {
 
 * {
   box-sizing: border-box;
+  --real-black: #000;
+  --real-white: #fff;
+}
+*.dark {
+  --bg-main: #1b1b1b;
+  --text-main: #cdcdcd;
+  --box-shadow: rgba(255, 255, 255, 0.8);
+  --box-bg: #343434;
+  --bg-theme-switch: #fff;
+  --border-theme-switch: #000;
+}
+*.light {
+  --bg-main: #f2f1f1;
+  --text-main: #4e4e4e;
+  --box-shadow: rgba(0, 0, 0, 0.2);
+  --box-bg: #c5c5c5;
+  --bg-theme-switch: #000;
+  --border-theme-switch: #fff;
 }
 
 h1,

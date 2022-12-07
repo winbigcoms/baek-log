@@ -6,13 +6,12 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
 
   border-radius: 15px;
 
-  position: absolute;
-  right: 0px;
-  top: 50%;
-  transform: translatey(-50%);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
 
-  background-color: ${props => (props.state ? '#fff' : '#000')};
-  border: 1px solid ${props => (props.state ? '#000' : '#fff')};
+  background-color: var(--bg-theme-switch);
+  border: 1px solid var(--border-theme-switch);
   transition: background-color 400ms linear, border 400ms linear;
   overflow: hidden;
 
