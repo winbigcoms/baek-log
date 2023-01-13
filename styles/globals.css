@@ -76,3 +76,29 @@ input[type='number']::-webkit-outer-spin-button {
   -moz-appearance: none;
   appearance: none;
 }
+
+.a11y-hidden {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0); /* IE 6,7 */
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+}
+
+.projectContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .projectContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

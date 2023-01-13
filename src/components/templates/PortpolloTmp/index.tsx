@@ -6,8 +6,8 @@ export const PortpolloTmp = () => {
   return (
     <div>
       <Introduce />
-      <Skills />
       <Projects />
+      <Skills />
       <About />
     </div>
   );
