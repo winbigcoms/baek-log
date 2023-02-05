@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import styled, { keyframes } from 'styled-components';
@@ -66,19 +65,6 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const BannerContainer = styled.div`
-  & > div {
-    display: flex;
-    justify-content: center;
-    max-width: 1024px;
-    width: 100%;
-    margin: auto;
-  }
-
-  background-color: var(--bg-main);
-  transition: background-color 400ms linear;
-`;
-
 interface HeaderProps {
   path: string;
   style: StyleStore;
@@ -103,16 +89,6 @@ const HeaderComponent = (props: HeaderProps) => {
 
   return (
     <div className={darkMode ? 'dark' : 'light'}>
-      <BannerContainer>
-        <div>
-          <Image
-            src={darkMode ? '/assets/img/banner-dark.png' : '/assets/img/banner-light.png'}
-            width='800px'
-            height='250px'
-            alt='배너 이미지'
-          />
-        </div>
-      </BannerContainer>
       <HeaderContainer>
         <BannerText>
           <TypeingText typeStrings={targetStrings} />
