@@ -15,7 +15,7 @@ const ProjectsContainer = styled.div`
 
 const projects = [
   {
-    title: 'shoot pos',
+    title: 'shoot pos1',
     desc: '미래에셋페이 앱과 연동되는 window pos시스템',
     skill: [
       {
@@ -36,7 +36,7 @@ const projects = [
     ]
   },
   {
-    title: 'shoot pos',
+    title: 'shoot pos2',
     desc: '미래에셋페이 앱과 연동되는 window pos시스템',
     skill: [
       {
@@ -57,7 +57,7 @@ const projects = [
     ]
   },
   {
-    title: 'shoot pos',
+    title: 'shoot po3s',
     desc: '미래에셋페이 앱과 연동되는 window pos시스템',
     skill: [
       {
@@ -86,7 +86,7 @@ export const Projects = () => {
       <div>
         <div className='projectContainer'>
           {projects.map(project => (
-            <ProjectItem projectItemData={project} />
+            <ProjectItem key={project.title} projectItemData={project} />
           ))}
         </div>
       </div>

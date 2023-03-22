@@ -39,12 +39,12 @@ export const ProjectItem = (props: ProjectItemProps) => {
           {skill.map(skill => {
             const { skillTitle, type } = skill;
             return (
-              <dl>
+              <dl key={skillTitle.join('')}>
                 <dt>{type}</dt>
                 <dd>
                   <ul>
                     {skillTitle.map(title => (
-                      <li>{title}</li>
+                      <li key={title}>{title}</li>
                     ))}
                   </ul>
                 </dd>
@@ -59,7 +59,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
             <dt>링크</dt>
             <dd>
               {links.map(({ desc, link }) => (
-                <a href={link} target='_blank'>
+                <a href={link} key={desc} target='_blank'>
                   {desc}
                 </a>
               ))}

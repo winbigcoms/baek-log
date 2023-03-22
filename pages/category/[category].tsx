@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { useEffect, useRef } from 'react';
-import { inject, observer } from 'mobx-react';
 
 import styled from 'styled-components';
 
@@ -12,7 +11,6 @@ import { CategoryHiddenModal } from 'src/components/templates';
 import { categoryMiddelTitleToKorean } from 'src/const';
 
 import { useModal } from 'src/Hooks';
-import { StyleStore } from 'src/store/style';
 import { checkCategoryHiddenCommand } from 'src/utills';
 
 const CategoryMain = styled.main<{ darkMode: boolean }>`
@@ -30,14 +28,7 @@ const CategoryMain = styled.main<{ darkMode: boolean }>`
   }
 `;
 
-interface CategoryComponentProps {
-  style: StyleStore;
-}
-
-const CategoryComponent = (props: CategoryComponentProps) => {
-  const { style } = props;
-
-  const { darkMode } = style;
+const CategoryComponent = () => {
   const command = useRef<string[]>([]);
 
   const router = useRouter();
@@ -85,7 +76,7 @@ const CategoryComponent = (props: CategoryComponentProps) => {
         <title>Baek log</title>
         <meta name='description' content='웹 개발자 백승일의 개발자 블로그' />
       </Head>
-      <CategoryMain darkMode={darkMode}>
+      <CategoryMain darkMode={true}>
         <CategoryMiddleText text={checkCategory} />
       </CategoryMain>
       {modalState && ModalComponent}
@@ -93,6 +84,4 @@ const CategoryComponent = (props: CategoryComponentProps) => {
   );
 };
 
-const Category = inject('style')(observer(CategoryComponent));
-
-export default Category;
+export default CategoryComponent;

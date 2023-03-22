@@ -101,7 +101,7 @@ export const useNewWrite = (category: string) => {
           // });
 
           // const imgUrl = url.split('?')[0];
-          const imgUrl = imgUploader(file, category);
+          const imgUrl = await imgUploader(file, category);
           setThumbnailPreview(imgUrl);
         } catch (err) {
           return '';

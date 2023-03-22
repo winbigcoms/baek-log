@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 import { About, Skills, Introduce, Projects } from 'src/components/organisms';
 
 export const PortpolloTmp = () => {
