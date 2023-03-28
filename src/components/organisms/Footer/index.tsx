@@ -1,7 +1,5 @@
-import { inject, observer } from 'mobx-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { StyleStore } from 'src/store/style';
 
 import styled from 'styled-components';
 
@@ -45,22 +43,14 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
   }
 `;
 
-interface FooterProps {
-  style: StyleStore;
-}
-
-export const FooterComponent = (props: FooterProps) => {
-  const { style } = props;
-
-  const { darkMode } = style;
-
+export const FooterComponent = () => {
   return (
-    <FooterElement darkMode={darkMode}>
+    <FooterElement darkMode={true}>
       <div>
         <div>
           <a href='https://github.com/winbigcoms'>
             <Image
-              src={darkMode ? '/assets/img/github-white.png' : '/assets/img/github.png'}
+              src={true ? '/assets/img/github-white.png' : '/assets/img/github.png'}
               width='35px'
               height='35px'
               alt='깃허브 아이콘'
@@ -81,4 +71,4 @@ export const FooterComponent = (props: FooterProps) => {
   );
 };
 
-export const Footer = inject('style')(observer(FooterComponent));
+export const Footer = FooterComponent;

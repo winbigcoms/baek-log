@@ -10,7 +10,7 @@ export default async function imgUpload(req: NextApiRequest, res: NextApiRespons
     signatureVersion: 'v4'
   };
 
-  const filename = req.query.filename;
+  const filename = req.query.filename as string;
   const category = req.query.category;
 
   const time = Date.now();

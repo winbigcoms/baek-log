@@ -2,10 +2,8 @@ import { useRouter } from 'next/router';
 
 import styled, { keyframes } from 'styled-components';
 
-import { inject, observer } from 'mobx-react';
 import { BannerText, SlideSwitch } from 'src/components/atoms';
 
-import { StyleStore } from 'src/store/style';
 import { TypeingText } from 'src/components/atoms/TypIngText';
 
 const introduceAnimation = keyframes`
@@ -67,7 +65,6 @@ const HeaderContainer = styled.header`
 
 interface HeaderProps {
   path: string;
-  style: StyleStore;
 }
 
 const targetStrings = [
@@ -78,17 +75,15 @@ const targetStrings = [
   '함께 일해보고 싶은'
 ];
 
-const HeaderComponent = (props: HeaderProps) => {
-  const { path, style } = props;
-
-  const { darkMode, changeMode } = style;
+export const Header = (props: HeaderProps) => {
+  const { path } = props;
 
   const router = useRouter();
 
   const route = router.asPath;
 
   return (
-    <div className={darkMode ? 'dark' : 'light'}>
+    <div className={true ? 'dark' : 'light'}>
       <HeaderContainer>
         <BannerText>
           <TypeingText typeStrings={targetStrings} />
@@ -104,9 +99,7 @@ const HeaderComponent = (props: HeaderProps) => {
           )}
         </BannerText>
       </HeaderContainer>
-      <SlideSwitch initState={darkMode} onChange={changeMode} />
+      <SlideSwitch initState={true} onChange={() => {}} />
     </div>
   );
 };
-
-export const Header = inject('style')(observer(HeaderComponent));

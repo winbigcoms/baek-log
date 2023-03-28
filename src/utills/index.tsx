@@ -40,7 +40,7 @@ export const checkCategoryHiddenCommand = (command: string[]) => {
 
 export const imgUploader = async (file: File, imgCategory = 'utill') => {
   const filename = encodeURIComponent(file.name);
-  const paramCategory = encodeURIComponent(category);
+  const paramCategory = encodeURIComponent(imgCategory);
 
   const { url } = await fetch(`/api/imgupload?filename=${filename}&category=${paramCategory}`).then(
     res => res.json()

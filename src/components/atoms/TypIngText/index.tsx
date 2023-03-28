@@ -30,7 +30,7 @@ export const TypeingText = (props: TypeingTextProps) => {
           renderLetterIdx = 0;
 
           const remover = setInterval(removeAletter, 150);
-
+          // @ts-expect-error
           function removeAletter() {
             if (reSavedString.length === 0) {
               clearInterval(remover);

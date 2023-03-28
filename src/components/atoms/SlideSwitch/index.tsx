@@ -51,18 +51,14 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
 
 interface SlideSwitchProps {
   initState: boolean;
-  onChange: (mode: boolean) => void;
+  onChange: () => void;
 }
 
 export const SlideSwitch = (props: SlideSwitchProps) => {
   const { initState, onChange } = props;
 
-  const onClickSwitch = () => {
-    onChange(!initState);
-  };
-
   return (
-    <SlideSwitchElement onClick={() => onClickSwitch()} state={initState}>
+    <SlideSwitchElement onClick={onChange} state={initState}>
       <div></div>
     </SlideSwitchElement>
   );

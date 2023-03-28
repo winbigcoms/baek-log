@@ -83,7 +83,7 @@ export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
     uploadThumbnail,
     thumbnailPreview,
     onChangeContents
-  } = useNewWrite(category);
+  } = useNewWrite((category as string) || '');
 
   const closeModal = () => {
     switchModalState(false);
@@ -126,13 +126,15 @@ export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
                 type='file'
                 name='thumbNail'
                 accept='image/png, image/jpeg'
-                onChange={uploadThumbnail}
-                defaultValue={writeState.thumbnail}
+                onChange={e => {
+                  // @ts-expect-error
+                  uploadThumbnail(e);
+                }}
               />
             </div>
           </label>
-          <ContentsEditor onChangeContents={onChangeContents} height={700} />
-          <SubmitButton text={initValue ? '수정' : '저장'} />
+          <ContentsEditor onContentChange={onChangeContents} height={700} />
+          <SubmitButton onClick={() => {}} text={initValue ? '수정' : '저장'} />
         </div>
       </ModalMain>
     </ModalContainer>

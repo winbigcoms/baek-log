@@ -1,8 +1,6 @@
-import { inject, observer } from 'mobx-react';
-
+import { CategoryItem } from 'src/model';
 import styled from 'styled-components';
 
-import { StyleStore } from 'src/store/style';
 import { CategoryBox } from '..';
 
 const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
@@ -20,16 +18,13 @@ const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
 
 interface HomeContentsProps {
   contents: CategoryItem[];
-  style: StyleStore;
 }
 
-const HomeContentsComponent = (props: HomeContentsProps) => {
-  const { contents, style } = props;
-
-  const { darkMode } = style;
+export const HomeContents = (props: HomeContentsProps) => {
+  const { contents } = props;
 
   return (
-    <HomeContentsContainer darkMode={darkMode}>
+    <HomeContentsContainer darkMode={true}>
       {contents.map((data, idx) => (
         <CategoryBox
           key={idx}
@@ -42,5 +37,3 @@ const HomeContentsComponent = (props: HomeContentsProps) => {
     </HomeContentsContainer>
   );
 };
-
-export const HomeContents = inject('style')(observer(HomeContentsComponent));
