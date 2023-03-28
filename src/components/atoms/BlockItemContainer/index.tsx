@@ -36,6 +36,9 @@ export const BlockItemContainer = (props: BlockItemContainerProps) => {
   const { removeKeyword, blockItems, ...rest } = props;
 
   const removeBlock = (e: MouseEvent<HTMLDivElement>) => {
+    if (!(e.target instanceof HTMLDivElement)) {
+      return;
+    }
     const data = e.target.dataset.value;
 
     if (data) {

@@ -11,7 +11,7 @@ const MoreButtonElement = styled.button`
 `;
 
 interface MoreButtonProps {
-  onClick: (route: string) => void;
+  onClick: () => void;
 }
 
 export const MoreButton = (props: MoreButtonProps) => {

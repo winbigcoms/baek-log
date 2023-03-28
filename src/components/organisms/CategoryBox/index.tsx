@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { CategoryText, MoreButton } from 'src/components/atoms';
 import { ImageBox } from 'src/components/molecules';
 import { useState } from 'react';
+import { CategoryItem } from 'src/model';
 
 const CategoryBoxElement = styled.section`
   max-width: 1024px;
@@ -99,6 +100,7 @@ const CategoryBoxContentElement = styled.div<{ itemLength: number; swipe: boolea
 interface CategoryBoxProps extends CategoryItem {
   index: number;
   zigzag?: boolean;
+  categoryTitle: string;
 }
 
 export const CategoryBox = (props: CategoryBoxProps) => {
@@ -128,7 +130,7 @@ export const CategoryBox = (props: CategoryBoxProps) => {
         <div>
           {categoryContents.map((data, idx) => (
             <article key={idx}>
-              <ImageBox title={data.thumbnailTitle} imgUrl={data.imgUrl} alt='콘텐츠 썸네일' />
+              <ImageBox title={data.thumbnailTitle} imgUrl={data.imgUrl} />
             </article>
           ))}
         </div>

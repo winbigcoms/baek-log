@@ -6,7 +6,7 @@ interface EditorProps {
 }
 
 export const ContentsEditor = (props: EditorProps) => {
-  const { height } = props;
+  const { height, onContentChange } = props;
 
   return (
     <Editor

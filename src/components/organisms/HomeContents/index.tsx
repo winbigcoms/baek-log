@@ -1,3 +1,4 @@
+import { CategoryItem } from 'src/model';
 import styled from 'styled-components';
 
 import { CategoryBox } from '..';

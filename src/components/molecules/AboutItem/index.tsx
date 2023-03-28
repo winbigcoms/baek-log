@@ -1,5 +1,3 @@
-import { useStore } from 'src/store';
-
 import styled from 'styled-components';
 
 interface AboutItemProp {

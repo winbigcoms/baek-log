@@ -1,7 +1,5 @@
-import { useCallback, useRef, useState } from 'react';
+import { FormEvent, KeyboardEvent, useCallback, useRef, useState } from 'react';
 import { imgUploader } from 'src/utills';
-
-import S3 from 'aws-sdk/clients/s3';
 
 interface WriteState {
   keywords: string[];
@@ -22,8 +20,8 @@ export const useNewWrite = (category: string) => {
 
   const [thumbnailPreview, setThumbnailPreview] = useState('');
 
-  const onChangeRef = (e: InputEvent) => {
-    const { value, name } = e;
+  const onChangeRef = (e: FormEvent<HTMLInputElement>) => {
+    const { value, name } = e.currentTarget;
 
     writeRefs.current = {
       ...writeRefs.current,
@@ -39,11 +37,9 @@ export const useNewWrite = (category: string) => {
   };
 
   const checkValidation = useCallback(() => {
-    const inputDatas = { ...writeRefs.current, ...WriteState };
+    const inputDatas = { ...writeRefs.current, ...writeState };
     for (let writeRef in inputDatas) {
-      if (Boolean(inputDatas[writeRef])) {
-        return false;
-      }
+      return false;
     }
   }, [writeRefs.current]);
 
@@ -69,42 +65,25 @@ export const useNewWrite = (category: string) => {
   };
 
   const onEnterKeyword = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && e.target.value.trim() !== '') {
-      saveKeyword(e.target.value);
-      e.target.value = '';
+    if (e.key === 'Enter' && e.currentTarget.value.trim() !== '') {
+      saveKeyword(e.currentTarget.value);
+      e.currentTarget.value = '';
     }
 
-    if (e.target.value.trim() === '') {
-      e.target.value = '';
+    if (e.currentTarget.value.trim() === '') {
+      e.currentTarget.value = '';
     }
   };
 
   const uploadThumbnail = useCallback(
     async (e: Event) => {
-      if (typeof window !== 'undefined' && e.target.files[0]) {
+      const file = (e.target as HTMLInputElement).files;
+      if (typeof window !== 'undefined' && file) {
         try {
-          const file = e.target.files[0];
-
-          // const filename = encodeURIComponent(file.name);
-          // const paramCategory = encodeURIComponent(category);
-
-          // const { url } = await fetch(
-          //   `/api/imgupload?filename=${filename}&category=${paramCategory}`
-          // ).then(res => res.json());
-
-          // await fetch(`${url}`, {
-          //   method: 'PUT',
-          //   headers: {
-          //     'Content-Type': file.type
-          //   },
-          //   body: file
-          // });
-
-          // const imgUrl = url.split('?')[0];
-          const imgUrl = await imgUploader(file, category);
+          const imgUrl = await imgUploader(file[0], category);
           setThumbnailPreview(imgUrl);
         } catch (err) {
-          return '';
+          console.log(err);
         }
       }
     },
