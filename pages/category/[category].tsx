@@ -10,8 +10,8 @@ import { CategoryMiddleText } from 'src/components/atoms';
 import { CategoryHiddenModal } from 'src/components/templates';
 import { categoryMiddelTitleToKorean } from 'src/const';
 
-import { useModal } from 'src/Hooks';
 import { checkCategoryHiddenCommand } from 'src/utills';
+import { useModal } from 'src/Hooks';
 
 const CategoryMain = styled.main<{ darkMode: boolean }>`
   min-height: calc(100vh - 230px);
