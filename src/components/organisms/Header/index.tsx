@@ -99,7 +99,7 @@ export const Header = (props: HeaderProps) => {
           )}
         </BannerText>
       </HeaderContainer>
-      <SlideSwitch initState={true} onChange={() => {}} />
+      {/* <SlideSwitch initState={true} onChange={() => {}} /> */}
     </div>
   );
 };
