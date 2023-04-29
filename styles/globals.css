@@ -94,11 +94,18 @@ input[type='number']::-webkit-outer-spin-button {
   flex-wrap: wrap;
   gap: 10px;
 }
+.projectContainer > div {
+  width: calc(50% - 5px);
+}
 
 @media screen and (max-width: 800px) {
   .projectContainer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .projectContainer > div {
+    width: 100%;
   }
 }

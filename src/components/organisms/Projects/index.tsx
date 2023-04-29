@@ -8,7 +8,7 @@ const ProjectsContainer = styled.div`
   margin: auto;
 
   h2 {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
     text-align: center;
     font-size: 30px;
   }
@@ -114,7 +114,7 @@ const projects = [
       }
     ],
     feeling:
-      '클라우드에 업로드된 이미지를 가지고, 텍스트 추출 및 이미지의 특정 물체를 제거하는 ai를 이용하여 이미지를 수정하는 페이지입니다.',
+      '클라우드에 업로드된 이미지를 가지고, 텍스트 추출 및 이미지의 특정 물체를 제거하는 ai를 이용하여 이미지를 수정하는 페이지입니다. canvas를 이용하여 수정할 마스크를 그리는 작업이 ',
     links: []
   }
 ];

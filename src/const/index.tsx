@@ -68,7 +68,7 @@ export const skillSet = [
   },
   {
     title: 'State Management',
-    contents: 'redux, mobx'
+    contents: 'redux'
   },
   {
     title: 'ETC',
