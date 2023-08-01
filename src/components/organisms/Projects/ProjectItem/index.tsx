@@ -79,7 +79,13 @@ export const ProjectItem = (props: ProjectItemProps) => {
           })}
         </dd>
         <dt>배운 점</dt>
-        <dd>{feeling}</dd>
+        <dd
+          style={{
+            lineHeight: 1.5
+          }}
+        >
+          {feeling}
+        </dd>
         {Boolean(links.length) && (
           <>
             <dt>링크</dt>

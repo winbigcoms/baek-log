@@ -7,7 +7,6 @@ export const PortpolloTmp = () => {
       <Career />
       <Projects />
       <Skills />
-      <About />
     </div>
   );
 };
