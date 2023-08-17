@@ -24,7 +24,31 @@ const OneYearEvent = () => {
           <span>축</span>
         </div>
 
-        <HTMLFlipBook width={300} height={400} showCover={true}>
+        <HTMLFlipBook
+          width={300}
+          height={400}
+          showCover={true}
+          className={''}
+          style={{}}
+          startPage={0}
+          size={'fixed'}
+          minWidth={0}
+          maxWidth={0}
+          minHeight={0}
+          maxHeight={0}
+          drawShadow={false}
+          flippingTime={0}
+          usePortrait={false}
+          startZIndex={0}
+          autoSize={false}
+          maxShadowOpacity={0}
+          mobileScrollSupport={false}
+          clickEventForward={false}
+          useMouseEvents={false}
+          swipeDistance={0}
+          showPageCorners={false}
+          disableFlipByClick={false}
+        >
           <div className='pave-cover demoPage demoPage1'>Page 1</div>
           <div className='demoPage demoPage1'>Page 1</div>
           <div className='demoPage demoPage2'>Page 2</div>
