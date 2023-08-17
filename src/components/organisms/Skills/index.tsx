@@ -68,7 +68,7 @@ export const Skills = () => {
       <div>
         <h2>MY SKILLS</h2>
         <SkillBox>
-          {skillSet.map(skill => (
+          {skillSet.map((skill, idx) => (
             <div key={skill.title}>
               {skill.title}
               <div>

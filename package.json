@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tinymce/tinymce-react": "^3.13.0",
+    "aos": "^2.3.4",
     "aws-sdk": "^2.1073.0",
     "axios": "^0.25.0",
     "dotenv": "^14.3.2",
@@ -19,6 +20,7 @@
     "next-connect": "^0.12.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-pageflip": "^2.0.3",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
@@ -27,6 +29,7 @@
     "@babel/plugin-proposal-decorators": "^7.16.7",
     "@babel/plugin-proposal-private-methods": "^7.16.11",
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
+    "@types/aos": "^3.0.4",
     "@types/aws-sdk": "^2.7.0",
     "@types/axios": "^0.14.0",
     "@types/multer": "^1.4.7",

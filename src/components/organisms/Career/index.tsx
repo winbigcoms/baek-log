@@ -20,7 +20,7 @@ export const Career = () => {
       <h2>커리어</h2>
       {myCareer.map(career => {
         return (
-          <div key={career.name}>
+          <div key={career.name} data-aos='fade-up'>
             <div>{career.name}</div>
             <div>
               {career.period[0]}~{career.period[1] || '재직중'}

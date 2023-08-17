@@ -17,6 +17,8 @@ export const Introduce = () => {
         style={{
           fontSize: 36
         }}
+        data-aos='fade-up'
+        data-aos-duration='500'
       >
         안녕하세요!
       </IntroduceText>
@@ -24,8 +26,11 @@ export const Introduce = () => {
         style={{
           marginTop: '30px'
         }}
+        data-aos='fade-up'
+        data-aos-delay='300'
+        data-aos-duration='500'
       >
-        혼자서도 충분히 역량이 있지만, <br />
+        혼자서도 역량이 있지만, <br />
         팀원과 함께할 때 더 빛나는 개발자가 목표인 <br />
         프론트 엔드 개발자 백승일입니다!
       </IntroduceText>

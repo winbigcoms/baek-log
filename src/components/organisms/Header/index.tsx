@@ -83,7 +83,13 @@ export const Header = (props: HeaderProps) => {
   const route = router.asPath;
 
   return (
-    <div className={true ? 'dark' : 'light'}>
+    <div
+      className={true ? 'dark' : 'light'}
+      style={{
+        position: 'absolute',
+        width: '100%'
+      }}
+    >
       <HeaderContainer>
         <BannerText>
           <TypeingText typeStrings={targetStrings} />
