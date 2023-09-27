@@ -1,4 +1,4 @@
-import { FormEvent, KeyboardEvent, useCallback, useRef, useState } from 'react';
+import { ChangeEvent, FormEvent, KeyboardEvent, useCallback, useRef, useState } from 'react';
 import { imgUploader } from 'src/utills';
 
 interface WriteState {
@@ -76,7 +76,7 @@ export const useNewWrite = (category: string) => {
   };
 
   const uploadThumbnail = useCallback(
-    async (e: Event) => {
+    async (e: ChangeEvent<HTMLInputElement>) => {
       const file = (e.target as HTMLInputElement).files;
       if (typeof window !== 'undefined' && file) {
         try {
