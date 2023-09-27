@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const PlaygroundPaintStyle = styled.div`
@@ -13,7 +13,6 @@ const PlaygroundPaint = () => {
   const [paintingMode, setPaintingMode] = useState<'pencil' | 'eraser'>('pencil');
   const [paintColor, setPaintColor] = useState<string>('#000');
   const [paintSize, setPaintSize] = useState<number>(10);
-  const [showPaintSizeDemo, setPaintShowSizeDemo] = useState<boolean>(false);
   const [canvasSize, setCanvasSize] = useState({
     width: 100,
     height: 100
@@ -38,6 +37,18 @@ const PlaygroundPaint = () => {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const livePaintingHistory = useRef<{ x: number; y: number }[]>([]);
+
+  const onChangeMode = () => {
+    setPaintingMode(state => (state === 'eraser' ? 'pencil' : 'pencil'));
+  };
+
+  const onChangeColor = (e: ChangeEvent<HTMLInputElement>) => {
+    setPaintColor(e.target.value);
+  };
+
+  const onChangeSize = (e: ChangeEvent<HTMLInputElement>) => {
+    setPaintSize(e.target.value);
+  };
 
   const getMousePositionOnCavnas = (event: MouseEvent | TouchEvent) => {
     if (!canvasRef.current) return { x: 0, y: 0 };
@@ -209,6 +220,9 @@ const PlaygroundPaint = () => {
         {...canvasSize}
       />
       <div>
+        <input type='color' onChange={onChangeColor} />
+        <input type='number' onChange={onChangeSize} size={1} />
+        <button onClick={onChangeMode}>모드 바꾸기</button>
         <button onClick={clearCanvas}>지우기</button>
         <button onClick={onHistoryMovePrev}>뒤로</button>
         <button onClick={onHistoryMoveNext}>앞으로</button>

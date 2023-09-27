@@ -1,4 +1,4 @@
-import { MouseEvent, HTMLAttributes, KeyboardEvent, useState } from 'react';
+import { MouseEvent, HTMLAttributes } from 'react';
 
 import styled from 'styled-components';
 
