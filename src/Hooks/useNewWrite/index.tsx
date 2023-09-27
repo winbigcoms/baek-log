@@ -38,7 +38,7 @@ export const useNewWrite = (category: string) => {
 
   const checkValidation = useCallback(() => {
     const inputDatas = { ...writeRefs.current, ...writeState };
-    for (let writeRef in inputDatas) {
+    for (const writeRef in inputDatas) {
       return false;
     }
   }, [writeRefs.current]);
