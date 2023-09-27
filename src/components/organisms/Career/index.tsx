@@ -1,5 +1,4 @@
 import { PortpolloItemContainer } from 'src/components/atoms';
-import styled from 'styled-components';
 
 const myCareer = [
   {
@@ -8,12 +7,6 @@ const myCareer = [
   }
 ];
 
-const CareerEle = styled.div`
-  text-align: center;
-  h2 {
-    margin-bottom: 35px;
-  }
-`;
 export const Career = () => {
   return (
     <PortpolloItemContainer>

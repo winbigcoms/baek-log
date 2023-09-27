@@ -91,7 +91,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
             <dt>링크</dt>
             <dd>
               {links.map(({ desc, link }) => (
-                <a href={link} key={desc} target='_blank'>
+                <a href={link} key={desc} target='_blank' rel='noreferrer'>
                   {desc}
                 </a>
               ))}
