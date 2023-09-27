@@ -12,12 +12,11 @@ import { theme } from '../styles/Theme';
 import 'aos/dist/aos.css';
 import '../styles/globals.css';
 
-const exceptRouter = ['year'];
+const exceptRouter = ['year', 'playground/paint'];
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const { category } = router.query;
-
   const isExceptRouter = exceptRouter.includes(router.pathname.replace('/', ''));
 
   useEffect(() => {
