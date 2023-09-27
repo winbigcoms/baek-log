@@ -17,7 +17,9 @@ const CategoryMain = styled.main<{ darkMode: boolean }>`
   min-height: calc(100vh - 230px);
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
-  transition: background-color 400ms linear, color 400ms linear;
+  transition:
+    background-color 400ms linear,
+    color 400ms linear;
 
   padding: 10px;
 
@@ -43,7 +45,7 @@ const CategoryComponent = () => {
 
   useEffect(() => {
     if (router.query.category) {
-      if (!Boolean(categoryMiddelTitleToKorean(router.query.category as string))) {
+      if (!categoryMiddelTitleToKorean(router.query.category as string)) {
         router.push('/404');
       }
     }

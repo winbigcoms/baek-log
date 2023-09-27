@@ -28,10 +28,7 @@ export const AboutItem = (props: AboutItemProp) => {
 
   return (
     <AboutItemElement>
-      <img
-        alt={aboutCategory.icon}
-        src={`/assets/img/${true ? 'dark-' : ''}${aboutCategory.icon}`}
-      ></img>
+      <img alt={aboutCategory.icon} src={`/assets/img/dark-${aboutCategory.icon}`}></img>
       <div>
         {aboutCategory.about} <br />
         {aboutCategory.data}
