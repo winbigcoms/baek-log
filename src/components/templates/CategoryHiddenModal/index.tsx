@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
-import { Editor } from '@tinymce/tinymce-react';
 
 import {
   BlockItemContainer,
@@ -12,8 +11,6 @@ import {
 import { ImageBox, ModalHeader } from 'src/components/molecules';
 
 import { useNewWrite } from 'src/Hooks';
-import Image from 'next/image';
-
 const ModalMain = styled.main`
   padding: 20px;
   min-height: calc(100% - 80px);
@@ -127,7 +124,6 @@ export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
                 name='thumbNail'
                 accept='image/png, image/jpeg'
                 onChange={e => {
-                  // @ts-expect-error
                   uploadThumbnail(e);
                 }}
               />

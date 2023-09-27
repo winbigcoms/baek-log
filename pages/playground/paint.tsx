@@ -34,7 +34,7 @@ const PlaygroundPaint = () => {
   });
 
   const [isPainting, setPaintingState] = useState(false);
-  const [context, setContext] = useState<CanvasRenderingContext2D>(null);
+  const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const livePaintingHistory = useRef<{ x: number; y: number }[]>([]);

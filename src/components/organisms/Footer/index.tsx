@@ -8,7 +8,9 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
 
-  transition: background-color 400ms linear, color 400ms linear;
+  transition:
+    background-color 400ms linear,
+    color 400ms linear;
 
   & > div {
     max-width: 1024px;
@@ -50,7 +52,7 @@ export const FooterComponent = () => {
         <div>
           <a href='https://github.com/winbigcoms'>
             <Image
-              src={true ? '/assets/img/github-white.png' : '/assets/img/github.png'}
+              src={'/assets/img/github-white.png'}
               width='35px'
               height='35px'
               alt='깃허브 아이콘'

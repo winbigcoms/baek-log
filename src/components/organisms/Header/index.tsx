@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import styled, { keyframes } from 'styled-components';
 
-import { BannerText, SlideSwitch } from 'src/components/atoms';
+import { BannerText } from 'src/components/atoms';
 
 import { TypeingText } from 'src/components/atoms/TypIngText';
 
@@ -21,7 +21,9 @@ const introduceAnimation = keyframes`
 const HeaderContainer = styled.header`
   background-color: var(--bg-main);
   color: var(--text-main);
-  transition: background-color 400ms linear, color 400ms linear;
+  transition:
+    background-color 400ms linear,
+    color 400ms linear;
   box-shadow: 0px 4px 4px -4px var(--box-shadow);
   z-index: 10;
   position: sticky;
@@ -84,7 +86,7 @@ export const Header = (props: HeaderProps) => {
 
   return (
     <div
-      className={true ? 'dark' : 'light'}
+      className={'dark'}
       style={{
         position: 'absolute',
         width: '100%'

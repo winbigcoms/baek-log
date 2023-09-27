@@ -29,10 +29,10 @@ export const TypeingText = (props: TypeingTextProps) => {
           renderTextIdx = 0;
           renderLetterIdx = 0;
 
-          const remover = setInterval(removeAletter, 150);
-          // @ts-expect-error
-          function removeAletter() {
-            if (reSavedString.length === 0) {
+          let remover: setInterval | undefined = undefined;
+
+          const removeAletter = () => {
+            if (reSavedString.length === 0 && remover) {
               clearInterval(remover);
               setSentenceIdx(idx => idx + 1);
             }
@@ -42,7 +42,9 @@ export const TypeingText = (props: TypeingTextProps) => {
 
             reSavedString = strArr.join('');
             setSavedString(reSavedString);
-          }
+          };
+
+          remover = setInterval(removeAletter, 150);
 
           return;
         }
