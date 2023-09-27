@@ -29,7 +29,7 @@ export const TypeingText = (props: TypeingTextProps) => {
           renderTextIdx = 0;
           renderLetterIdx = 0;
 
-          let remover: setInterval | undefined = undefined;
+          let remover: ReturnType<typeof setInterval> | undefined = undefined;
 
           const removeAletter = () => {
             if (reSavedString.length === 0 && remover) {

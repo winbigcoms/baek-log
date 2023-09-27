@@ -74,7 +74,6 @@ export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
     writeRefs,
     writeState,
     onChangeRef,
-    checkValidation,
     onEnterKeyword,
     removeKeyword,
     uploadThumbnail,
