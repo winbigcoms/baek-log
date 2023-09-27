@@ -39,7 +39,7 @@ const PlaygroundPaint = () => {
   const livePaintingHistory = useRef<{ x: number; y: number }[]>([]);
 
   const onChangeMode = () => {
-    setPaintingMode(state => (state === 'eraser' ? 'pencil' : 'pencil'));
+    setPaintingMode(state => (state === 'eraser' ? 'pencil' : 'eraser'));
   };
 
   const onChangeColor = (e: ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +47,7 @@ const PlaygroundPaint = () => {
   };
 
   const onChangeSize = (e: ChangeEvent<HTMLInputElement>) => {
-    setPaintSize(e.target.value);
+    setPaintSize(Number(e.target.value));
   };
 
   const getMousePositionOnCavnas = (event: MouseEvent | TouchEvent) => {
@@ -133,7 +133,7 @@ const PlaygroundPaint = () => {
       if (history.cursor === 0) return;
 
       context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-      setHistory(state => {
+      setHistory(() => {
         return {
           cursor: 0,
           data: []
