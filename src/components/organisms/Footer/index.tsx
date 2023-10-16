@@ -66,7 +66,6 @@ export const FooterComponent = () => {
           </a>
           <a
             href='https://www.notion.so/native/d174986258ec4e6297723796e2986cac?pvs=4&deepLinkOpenNewTab=true'
-            alt='notion 포트폴리오'
             target='_blank'
             rel='noreferrer'
           >
