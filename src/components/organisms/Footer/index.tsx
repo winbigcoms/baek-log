@@ -50,7 +50,7 @@ export const FooterComponent = () => {
     <FooterElement darkMode={true}>
       <div>
         <div>
-          <a href='https://github.com/winbigcoms'>
+          <a href='https://github.com/winbigcoms' target='_blank' rel='noreferrer'>
             <Image
               src={'/assets/img/github-white.png'}
               width='35px'
@@ -58,11 +58,19 @@ export const FooterComponent = () => {
               alt='깃허브 아이콘'
             />
           </a>
-          <a href='https://velog.io/@winbigcoms'>
+          <a href='https://velog.io/@winbigcoms' target='_blank' rel='noreferrer'>
             <Image src={'/assets/img/velog.svg'} width='35px' height='35px' alt='벨로그 아이콘' />
           </a>
           <a href='/'>
             <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' alt='백로그 아이콘' />
+          </a>
+          <a
+            href='https://www.notion.so/native/d174986258ec4e6297723796e2986cac?pvs=4&deepLinkOpenNewTab=true'
+            alt='notion 포트폴리오'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <Image src={'/assets/img/notion.webp'} width='35px' height='35px' alt='백로그 아이콘' />
           </a>
         </div>
         <div>제작, 기획, 디자인: 백승일</div>
