@@ -3,3 +3,5 @@ export * from './PortpolloTmp';
 
 export * from './HomeHiddenModal';
 export * from './CategoryHiddenModal';
+
+export * from './MultiTwitchTmp';

@@ -192,3 +192,44 @@ export const krChildUnder = [
   'ㅍ',
   'ㅎ'
 ];
+
+export const standUpJokbo = {
+  '3l8l': {
+    value: 0,
+    name: '38광땡'
+  },
+  '1l3l': {
+    value: 1,
+    name: ''
+  },
+  '1l8l': {
+    value: 1,
+    name: ''
+  },
+  '49Y': {
+    value: 888,
+    name: ''
+  },
+  '49N': {
+    value: 3,
+    name: ''
+  },
+  '4s9sY': {
+    value: 1888,
+    name: ''
+  },
+  '4s9sN': {
+    value: 20,
+    name: ''
+  },
+  '4s7sY': {
+    value: 0.5,
+    name: ''
+  },
+  '4s7sN': {
+    value: 21,
+    name: ''
+  }
+};
+
+export const twitchOauthUrl = `https://id.twitch.tv/oauth2/authorize?response_type=token&state=c3ab8aa609ea11e793ae92361f002671&client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_TWITCH_REDIRECT}`;

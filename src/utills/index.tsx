@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { krChild, krChildUnder } from 'src/const';
+import { Get_Follow_Chenels_List } from 'src/types';
 
 export const checkHomeHiddenCommand = (command: string[]) => {
   const targetCommand = ['ArrowUp', 'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
@@ -67,7 +68,7 @@ export const stringSplit = (target: string) => {
   let jung;
   let cho;
 
-  for (var i = 0; i < cnt; i++) {
+  for (let i = 0; i < cnt; i++) {
     cCode = target.charCodeAt(i);
     if (cCode == 32) {
       chars.push(' ');
@@ -95,3 +96,39 @@ export const stringSplit = (target: string) => {
 
   return chars;
 };
+
+export const get_Follow_Chenels_List = async (useId: string) => {
+  return await axios
+    .get<Get_Follow_Chenels_List>(
+      `https://api.twitch.tv/helix/channels/followed?user_id=${useId}`,
+      {
+        headers: {
+          Authorization: LocalStorageClient.getItem('access_token'),
+          'Client-Id': LocalStorageClient.getItem('userId')
+        }
+      }
+    )
+    .then(res => res.data)
+    .catch(err => {
+      console.log(err);
+      return {
+        total: 0,
+        data: []
+      } as Get_Follow_Chenels_List;
+    });
+};
+
+export class LocalStorageClient {
+  constructor() {}
+
+  static getItem(key: string) {
+    return typeof window !== 'undefined' ? localStorage.getItem(key) : null;
+  }
+
+  static setItem(key: string, value: string) {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(key, value);
+    }
+    return;
+  }
+}
