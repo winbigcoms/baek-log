@@ -232,4 +232,4 @@ export const standUpJokbo = {
   }
 };
 
-export const twitchOauthUrl = `https://id.twitch.tv/oauth2/authorize?response_type=token&state=c3ab8aa609ea11e793ae92361f002671&client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_TWITCH_REDIRECT}`;
+export const twitchOauthUrl = `https://id.twitch.tv/oauth2/authorize?response_type=token&state=c3ab8aa609ea11e793ae92361f002671&client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_TWITCH_REDIRECT}&scope=user:read:follows`;

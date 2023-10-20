@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { krChild, krChildUnder } from 'src/const';
-import { Get_Follow_Chenels_List } from 'src/types';
+import { Get_Follow_Channels_List, userInfo } from 'src/types';
 
 export const checkHomeHiddenCommand = (command: string[]) => {
   const targetCommand = ['ArrowUp', 'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
@@ -96,15 +96,27 @@ export const stringSplit = (target: string) => {
 
   return chars;
 };
+export const get_user_channel_id_from_id = () => {
+  const userId = LocalStorageClient.getItem('userId') || '';
+  return axios
+    .get<userInfo[]>(`https://api.twitch.tv/helix/users?login=${userId}`, {
+      headers: {
+        Authorization: `Bearer ${LocalStorageClient.getItem('access_token')}` || '',
+        'Client-Id': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID || ''
+      }
+    })
+    .then(res => res.data);
+};
 
-export const get_Follow_Chenels_List = async (useId: string) => {
-  return await axios
-    .get<Get_Follow_Chenels_List>(
-      `https://api.twitch.tv/helix/channels/followed?user_id=${useId}`,
+export const get_Follow_channels_List = () => {
+  const channel_id = LocalStorageClient.getItem('channel_id') || '';
+  return axios
+    .get<Get_Follow_Channels_List>(
+      `https://api.twitch.tv/helix/streams/followed?user_id=${channel_id}&first=100`,
       {
         headers: {
-          Authorization: LocalStorageClient.getItem('access_token'),
-          'Client-Id': LocalStorageClient.getItem('userId')
+          Authorization: `Bearer ${LocalStorageClient.getItem('access_token')}` || '',
+          'Client-Id': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID || ''
         }
       }
     )
@@ -114,7 +126,7 @@ export const get_Follow_Chenels_List = async (useId: string) => {
       return {
         total: 0,
         data: []
-      } as Get_Follow_Chenels_List;
+      } as Get_Follow_Channels_List;
     });
 };
 
