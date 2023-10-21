@@ -99,7 +99,7 @@ export const stringSplit = (target: string) => {
 export const get_user_channel_id_from_id = () => {
   const userId = LocalStorageClient.getItem('userId') || '';
   return axios
-    .get<userInfo[]>(`https://api.twitch.tv/helix/users?login=${userId}`, {
+    .get<{ data: userInfo[] }>(`https://api.twitch.tv/helix/users?login=${userId}`, {
       headers: {
         Authorization: `Bearer ${LocalStorageClient.getItem('access_token')}` || '',
         'Client-Id': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID || ''

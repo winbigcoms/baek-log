@@ -21,6 +21,14 @@ export const MultiTwitchTmp = () => {
     Contents: MultiTwitchLoginModal
   });
 
+  const onSelectChannel = (channel_Info: Channel_Info) => {
+    setSelectList(state => [...state, channel_Info]);
+  };
+
+  const onOffChannel = (id: string) => {
+    setSelectList(state => state.filter(channelData => channelData.id !== id));
+  };
+
   useEffect(() => {
     // 토큰과 아이디가 있으면 ok
     if (access_token && userId) {
@@ -36,10 +44,12 @@ export const MultiTwitchTmp = () => {
         .split('&')
         .map(str => ({ [str.split('=')[0]]: str.split('=')[1] }));
 
-      LocalStorageClient.setItem(
-        'access_token',
-        get_query.find(obj => obj['access_token']).access_token
-      );
+      const access_token_obj = get_query.find(obj => obj['access_token']);
+      const access_token = (access_token_obj || {}).access_token;
+
+      if (access_token) {
+        LocalStorageClient.setItem('access_token', access_token);
+      }
 
       get_user_channel_id_from_id()
         .then(res => {
