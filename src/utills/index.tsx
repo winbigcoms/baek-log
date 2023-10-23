@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { krChild, krChildUnder } from 'src/const';
-import { Get_Follow_Channels_List, userInfo } from 'src/types';
+import { Channel_List_info, Get_Follow_Channels_List, Streamer_Info, userInfo } from 'src/types';
 
 export const checkHomeHiddenCommand = (command: string[]) => {
   const targetCommand = ['ArrowUp', 'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
@@ -111,7 +111,7 @@ export const get_user_channel_id_from_id = () => {
 export const get_Follow_channels_List = () => {
   const channel_id = LocalStorageClient.getItem('channel_id') || '';
   return axios
-    .get<Get_Follow_Channels_List>(
+    .get<{ data: Get_Follow_Channels_List }>(
       `https://api.twitch.tv/helix/streams/followed?user_id=${channel_id}&first=100`,
       {
         headers: {
@@ -124,10 +124,46 @@ export const get_Follow_channels_List = () => {
     .catch(err => {
       console.log(err);
       return {
-        total: 0,
-        data: []
-      } as Get_Follow_Channels_List;
+        data: {
+          total: 0,
+          data: []
+        } as Get_Follow_Channels_List
+      };
     });
+};
+
+export const get_Streamer_Profile_img = (userLoginList: string[]) => {
+  const query_params = userLoginList.map(str => 'login=' + str).join('&');
+
+  return axios
+    .get<{ data: Streamer_Info[] }>(`https://api.twitch.tv/helix/users?${query_params}`, {
+      headers: {
+        Authorization: `Bearer ${LocalStorageClient.getItem('access_token')}` || '',
+        'Client-Id': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID || ''
+      }
+    })
+    .then(res => res.data)
+    .catch(err => {
+      console.log(err);
+
+      return {
+        data: [] as Streamer_Info[]
+      };
+    });
+};
+
+export const get_Follow_Streamers_With_Img = async () => {
+  const follow_list = await get_Follow_channels_List();
+  const streamer_ids = follow_list.data.map(streamer => streamer.user_login);
+
+  const streamer_imgs = (await get_Streamer_Profile_img(streamer_ids)).data;
+  const Follow_Streamers_With_Img = follow_list.data.map(streamer => ({
+    ...streamer,
+    profileImg: streamer_imgs.find(streamerInfo => streamerInfo.id === streamer.user_id)
+      ?.profile_image_url
+  }));
+
+  return Follow_Streamers_With_Img as Channel_List_info[];
 };
 
 export class LocalStorageClient {

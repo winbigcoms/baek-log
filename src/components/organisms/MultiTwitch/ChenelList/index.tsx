@@ -1,5 +1,7 @@
 'ues client';
-import { LocalStorageClient, get_Follow_channels_List } from 'src/utills';
+import { UIEvent } from 'react';
+import { Channel_Info } from 'src/types';
+import { LocalStorageClient, get_Follow_Streamers_With_Img } from 'src/utills';
 import styled from 'styled-components';
 import useSWR from 'swr';
 
@@ -7,9 +9,9 @@ const MultiTwitchChenelListStyle = styled.nav`
   display: flex;
   flex-direction: column;
   height: calc(100vh - 50px);
-  width: 10vw;
-  overflow-y: scroll;
+  width: 15vw;
   gap: 10px;
+  border-right: 1px solid #ddd;
 
   h3 {
     padding-left: 5px;
@@ -17,39 +19,84 @@ const MultiTwitchChenelListStyle = styled.nav`
     border-bottom: 1px solid #ccc;
   }
 
-  .item {
-    padding: 5px 10px;
-    cursor: pointer;
-    .title,
-    .game,
-    .count {
-      text-indent: 1rem;
-      font-size: 0.9rem;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      word-break: break-all;
+  .channel_list {
+    height: calc(100% - 1.5rem);
+    overflow-y: overlay;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      background: transparent;
+    }
+
+    .item {
+      padding: 5px 10px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+      }
+
+      .user_info {
+        width: 150px;
+
+        .title,
+        .game,
+        .count {
+          font-size: 0.8rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          word-break: break-all;
+        }
+      }
     }
   }
 `;
+interface MultiTwitchChenelListProps {
+  onSelectChannel: (channel_Info: Channel_Info) => void;
+}
 
-export const MultiTwitchChenelList = () => {
+export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
+  const { onSelectChannel } = props;
   const channel_id = LocalStorageClient.getItem('channel_id');
 
-  const { data: requestList } = useSWR(channel_id || null, get_Follow_channels_List);
+  const { data: requestList } = useSWR(channel_id || null, get_Follow_Streamers_With_Img);
+  let debounceTimer: NodeJS.Timeout | undefined;
+
+  const onScroll = (e: UIEvent<HTMLDivElement>) => {
+    const target = e.currentTarget;
+    target.classList.remove('hide_scroll');
+
+    if (debounceTimer) {
+      clearTimeout(debounceTimer);
+    }
+
+    debounceTimer = setTimeout(() => {
+      target.classList.add('hide_scroll');
+    }, 500);
+  };
 
   return (
     <MultiTwitchChenelListStyle>
       <h3>채널</h3>
-      {requestList &&
-        requestList.data.map(channel => (
-          <div key={channel.id} className='item'>
-            <div className='streamer'>{channel.user_name}</div>
-            <div className='title'>{channel.title}</div>
-            <div className='game'>{channel.game_name}</div>
-            <div className='count'>시청자:{channel.viewer_count}명</div>
-          </div>
-        ))}
+      <div className='channel_list hide_scroll' onScroll={onScroll}>
+        {requestList &&
+          requestList.map(channel => (
+            <div key={channel.id} className='item' onClick={() => onSelectChannel(channel)}>
+              {channel.profileImg && <img src={channel.profileImg} alt='' />}
+              <div className='user_info'>
+                <div className='streamer'>{channel.user_name}</div>
+                <div className='title'>{channel.title}</div>
+                <div className='game'>{channel.game_name}</div>
+                <div className='count'>시청자:{channel.viewer_count}명</div>
+              </div>
+            </div>
+          ))}
+      </div>
     </MultiTwitchChenelListStyle>
   );
 };

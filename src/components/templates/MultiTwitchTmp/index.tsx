@@ -53,6 +53,7 @@ export const MultiTwitchTmp = () => {
 
       get_user_channel_id_from_id()
         .then(res => {
+          console.log(res);
           if (!res.data) return;
 
           if (res.data.length === 0) {
@@ -78,13 +79,11 @@ export const MultiTwitchTmp = () => {
     <div>
       <MultiTwitchHeader />
       <div>
-        <nav>
-          {isLogin && (
-            <SWRConfig>
-              <MultiTwitchChenelList />
-            </SWRConfig>
-          )}
-        </nav>
+        {isLogin && (
+          <SWRConfig>
+            <MultiTwitchChenelList onSelectChannel={onSelectChannel} />
+          </SWRConfig>
+        )}
         <main></main>
       </div>
       {modalState && ModalComponent}
