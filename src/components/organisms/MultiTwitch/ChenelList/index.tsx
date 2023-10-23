@@ -58,10 +58,11 @@ const MultiTwitchChenelListStyle = styled.nav`
 `;
 interface MultiTwitchChenelListProps {
   onSelectChannel: (channel_Info: Channel_Info) => void;
+  selectedList: Channel_Info[];
 }
 
 export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
-  const { onSelectChannel } = props;
+  const { onSelectChannel, selectedList } = props;
   const channel_id = LocalStorageClient.getItem('channel_id');
 
   const { data: requestList } = useSWR(channel_id || null, get_Follow_Streamers_With_Img);
@@ -86,7 +87,15 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
       <div className='channel_list hide_scroll' onScroll={onScroll}>
         {requestList &&
           requestList.map(channel => (
-            <div key={channel.id} className='item' onClick={() => onSelectChannel(channel)}>
+            <div
+              key={channel.id}
+              className={`item ${
+                selectedList.find(listItem => channel.user_id === listItem.user_id)
+                  ? 'selected'
+                  : 'unSelected'
+              }`}
+              onClick={() => onSelectChannel(channel)}
+            >
               {channel.profileImg && <img src={channel.profileImg} alt='' />}
               <div className='user_info'>
                 <div className='streamer'>{channel.user_name}</div>

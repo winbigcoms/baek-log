@@ -4,7 +4,8 @@ import { useModal } from 'src/Hooks';
 import {
   MultiTwitchChenelList,
   MultiTwitchHeader,
-  MultiTwitchLoginModal
+  MultiTwitchLoginModal,
+  MultiTwitchViewer
 } from 'src/components/organisms';
 import { Channel_Info } from 'src/types';
 import { LocalStorageClient, get_user_channel_id_from_id } from 'src/utills';
@@ -22,11 +23,20 @@ export const MultiTwitchTmp = () => {
   });
 
   const onSelectChannel = (channel_Info: Channel_Info) => {
-    setSelectList(state => [...state, channel_Info]);
+    console.log(channel_Info);
+    if (selectedList.length > 5) {
+      return;
+    }
+
+    setSelectList(state =>
+      state.find(channel => channel.user_id === channel_Info.user_id)
+        ? state.filter(channel => channel.user_id !== channel_Info.user_id)
+        : [...state, channel_Info]
+    );
   };
 
-  const onOffChannel = (id: string) => {
-    setSelectList(state => state.filter(channelData => channelData.id !== id));
+  const onOffChannel = (user_id: string) => {
+    setSelectList(state => state.filter(channelData => channelData.user_id !== user_id));
   };
 
   useEffect(() => {
@@ -78,13 +88,15 @@ export const MultiTwitchTmp = () => {
   return (
     <div>
       <MultiTwitchHeader />
-      <div>
+      <div style={{ display: 'flex' }}>
         {isLogin && (
           <SWRConfig>
-            <MultiTwitchChenelList onSelectChannel={onSelectChannel} />
+            <MultiTwitchChenelList onSelectChannel={onSelectChannel} selectedList={selectedList} />
           </SWRConfig>
         )}
-        <main></main>
+        <main>
+          <MultiTwitchViewer onOffChannel={onOffChannel} selectedList={selectedList} />
+        </main>
       </div>
       {modalState && ModalComponent}
     </div>
