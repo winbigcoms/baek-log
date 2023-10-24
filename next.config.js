@@ -2,8 +2,6 @@
 
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({ path: './config/.env.development' });
-} else {
-  require('dotenv').config({ path: './config/.env.production' });
 }
 
 const nextConfig = {
