@@ -23,7 +23,6 @@ export const MultiTwitchTmp = () => {
   });
 
   const onSelectChannel = (channel_Info: Channel_Info) => {
-    console.log(channel_Info);
     if (selectedList.length > 5) {
       return;
     }
@@ -94,7 +93,7 @@ export const MultiTwitchTmp = () => {
             <MultiTwitchChenelList onSelectChannel={onSelectChannel} selectedList={selectedList} />
           </SWRConfig>
         )}
-        <main>
+        <main style={{ padding: 10 }}>
           <MultiTwitchViewer onOffChannel={onOffChannel} selectedList={selectedList} />
         </main>
       </div>

@@ -1,5 +1,5 @@
 'ues client';
-import { UIEvent } from 'react';
+import { UIEvent, useState } from 'react';
 import { Channel_Info } from 'src/types';
 import { LocalStorageClient, get_Follow_Streamers_With_Img } from 'src/utills';
 import styled from 'styled-components';
@@ -12,11 +12,26 @@ const MultiTwitchChenelListStyle = styled.nav`
   width: 15vw;
   gap: 10px;
   border-right: 1px solid #ddd;
+  transition: width 0.5s;
 
-  h3 {
-    padding-left: 5px;
-    padding-top: 5px;
+  &.slim {
+    width: 70px;
+  }
+
+  .channel_list_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    padding: 5px 10px;
     border-bottom: 1px solid #ccc;
+
+    h3 {
+      font-size: 1rem;
+    }
+    span {
+      cursor: pointer;
+    }
   }
 
   .channel_list {
@@ -63,6 +78,8 @@ interface MultiTwitchChenelListProps {
 
 export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
   const { onSelectChannel, selectedList } = props;
+
+  const [slimMode, setSlim] = useState(false);
   const channel_id = LocalStorageClient.getItem('channel_id');
 
   const { data: requestList } = useSWR(channel_id || null, get_Follow_Streamers_With_Img);
@@ -81,9 +98,16 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
     }, 500);
   };
 
+  const onClickSlim = () => {
+    setSlim(state => !state);
+  };
+
   return (
-    <MultiTwitchChenelListStyle>
-      <h3>채널</h3>
+    <MultiTwitchChenelListStyle className={slimMode ? 'slim' : ''}>
+      <div className='channel_list_header'>
+        <h3>채널</h3>
+        <span onClick={onClickSlim}>{slimMode ? '>' : '<'}</span>
+      </div>
       <div className='channel_list hide_scroll' onScroll={onScroll}>
         {requestList &&
           requestList.map(channel => (

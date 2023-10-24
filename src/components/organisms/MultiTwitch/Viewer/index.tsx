@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { VIEWPORT_RATIO, get_streamURL } from 'src/const';
 import { Channel_Info } from 'src/types';
 
@@ -16,12 +16,14 @@ const MultiTwitchViewerStyle = styled.div`
   width: 100%;
   overflow: hidden;
   flex-wrap: wrap;
+  justify-content: center;
   background-color: #222;
-  padding: 10px;
   gap: 10px;
 
   .iframe_wrapper {
     position: relative;
+    width: fit-content;
+    height: fit-content;
 
     .select_wrapper {
       background-color: #ccc;
@@ -37,22 +39,40 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
   const { onOffChannel, selectedList } = props;
 
   const [largeViewport, setLargeViewport] = useState('');
+  const [containerSize, setContainerSize] = useState({
+    width: 0,
+    height: 0
+  });
+
+  const calcIframeSize = () => {
+    const iframe_container = document.getElementById('iframe_container');
+    const selectedListLength = selectedList.length;
+    if (!iframe_container || selectedListLength === 0) return;
+
+    const isInit = !containerSize.height || !containerSize.width;
+    const { width, height } = isInit ? iframe_container.getClientRects()[0] : containerSize;
+
+    if (isInit) {
+      setContainerSize({
+        width,
+        height
+      });
+    }
+
+    const availableWidth = width - 30;
+    const availableHeight = height - 20;
+
+    const ratio = VIEWPORT_RATIO[selectedListLength - 1];
+    const iframes = iframe_container.getElementsByTagName('iframe');
+
+    for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
+      iframes[iframeIdx].width = String(availableWidth / ratio[0]);
+      iframes[iframeIdx].height = String(availableHeight / ratio[1]);
+    }
+  };
 
   useEffect(() => {
-    const iframe_container = document.getElementById('iframe_container');
-    if (!iframe_container) return;
-    const { width, height } = iframe_container.getClientRects()[0];
-    console.log(width, height);
-    const availableWidth = width - 40;
-    const availableHeight = height - 40;
-
-    const ratio = VIEWPORT_RATIO[selectedList.length - 1];
-    const iframes = iframe_container.getElementsByTagName('iframe');
-    [...iframes].forEach((iframe: HTMLIFrameElement) => {
-      console.log(availableWidth, availableHeight, ratio);
-      iframe.width = availableWidth / ratio[0];
-      iframe.height = availableHeight / ratio[1];
-    });
+    calcIframeSize();
   }, [selectedList.length]);
 
   return (

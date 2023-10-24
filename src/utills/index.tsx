@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { krChild, krChildUnder } from 'src/const';
-import { Channel_List_info, Get_Follow_Channels_List, Streamer_Info, userInfo } from 'src/types';
+import {
+  Channel_Info,
+  Channel_List_info,
+  Get_Follow_Channels_List,
+  Streamer_Info,
+  userInfo
+} from 'src/types';
 
 export const checkHomeHiddenCommand = (command: string[]) => {
   const targetCommand = ['ArrowUp', 'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
@@ -111,7 +117,7 @@ export const get_user_channel_id_from_id = () => {
 export const get_Follow_channels_List = () => {
   const channel_id = LocalStorageClient.getItem('channel_id') || '';
   return axios
-    .get<{ data: Get_Follow_Channels_List }>(
+    .get<{ data: Channel_Info[] }>(
       `https://api.twitch.tv/helix/streams/followed?user_id=${channel_id}&first=100`,
       {
         headers: {
@@ -124,10 +130,7 @@ export const get_Follow_channels_List = () => {
     .catch(err => {
       console.log(err);
       return {
-        data: {
-          total: 0,
-          data: []
-        } as Get_Follow_Channels_List
+        data: [] as Channel_Info[]
       };
     });
 };
@@ -154,6 +157,7 @@ export const get_Streamer_Profile_img = (userLoginList: string[]) => {
 
 export const get_Follow_Streamers_With_Img = async () => {
   const follow_list = await get_Follow_channels_List();
+  console.log(follow_list.data);
   const streamer_ids = follow_list.data.map(streamer => streamer.user_login);
 
   const streamer_imgs = (await get_Streamer_Profile_img(streamer_ids)).data;
