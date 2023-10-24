@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { VIEWPORT_RATIO, get_streamURL } from 'src/const';
 import { Channel_Info } from 'src/types';
 
@@ -38,7 +38,6 @@ const MultiTwitchViewerStyle = styled.div`
 export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
   const { onOffChannel, selectedList } = props;
 
-  const [largeViewport, setLargeViewport] = useState('');
   const [containerSize, setContainerSize] = useState({
     width: 0,
     height: 0
