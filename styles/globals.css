@@ -2,8 +2,18 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
 }
 
 a {
@@ -100,6 +110,10 @@ input[type='number']::-webkit-outer-spin-button {
   border: 1px solid;
   padding: 10px;
   border-radius: 5px;
+}
+
+.hide_scroll::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
 
 @media screen and (max-width: 800px) {

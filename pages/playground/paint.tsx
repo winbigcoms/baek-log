@@ -151,7 +151,7 @@ const PlaygroundPaint = () => {
       mode === (tpye === 'next' ? 'eraser' : 'pencil') ? 'destination-out' : 'source-over';
 
     context.beginPath();
-    context.lineWidth = pencilData.size;
+    context.lineWidth = pencilData.size + 1;
     context.lineCap = 'round';
     context.lineJoin = 'round';
     context.strokeStyle = pencilData.color;
