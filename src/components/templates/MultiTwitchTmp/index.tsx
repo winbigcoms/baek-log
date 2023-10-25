@@ -62,7 +62,6 @@ export const MultiTwitchTmp = () => {
 
       get_user_channel_id_from_id()
         .then(res => {
-          console.log(res);
           if (!res.data) return;
 
           if (res.data.length === 0) {

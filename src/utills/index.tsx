@@ -157,7 +157,6 @@ export const get_Streamer_Profile_img = (userLoginList: string[]) => {
 
 export const get_Follow_Streamers_With_Img = async () => {
   const follow_list = await get_Follow_channels_List();
-  console.log(follow_list.data);
   const streamer_ids = follow_list.data.map(streamer => streamer.user_login);
 
   const streamer_imgs = (await get_Streamer_Profile_img(streamer_ids)).data;
