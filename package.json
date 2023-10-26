@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:types": "yarn run tsc",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install"
@@ -61,7 +62,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "prettier -- write",
       "eslint --fix"
     ]
   }

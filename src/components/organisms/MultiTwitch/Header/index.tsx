@@ -6,6 +6,7 @@ const MultiTwitchHeaderStyle = styled.header`
   background-color: #333;
   color: #fff;
   padding: 10px 0px;
+  height: 50px;
 
   h2 {
     font-size: 1.5rem;
