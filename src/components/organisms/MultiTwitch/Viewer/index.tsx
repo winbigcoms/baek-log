@@ -45,15 +45,16 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
 
   const calcIframeSize = () => {
     const { width, height } = containerSize;
+    const iframe_container = document.getElementById('iframe_container');
+    if (!iframe_container) return;
+
     const iframes = iframe_container.getElementsByTagName('iframe');
     if (iframes.length === 0) return;
 
     if (iframes.length === 5) {
-      const ratio = FIVE_VIEWPORT_RATIO[iframes.length - 1];
-
       for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
-        iframes[iframeIdx].width = String(width / ratio[iframeIdx][0]);
-        iframes[iframeIdx].height = String(height / ratio[iframeIdx][1]);
+        iframes[iframeIdx].width = String(width / FIVE_VIEWPORT_RATIO[iframeIdx][0]);
+        iframes[iframeIdx].height = String(height / FIVE_VIEWPORT_RATIO[iframeIdx][1]);
       }
 
       return;
