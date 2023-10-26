@@ -56,7 +56,7 @@ const MultiTwitchChenelListStyle = styled.nav`
       }
 
       .user_info {
-        width: 150px;
+        width: 8vw;
 
         .title,
         .game,

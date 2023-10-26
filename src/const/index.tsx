@@ -243,3 +243,10 @@ export const VIEWPORT_RATIO = [
   [2, 2],
   [2, 2]
 ];
+export const FIVE_VIEWPORT_RATIO = [
+  [2, 2],
+  [2, 2],
+  [3, 2],
+  [3, 2],
+  [3, 2]
+];
