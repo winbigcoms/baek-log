@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { VIEWPORT_RATIO, get_streamURL } from 'src/const';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { FIVE_VIEWPORT_RATIO, VIEWPORT_RATIO, get_streamURL } from 'src/const';
 import { Channel_Info } from 'src/types';
 
 import styled from 'styled-components';
@@ -44,41 +44,62 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
   });
 
   const calcIframeSize = () => {
+    const { width, height } = containerSize;
     const iframe_container = document.getElementById('iframe_container');
-    const selectedListLength = selectedList.length;
-    if (!iframe_container || selectedListLength === 0) return;
+    if (!iframe_container) return;
 
-    const isInit = !containerSize.height || !containerSize.width;
-    const { width, height } = isInit ? iframe_container.getClientRects()[0] : containerSize;
+    const iframes = iframe_container.getElementsByTagName('iframe');
+    if (iframes.length === 0) return;
 
-    if (isInit) {
-      setContainerSize({
-        width,
-        height
-      });
+    if (iframes.length === 5) {
+      for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
+        iframes[iframeIdx].width = String(width / FIVE_VIEWPORT_RATIO[iframeIdx][0]);
+        iframes[iframeIdx].height = String(height / FIVE_VIEWPORT_RATIO[iframeIdx][1]);
+      }
+
+      return;
     }
+
+    const ratio = VIEWPORT_RATIO[iframes.length - 1];
+
+    for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
+      iframes[iframeIdx].width = String(width / ratio[0]);
+      iframes[iframeIdx].height = String(height / ratio[1]);
+    }
+  };
+
+  const calcContainerSize = () => {
+    const iframe_container = document.getElementById('iframe_container');
+    if (!iframe_container) return;
+
+    const { width, height } = iframe_container.getClientRects()[0];
 
     const availableWidth = width - 30;
     const availableHeight = height - 20;
 
-    const ratio = VIEWPORT_RATIO[selectedListLength - 1];
-    const iframes = iframe_container.getElementsByTagName('iframe');
-
-    for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
-      iframes[iframeIdx].width = String(availableWidth / ratio[0]);
-      iframes[iframeIdx].height = String(availableHeight / ratio[1]);
-    }
+    setContainerSize({
+      width: availableWidth,
+      height: availableHeight
+    });
   };
 
   useEffect(() => {
     calcIframeSize();
-  }, [selectedList.length]);
+  }, [containerSize, selectedList.length]);
+
+  useEffect(() => {
+    window.addEventListener('resize', calcContainerSize);
+
+    return () => {
+      window.removeEventListener('resize', calcContainerSize);
+    };
+  }, []);
 
   return (
     <MultiTwitchViewerStyle id='iframe_container'>
       {selectedList.map(channelInfo => (
         <div key={channelInfo.user_id} className='iframe_wrapper'>
-          <iframe src={get_streamURL(channelInfo.user_login)} height={300} width={550} />
+          <iframe src={get_streamURL(channelInfo.user_login)} />
           <div className='select_wrapper'>
             <div className='btn'>크게보기</div>
             <div className='btn' onClick={() => onOffChannel(channelInfo.user_id)}>
