@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FIVE_VIEWPORT_RATIO, VIEWPORT_RATIO, get_streamURL } from 'src/const';
 import { Channel_Info } from 'src/types';
 
