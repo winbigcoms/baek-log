@@ -48,13 +48,24 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
     const iframe_container = document.getElementById('iframe_container');
     if (!iframe_container) return;
 
+    const iframe_containerRects = iframe_container.getClientRects()[0];
+
+    const availableWidth = width || iframe_containerRects.width - 30;
+    const availableHeight = height || iframe_containerRects.height - 20;
+    if (width === 0 || height === 0) {
+      setContainerSize({
+        width: availableWidth,
+        height: availableHeight
+      });
+    }
+
     const iframes = iframe_container.getElementsByTagName('iframe');
     if (iframes.length === 0) return;
 
     if (iframes.length === 5) {
       for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
-        iframes[iframeIdx].width = String(width / FIVE_VIEWPORT_RATIO[iframeIdx][0]);
-        iframes[iframeIdx].height = String(height / FIVE_VIEWPORT_RATIO[iframeIdx][1]);
+        iframes[iframeIdx].width = String(availableWidth / FIVE_VIEWPORT_RATIO[iframeIdx][0]);
+        iframes[iframeIdx].height = String(availableHeight / FIVE_VIEWPORT_RATIO[iframeIdx][1]);
       }
 
       return;
@@ -74,6 +85,8 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
 
     const { width, height } = iframe_container.getClientRects()[0];
 
+    if (width === 0 || height === 0) return;
+
     const availableWidth = width - 30;
     const availableHeight = height - 20;
 
@@ -88,6 +101,7 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
   }, [containerSize, selectedList.length]);
 
   useEffect(() => {
+    // calcContainerSize();
     window.addEventListener('resize', calcContainerSize);
 
     return () => {

@@ -86,7 +86,7 @@ export const MultiTwitchTmp = () => {
   return (
     <div>
       <MultiTwitchHeader />
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', height: 'calc(100vh - 50px)' }}>
         {isLogin && (
           <SWRConfig>
             <MultiTwitchChenelList onSelectChannel={onSelectChannel} selectedList={selectedList} />

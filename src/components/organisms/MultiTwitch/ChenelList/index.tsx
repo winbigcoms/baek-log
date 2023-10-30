@@ -9,7 +9,7 @@ const MultiTwitchChenelListStyle = styled.nav`
   display: flex;
   flex-direction: column;
   height: calc(100vh - 50px);
-  width: 15vw;
+  width: 200px;
   gap: 10px;
   border-right: 1px solid #ddd;
   transition: width 0.5s;
