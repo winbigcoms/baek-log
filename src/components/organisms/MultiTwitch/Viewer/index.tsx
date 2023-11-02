@@ -3,7 +3,6 @@ import { FIVE_VIEWPORT_RATIO, VIEWPORT_RATIO, get_streamURL } from 'src/const';
 import { Channel_Info } from 'src/types';
 
 import styled from 'styled-components';
-// import { ReactTwitchEmbedVideo } from './ReactTwitchEmbedVideo';
 
 interface MultiTwitchViewerProps {
   onOffChannel: (id: string) => void;

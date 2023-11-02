@@ -24,7 +24,6 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-pageflip": "^2.0.3",
-    "react-twitch-embed-video": "^3.0.3",
     "styled-components": "^5.3.3",
     "swr": "^2.2.4",
     "zustand": "^4.4.1"
