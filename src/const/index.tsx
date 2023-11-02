@@ -63,16 +63,20 @@ export const aboutCategory = [
 
 export const skillSet = [
   {
-    title: 'front-end',
+    title: 'Front',
     contents: 'html, css, javascript, typescript, react, next'
   },
   {
-    title: 'State Management',
-    contents: 'redux'
+    title: 'Back',
+    contents: 'node'
+  },
+  {
+    title: 'DB',
+    contents: 'mongo'
   },
   {
     title: 'ETC',
-    contents: 'electron, git, node, figma'
+    contents: 'electron, git, figma'
   }
 ];
 

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { skillSet } from 'src/const';
 
 const SkiilConatiner = styled.article`
-  background-color: var(--box-bg);
-
   & > div {
     margin: auto;
   }
@@ -23,29 +21,28 @@ const SkiilConatiner = styled.article`
 const SkillBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 
-  & > div {
-    width: 33%;
+  .skill_box {
+    max-width: 350px;
     margin-bottom: 15px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
 
-    div {
+    .skill_info {
       font-weight: 400;
       font-size: 16px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 10px;
 
       img {
         padding: 10px;
         width: 100px;
         object-fit: contain;
-        margin-bottom: 10px;
         background-color: #fff;
-        margin-right: 10px;
         flex: 0 0 20%;
       }
 
@@ -69,9 +66,11 @@ export const Skills = () => {
         <h2>MY SKILLS</h2>
         <SkillBox>
           {skillSet.map(skill => (
-            <div key={skill.title}>
-              {skill.title}
-              <div>
+            <div key={skill.title} className='skill_box'>
+              <div className='skill_title' style={{ textAlign: 'center' }}>
+                {skill.title}
+              </div>
+              <div className='skill_info'>
                 {skill.contents &&
                   skill.contents
                     .split(',')

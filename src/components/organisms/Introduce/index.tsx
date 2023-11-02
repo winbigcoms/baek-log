@@ -18,7 +18,7 @@ export const Introduce = () => {
           fontSize: 36
         }}
         data-aos='fade-up'
-        data-aos-duration='500'
+        data-aos-duration='700'
       >
         안녕하세요!
       </IntroduceText>
@@ -27,8 +27,8 @@ export const Introduce = () => {
           marginTop: '30px'
         }}
         data-aos='fade-up'
-        data-aos-delay='300'
-        data-aos-duration='500'
+        data-aos-delay='600'
+        data-aos-duration='700'
       >
         혼자서도 역량이 있지만, <br />
         팀원과 함께할 때 더 빛나는 개발자가 목표인 <br />
