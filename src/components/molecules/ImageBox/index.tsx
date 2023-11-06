@@ -6,6 +6,11 @@ const ImageBoxElement = styled.div`
   height: 150px;
   position: relative;
   border: 1px solid pink;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const ThumbnailText = styled.p`
@@ -31,16 +36,21 @@ const NoImgBox = styled.div`
 interface ImageBoxProps {
   title?: string;
   imgUrl?: string;
+  useBGColor?: boolean;
 }
 
 export const ImageBox = (props: ImageBoxProps) => {
-  const { title, imgUrl } = props;
+  const { title, imgUrl, useBGColor = false } = props;
 
   return (
-    <ImageBoxElement>
-      <div>
+    <ImageBoxElement
+      style={{
+        backgroundColor: useBGColor ? '#fff' : 'inherit'
+      }}
+    >
+      <div style={{ position: 'relative', height: '100%' }}>
         {imgUrl ? (
-          <Image src={imgUrl} layout='fill' alt='업로드 된 이미지' />
+          <Image src={imgUrl} priority layout='fill' alt='업로드 된 이미지' />
         ) : (
           <NoImgBox>이미지를 넣어주세요</NoImgBox>
         )}
