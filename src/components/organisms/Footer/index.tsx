@@ -7,7 +7,6 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
-  height: 20vh;
   transition:
     background-color 400ms linear,
     color 400ms linear;

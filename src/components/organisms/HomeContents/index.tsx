@@ -42,7 +42,9 @@ export const HomeContents = () => {
   return (
     <HomeContentsContainer darkMode={true}>
       <h2 className='a11y-hidden'>home</h2>
-      <p className='greeting'>어서오세요~~ 어디로 가고 싶은가요!</p>
+      <p className='greeting'>
+        어서 오시게 낮선 이여. 여긴 아무것도 없다네. 다른 곳을 둘러보시게나
+      </p>
       <div className='menus'>
         <article>
           <a href='/whoami'>
