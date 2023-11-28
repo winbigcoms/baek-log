@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { skillSet } from 'src/const';
 
 const SkiilConatiner = styled.article`
+  padding-top: 30px;
+
   & > div {
     margin: auto;
   }
