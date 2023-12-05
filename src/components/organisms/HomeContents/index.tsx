@@ -25,10 +25,15 @@ const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
   .menus {
     display: flex;
     height: 100%;
+    flex-wrap: wrap;
     margin-top: 20px;
     justify-content: center;
     align-items: center;
     gap: 20px;
+
+    @media screen and (max-width: 800px) {
+      height: auto;
+    }
 
     article a {
       display: flex;
