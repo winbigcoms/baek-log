@@ -3,11 +3,8 @@ import styled from 'styled-components';
 import { skillSet } from 'src/const';
 
 const SkiilConatiner = styled.article`
-<<<<<<< HEAD
   background-color: var(--bg-main);
-=======
   padding-top: 30px;
->>>>>>> 8ccaed9cd7527ab4e118fee48d9a7397cb87c30f
 
   & > div {
     margin: auto;
@@ -15,6 +12,7 @@ const SkiilConatiner = styled.article`
 
   div {
     max-width: 1024px;
+    margin: auto;
 
     h2 {
       margin-bottom: 15px;
