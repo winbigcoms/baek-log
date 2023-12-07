@@ -1,11 +1,16 @@
-import { CategoryItem } from 'src/model';
+import { ImageBox } from 'src/components/molecules';
 import styled from 'styled-components';
-
-import { CategoryBox } from '..';
 
 const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
   margin: auto;
-  padding: 30px 0px;
+  padding: 100px 0px 30px;
+  height: 80vh;
+
+  .greeting {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px 0px;
+  }
 
   & > div {
     margin-bottom: 15px;
@@ -13,27 +18,58 @@ const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
 
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
-  transition: background-color 400ms linear, color 400ms linear;
+  transition:
+    background-color 400ms linear,
+    color 400ms linear;
+
+  .menus {
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    @media screen and (max-width: 800px) {
+      height: auto;
+    }
+
+    article a {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
 `;
 
-interface HomeContentsProps {
-  contents: CategoryItem[];
-}
-
-export const HomeContents = (props: HomeContentsProps) => {
-  const { contents } = props;
-
+export const HomeContents = () => {
   return (
     <HomeContentsContainer darkMode={true}>
-      {contents.map((data, idx) => (
-        <CategoryBox
-          key={idx}
-          categoryTitle={data.categoryTitle}
-          categoryContents={data.categoryContents}
-          index={idx}
-          route={data.route}
-        />
-      ))}
+      <h2 className='a11y-hidden'>home</h2>
+      <p className='greeting'>
+        어서 오시게 낮선 이여. 여긴 아무것도 없다네. 다른 곳을 둘러보시게나
+      </p>
+      <div className='menus'>
+        <article>
+          <a href='/whoami'>
+            <>
+              <h3>주인장 포트폴리오</h3>
+              <ImageBox imgUrl='/assets/img/thumbnail.png' />
+              <p>Let me introduce my self</p>
+            </>
+          </a>
+        </article>
+        <article>
+          <a href='/playground/multi-twitch'>
+            <>
+              <h3>트위치 멀티뷰어</h3>
+              <ImageBox imgUrl='/assets/img/twitch.png' useBGColor />
+              <p>한 화면에 5개의 트위치 방송을</p>
+            </>
+          </a>
+        </article>
+      </div>
     </HomeContentsContainer>
   );
 };

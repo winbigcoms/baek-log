@@ -89,7 +89,7 @@ export const MultiTwitchLoginModal = () => {
   };
 
   return (
-    <MultiTwitchLoginModalStyle>
+    <MultiTwitchLoginModalStyle id='login_modal'>
       <main>
         <h3>Login</h3>
         <div>

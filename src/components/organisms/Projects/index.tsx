@@ -21,7 +21,7 @@ const projects = [
     skill: [
       {
         type: '프론트',
-        skillTitle: ['react', 'electron', 'styled-component']
+        skillTitle: ['React', 'electron', 'styled-component']
       },
       {
         type: 'CI/CD',
@@ -29,16 +29,16 @@ const projects = [
       }
     ],
     feeling:
-      '가맹점용 윈도우 프로그램으로 electron과 react로 개발을 진행하였습니다. 기획팀과 디자인팀 같이 다른 팀과의 협업 또 NFC기능을 이용하기 위해 다른 회사의 개발자와 소통하여 개발을 진행하여 성공적으로 가맹점에 설치하고 운용할 수 있었습니다.',
+      '가맹점용 윈도우 프로그램으로 electron.js와 React.js로 개발했습니다. 기획팀과 디자인팀 같이 다른 팀과의 협업 또 NFC기능을 이용하기 위해 다른 회사의 개발자와 소통하여 개발을 진행하여 성공적으로 가맹점에 설치하고 운용할 수 있었습니다.',
     links: []
   },
   {
-    title: '미래에셋페이 백오피스 개발(2021.05 ~ 2021.12)',
-    desc: '미래에셋페이 앱의 통계 및 고객관리를 하는 백오피스',
+    title: '미래에셋페이 백오피스(2021.05 ~ 2021.12)',
+    desc: '미래에셋페이 앱의 통계 및 고객관리 어드민',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['react', 'redux-toolkit', 'styled-component']
+        skillTitle: ['React', 'redux-toolkit', 'styled-component']
       },
       {
         type: 'CI/CD',
@@ -51,11 +51,11 @@ const projects = [
   },
   {
     title: 'DMS / CATALOG 서비스(2022.04 ~ 2023.12)',
-    desc: 'REACT를 이용한 웹 페이지 에디팅 및 페이지 제작 서비스',
+    desc: '지류 전단 및 모바일 전단지 제작 서비스',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['react', 'web-socket', 'styled-component']
+        skillTitle: ['React', 'web-socket', 'styled-component']
       },
       {
         type: 'CI/CD',
@@ -67,12 +67,12 @@ const projects = [
     links: []
   },
   {
-    title: 'MINIPIE admin페이지(2022.05 ~ 2022.12)',
-    desc: 'react, typescript를 이용한 웹 페이지 제작 에디터 개발',
+    title: 'MINIPIE(2022.05 ~ 2022.12)',
+    desc: 'React, typescript를 이용한 웹 페이지 제작 에디터 개발',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['react', 'styled-component', 'swr']
+        skillTitle: ['React', 'styled-component', 'swr']
       },
       {
         type: 'CI/CD',
@@ -80,7 +80,7 @@ const projects = [
       }
     ],
     feeling:
-      '위쳇 내부의 페이지를 만들어주는 미니프로그램이라는 프로젝트로 모듈화된 요소들을 이용하여 페이지를 제작하는 웹 페이지 에디터를 제작하였습니다. 불필요한 전역 상태 사용을 지양하기 위해 SWR을 이용하여 캐싱의 효과도 볼 수 있었고, 필요하면 직접 API를 제작하기도 하여 백엔드 개발과 프론트 개발 모두 작업했습니다.',
+      '위쳇 앱에서 페이지를 만들어주는 미니파이라는 프로젝트로 모듈화된 요소들을 이용하여 페이지를 제작하는 웹 페이지 에디터를 제작하였습니다. 불필요한 전역 상태 사용을 지양하기 위해 SWR을 이용하여 캐싱의 효과도 볼 수 있었고, 필요하면 직접 API를 제작하기도 하여 백엔드 개발과 프론트 개발 모두 작업했습니다.',
     links: []
   },
   {
@@ -89,7 +89,7 @@ const projects = [
     skill: [
       {
         type: '프론트',
-        skillTitle: ['react', 'styled-component', 'python', 'zustant']
+        skillTitle: ['React', 'styled-component', 'fastApi', 'zustant']
       },
       {
         type: 'CI/CD',
@@ -97,7 +97,24 @@ const projects = [
       }
     ],
     feeling:
-      '프롬프트를 기반으로 이미지를 생성하거나, 이미지를 수정할 수 있는 서비스 입니다. 이미지에서 인물의 포즈를 추출하거나, OpenPose 서비스를 이용하여 사람의 동작이나 포즈를 추출하는 기능과 텍스트를 사용하는 기능을 메인으로 맡았습니다. ',
+      '프롬프트를 기반으로 이미지를 생성하거나, 이미지를 수정할 수 있는 서비스 입니다. 이미지에서 인물의 포즈를 추출하거나, "OpenPose" 라는 오픈소스를 이용하여 사람의 동작이나 포즈를 추출하는 기능과 텍스트를 사용하는 기능을 메인으로 맡았습니다. ',
+    links: []
+  },
+  {
+    title: '자사 이벤트관리 서비스',
+    desc: '이벤트의 서버와 db, 페이지를 관리할 수 있는 서비스',
+    skill: [
+      {
+        type: '프론트/백엔드',
+        skillTitle: ['React', 'nestjs', 'antd', 'SWR']
+      },
+      {
+        type: 'CI/CD',
+        skillTitle: ['aws', 'docker']
+      }
+    ],
+    feeling:
+      'aws의 ec2를 이용하여 사용자가 간편하게 이벤트 페이지 서버를 키고 이벤트를 열 수 있는 서비스입니다. 클릭 하나로 ec2, target-group, route53 등을 이용하여 이벤트 환경을 구축할 수 있게 작업했습니다.',
     links: []
   }
 ];

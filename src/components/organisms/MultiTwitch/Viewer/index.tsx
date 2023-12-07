@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FIVE_VIEWPORT_RATIO, VIEWPORT_RATIO, get_streamURL } from 'src/const';
 import { Channel_Info } from 'src/types';
 
 import styled from 'styled-components';
-// import { ReactTwitchEmbedVideo } from './ReactTwitchEmbedVideo';
 
 interface MultiTwitchViewerProps {
   onOffChannel: (id: string) => void;
@@ -38,6 +37,7 @@ const MultiTwitchViewerStyle = styled.div`
 export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
   const { onOffChannel, selectedList } = props;
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerSize, setContainerSize] = useState({
     width: 0,
     height: 0
@@ -52,6 +52,7 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
 
     const availableWidth = width || iframe_containerRects.width - 30;
     const availableHeight = height || iframe_containerRects.height - 20;
+
     if (width === 0 || height === 0) {
       setContainerSize({
         width: availableWidth,
@@ -79,38 +80,35 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
     }
   };
 
-  const calcContainerSize = () => {
-    const iframe_container = document.getElementById('iframe_container');
-    if (!iframe_container) return;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-    const { width, height } = iframe_container.getClientRects()[0];
+    const containerObserver = new ResizeObserver(entries => {
+      const targetContainer = entries[0];
+      const { width, height } = targetContainer.contentRect;
 
-    if (width === 0 || height === 0) return;
+      const availableWidth = width - 30;
+      const availableHeight = height - 20;
 
-    const availableWidth = width - 30;
-    const availableHeight = height - 20;
-
-    setContainerSize({
-      width: availableWidth,
-      height: availableHeight
+      setContainerSize({
+        width: availableWidth,
+        height: availableHeight
+      });
     });
-  };
+    containerObserver.observe(container);
+
+    return () => {
+      containerObserver.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     calcIframeSize();
   }, [containerSize, selectedList.length]);
 
-  useEffect(() => {
-    // calcContainerSize();
-    window.addEventListener('resize', calcContainerSize);
-
-    return () => {
-      window.removeEventListener('resize', calcContainerSize);
-    };
-  }, []);
-
   return (
-    <MultiTwitchViewerStyle id='iframe_container'>
+    <MultiTwitchViewerStyle id='iframe_container' ref={containerRef}>
       {selectedList.map(channelInfo => (
         <div key={channelInfo.user_id} className='iframe_wrapper'>
           <iframe src={get_streamURL(channelInfo.user_login)} />

@@ -63,16 +63,20 @@ export const aboutCategory = [
 
 export const skillSet = [
   {
-    title: 'front-end',
+    title: 'Front',
     contents: 'html, css, javascript, typescript, react, next'
   },
   {
-    title: 'State Management',
-    contents: 'redux'
+    title: 'Back',
+    contents: 'node'
+  },
+  {
+    title: 'DB',
+    contents: 'mongo'
   },
   {
     title: 'ETC',
-    contents: 'electron, git, node, figma'
+    contents: 'electron, git, figma'
   }
 ];
 
@@ -249,4 +253,38 @@ export const FIVE_VIEWPORT_RATIO = [
   [3, 2],
   [3, 2],
   [3, 2]
+];
+
+export const contents = [
+  {
+    categoryTitle: '최근 포스팅',
+    route: 'all',
+    categoryContents: [
+      {
+        thumbnailTitle: '테스트 포스트',
+        imgUrl: '/assets/img/thumbnail.png'
+      }
+    ]
+  },
+  {
+    categoryTitle: 'Study',
+    route: 'study',
+    categoryContents: [
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' },
+      { thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' }
+    ]
+  },
+  {
+    categoryTitle: 'Cafe/Food/Travel',
+    route: 'cafe',
+    categoryContents: [{ thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' }]
+  },
+  {
+    categoryTitle: '스트리머 추천!',
+    route: 'twitch',
+    categoryContents: [{ thumbnailTitle: '테스트 포스트', imgUrl: '/assets/img/thumbnail.png' }]
+  }
 ];

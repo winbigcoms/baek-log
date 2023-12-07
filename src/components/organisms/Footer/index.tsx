@@ -7,7 +7,6 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
   border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
-
   transition:
     background-color 400ms linear,
     color 400ms linear;
@@ -33,6 +32,10 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
         width: 35px;
         display: inline-block;
         height: 35px;
+
+        border-radius: 50%;
+        background: #fff;
+        overflow: hidden;
       }
       & > a:last-child {
         margin: 0px;
@@ -70,6 +73,14 @@ export const FooterComponent = () => {
             rel='noreferrer'
           >
             <Image src={'/assets/img/notion.webp'} width='35px' height='35px' alt='백로그 아이콘' />
+          </a>
+          <a href='https://more-then-yesterday.tistory.com/' target='_blank' rel='noreferrer'>
+            <Image
+              src={'/assets/img/logo/tstory.png'}
+              width='35px'
+              height='35px'
+              alt='티스토리 아이콘'
+            />
           </a>
         </div>
         <div>제작, 기획, 디자인: 백승일</div>
