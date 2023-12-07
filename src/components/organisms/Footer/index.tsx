@@ -65,7 +65,7 @@ export const FooterComponent = () => {
             <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' alt='백로그 아이콘' />
           </a>
           <a
-            href='https://www.notion.so/native/d174986258ec4e6297723796e2986cac?pvs=4&deepLinkOpenNewTab=true'
+            href='https://sedate-stargazer-bc3.notion.site/d174986258ec4e6297723796e2986cac?pvs=4'
             target='_blank'
             rel='noreferrer'
           >

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { skillSet } from 'src/const';
 
 const SkiilConatiner = styled.article`
-  background-color: var(--box-bg);
+  background-color: var(--bg-main);
 
   & > div {
     margin: auto;
