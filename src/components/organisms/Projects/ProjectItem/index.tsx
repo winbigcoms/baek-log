@@ -18,7 +18,7 @@ interface ProjectItemProps {
 
 const ProjectItemEle = styled.div`
   width: calc(50% - 5px);
-
+  background-color: var(--bg-main);
   h3 ~ dl {
     padding: 0px 1rem;
   }

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { skillSet } from 'src/const';
 
 const SkiilConatiner = styled.article`
+  background-color: var(--bg-main);
   padding-top: 30px;
 
   & > div {
@@ -11,6 +12,7 @@ const SkiilConatiner = styled.article`
 
   div {
     max-width: 1024px;
+    margin: auto;
 
     h2 {
       margin-bottom: 15px;

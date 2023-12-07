@@ -32,6 +32,12 @@ export default class MyDocument extends Document {
       <Html lang='ko'>
         <Head>
           <meta name='keyword' content='개인 블로그' />
+
+          <link
+            rel='stylesheet'
+            type='text/css'
+            href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css'
+          />
         </Head>
         <body id='body'>
           <Main />
