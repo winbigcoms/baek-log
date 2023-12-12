@@ -12,7 +12,7 @@ import { theme } from '../styles/Theme';
 import 'aos/dist/aos.css';
 import '../styles/globals.css';
 
-const exceptRouter = ['year', 'playground/paint', 'playground/multi-twitch'];
+const exceptRouter = ['year', 'playground/paint', 'playground/multi-twitch', 'playground/utill'];
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

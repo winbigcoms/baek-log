@@ -5,3 +5,4 @@ export * from './HomeHiddenModal';
 export * from './CategoryHiddenModal';
 
 export * from './MultiTwitchTmp';
+export * from './UtillTmp';
