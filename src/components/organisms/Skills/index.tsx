@@ -12,7 +12,6 @@ const SkiilConatiner = styled.article`
 
   div {
     max-width: 1024px;
-    margin: auto;
 
     h2 {
       margin-bottom: 15px;
