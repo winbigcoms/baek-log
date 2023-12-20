@@ -18,6 +18,7 @@ export const Career = () => {
             data-aos='fade-up'
             data-aos-delay={idx * 100}
             data-aos-duration='700'
+            className='career_box'
           >
             <div>{career.name}</div>
             <div>

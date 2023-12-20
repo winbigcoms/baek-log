@@ -100,5 +100,3 @@ export const MultiTwitchTmp = () => {
     </div>
   );
 };
-
-// 접근 - 키 확인, 유저 아이디 확인 ? 있으면 채널 가져오기 : 없으면 모달띄워서 아이디받고 oauth띄우기

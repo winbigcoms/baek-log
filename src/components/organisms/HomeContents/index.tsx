@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
   margin: auto;
   padding: 100px 0px 30px;
-  height: 80vh;
+  height: calc(100vh - 172px);
 
   .greeting {
     text-align: center;

@@ -12,8 +12,10 @@ const HomeHiddenModalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 
   & > div {
-    width: 1000px;
-    height: 800px;
+    width: 80%;
+    min-width: 400px;
+    height: 80%;
+    min-height: 300px;
     position: absolute;
 
     left: 50%;

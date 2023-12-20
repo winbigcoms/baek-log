@@ -25,11 +25,21 @@ const MultiTwitchViewerStyle = styled.div`
     height: fit-content;
 
     .select_wrapper {
+      display: none;
       background-color: #ccc;
       position: absolute;
       right: 0px;
       top: 0px;
       text-align: center;
+
+      .btn {
+        cursor: pointer;
+      }
+    }
+    &:hover {
+      .select_wrapper {
+        display: block;
+      }
     }
   }
 `;
@@ -113,7 +123,7 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
         <div key={channelInfo.user_id} className='iframe_wrapper'>
           <iframe src={get_streamURL(channelInfo.user_login)} />
           <div className='select_wrapper'>
-            <div className='btn'>크게보기</div>
+            {/* <div className='btn'>크게보기</div> */}
             <div className='btn' onClick={() => onOffChannel(channelInfo.user_id)}>
               닫기
             </div>

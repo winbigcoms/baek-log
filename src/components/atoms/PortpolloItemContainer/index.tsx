@@ -5,6 +5,7 @@ const ArticleContainer = styled.div<{ color?: string }>`
   padding: 50px 0px;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
 `;
 
 const PortpolloItemContainerElement = styled.article`

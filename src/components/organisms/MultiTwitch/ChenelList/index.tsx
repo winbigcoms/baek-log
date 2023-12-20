@@ -15,7 +15,13 @@ const MultiTwitchChenelListStyle = styled.nav`
   transition: width 0.5s;
 
   &.slim {
-    width: 70px;
+    width: 80px;
+
+    .item {
+      img {
+        margin-right: 10px;
+      }
+    }
   }
 
   .channel_list_header {
@@ -31,6 +37,7 @@ const MultiTwitchChenelListStyle = styled.nav`
     }
     span {
       cursor: pointer;
+      line-height: 1;
     }
   }
 
@@ -53,10 +60,12 @@ const MultiTwitchChenelListStyle = styled.nav`
         width: 50px;
         height: 50px;
         border-radius: 50px;
+        transition: all 0.5s;
       }
 
       .user_info {
         width: 8vw;
+        max-width: 120px;
 
         .title,
         .game,
@@ -95,7 +104,7 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
 
     debounceTimer = setTimeout(() => {
       target.classList.add('hide_scroll');
-    }, 500);
+    }, 1000);
   };
 
   const onClickSlim = () => {

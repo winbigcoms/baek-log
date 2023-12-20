@@ -70,11 +70,11 @@ interface HeaderProps {
 }
 
 const targetStrings = [
-  '밥 값하는',
-  '토론을 즐기는',
+  '솔직한',
   '동료들과 협업하는',
-  '회사와 같이 성장하는',
-  '함께 일해보고 싶은'
+  '성장하는',
+  '함께 일해보고 싶은',
+  '어우러지는'
 ];
 
 export const Header = (props: HeaderProps) => {
