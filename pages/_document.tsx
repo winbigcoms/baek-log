@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
           <link
             rel='stylesheet'
             type='text/css'
-            href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css'
+            href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css'
           />
         </Head>
         <body id='body'>
