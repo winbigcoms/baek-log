@@ -101,7 +101,7 @@ export const MultiTwitchTmp = () => {
             <MultiTwitchChenelList onSelectChannel={onSelectChannel} selectedList={selectedList} />
           </SWRConfig>
         )}
-        <main style={{ padding: 10 }}>
+        <main style={{ padding: 10, backgroundColor: 'var(--real-black)' }}>
           <MultiTwitchViewer
             showLargeUserId={showLargeUserId}
             onSelectShowLarge={onSelectShowLarge}

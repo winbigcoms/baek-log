@@ -55,6 +55,15 @@ const MultiTwitchViewerStyle = styled.div`
       }
     }
   }
+
+  .empty_chennel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    font-size: 1.5rem;
+  }
 `;
 
 export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
@@ -148,29 +157,33 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
 
   return (
     <MultiTwitchViewerStyle id='iframe_container' ref={containerRef}>
-      {selectedList.map(channelInfo => (
-        <div
-          key={channelInfo.user_id}
-          className={`iframe_wrapper ${channelInfo.user_id === showLargeUserId ? 'large' : ''}`}
-        >
-          <iframe src={get_streamURL(channelInfo.user_login)} />
-          <div className='select_wrapper'>
-            <div
-              className='btn'
-              onClick={() =>
-                showLargeUserId === channelInfo.user_id
-                  ? onCloseLargeMode()
-                  : onSelectShowLarge(channelInfo)
-              }
-            >
-              {showLargeUserId === channelInfo.user_id ? '축소하기' : '확대하기'}
-            </div>
-            <div className='btn' onClick={() => onOffChannel(channelInfo.user_id)}>
-              닫기
+      {selectedList.length > 0 ? (
+        selectedList.map(channelInfo => (
+          <div
+            key={channelInfo.user_id}
+            className={`iframe_wrapper ${channelInfo.user_id === showLargeUserId ? 'large' : ''}`}
+          >
+            <iframe src={get_streamURL(channelInfo.user_login)} />
+            <div className='select_wrapper'>
+              <div
+                className='btn'
+                onClick={() =>
+                  showLargeUserId === channelInfo.user_id
+                    ? onCloseLargeMode()
+                    : onSelectShowLarge(channelInfo)
+                }
+              >
+                {showLargeUserId === channelInfo.user_id ? '축소하기' : '확대하기'}
+              </div>
+              <div className='btn' onClick={() => onOffChannel(channelInfo.user_id)}>
+                닫기
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <div className='empty_chennel'>채널을 클릭하여 시청하세요</div>
+      )}
     </MultiTwitchViewerStyle>
   );
 };
