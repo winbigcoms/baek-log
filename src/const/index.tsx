@@ -255,6 +255,14 @@ export const FIVE_VIEWPORT_RATIO = [
   [3, 2]
 ];
 
+export const SELECT_MAIN_VIEWPORT_RATIO = [
+  [1, 1.6],
+  [4, 2.8],
+  [4, 2.8],
+  [4, 2.8],
+  [4, 2.8]
+];
+
 export const contents = [
   {
     categoryTitle: '최근 포스팅',
