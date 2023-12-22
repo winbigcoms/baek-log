@@ -7,6 +7,10 @@ import useSWR from 'swr';
 
 const MultiTwitchChenelListStyle = styled.nav`
   display: flex;
+
+  background: var(--real-black);
+  color: var(--real-white);
+
   flex-direction: column;
   height: calc(100vh - 50px);
   width: 200px;
@@ -56,11 +60,14 @@ const MultiTwitchChenelListStyle = styled.nav`
       display: flex;
       gap: 10px;
 
+      align-items: center;
+
       img {
         width: 50px;
         height: 50px;
         border-radius: 50px;
         transition: all 0.5s;
+        margin-bottom: 8px;
       }
 
       .user_info {
@@ -117,7 +124,7 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
         <h3>채널</h3>
         <span onClick={onClickSlim}>{slimMode ? '>' : '<'}</span>
       </div>
-      <div className='channel_list hide_scroll' onScroll={onScroll}>
+      <div className='channel_list hide_scroll btn' onScroll={onScroll}>
         {requestList &&
           requestList.map(channel => (
             <div
@@ -128,6 +135,7 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
                   : 'unSelected'
               }`}
               onClick={() => onSelectChannel(channel)}
+              title={channel.title}
             >
               {channel.profileImg && <img src={channel.profileImg} alt='' />}
               <div className='user_info'>

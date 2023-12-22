@@ -129,7 +129,7 @@ input[type='number']::-webkit-outer-spin-button {
   display: block;
 }
 .channel_list::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(213, 213, 213, 0.5);
   border-radius: 12px 12px 12px 12px;
 }
 
