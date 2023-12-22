@@ -14,6 +14,7 @@ import { SWRConfig } from 'swr';
 export const MultiTwitchTmp = () => {
   const [selectedList, setSelectList] = useState<Channel_Info[]>([]);
   const [isLogin, setLogin] = useState(false);
+  const [showLargeUserId, selectShowLargeUserId] = useState('');
   const router = useRouter();
   const access_token = LocalStorageClient.getItem('access_token');
   const userId = LocalStorageClient.getItem('userId');
@@ -36,6 +37,14 @@ export const MultiTwitchTmp = () => {
 
   const onOffChannel = (user_id: string) => {
     setSelectList(state => state.filter(channelData => channelData.user_id !== user_id));
+  };
+
+  const onSelectShowLarge = (channel_Info: Channel_Info) => {
+    selectShowLargeUserId(channel_Info.user_id);
+  };
+
+  const onCloseLargeMode = () => {
+    selectShowLargeUserId('');
   };
 
   useEffect(() => {
@@ -93,7 +102,13 @@ export const MultiTwitchTmp = () => {
           </SWRConfig>
         )}
         <main style={{ padding: 10 }}>
-          <MultiTwitchViewer onOffChannel={onOffChannel} selectedList={selectedList} />
+          <MultiTwitchViewer
+            showLargeUserId={showLargeUserId}
+            onSelectShowLarge={onSelectShowLarge}
+            onCloseLargeMode={onCloseLargeMode}
+            onOffChannel={onOffChannel}
+            selectedList={selectedList}
+          />
         </main>
       </div>
       {modalState && ModalComponent}
