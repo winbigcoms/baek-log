@@ -16,9 +16,9 @@ const WhoAmIPage = () => {
   return (
     <>
       <Head>
-        <title>Baek Portfoilo</title>
-        <meta name='description' content='웹 개발자 백승일의 포트폴리오' />
-        <meta name='keyword' content='개발자 포트폴리오, 포트폴리오, 프론트엔드 개발자' />
+        <title>백승일 기술이력서</title>
+        <meta name='description' content='웹 개발자 백승일의 기술이력서' />
+        <meta name='keyword' content='개발자, 기술이력서, 포트폴리오, 프론트엔드' />
       </Head>
       <Wrapper className={'dark'} darkMode={true}>
         <PortpolloTmp />

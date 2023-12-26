@@ -119,6 +119,10 @@ input[type='number']::-webkit-outer-spin-button {
 
 .career_box {
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
 }
 
 .channel_list::-webkit-scrollbar {
@@ -134,6 +138,10 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 800px) {
+  .intro {
+    flex-direction: column;
+    gap: 50px;
+  }
   .projectContainer {
     flex-direction: column;
     justify-content: center;

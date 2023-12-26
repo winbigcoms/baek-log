@@ -16,9 +16,13 @@ const PortpolloItemContainerElement = styled.article`
   text-align: center;
 
   & > h2 {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     padding-bottom: 15px;
+
+    p {
+      font-size: transparent;
+    }
   }
 `;
 

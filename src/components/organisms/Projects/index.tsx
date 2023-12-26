@@ -33,8 +33,8 @@ const projects = [
     links: []
   },
   {
-    title: '미래에셋페이 백오피스(2021.05 ~ 2021.12)',
-    desc: '미래에셋페이 앱의 통계 및 고객관리 어드민',
+    title: '미래에셋페이(2021.05 ~ 2021.12)',
+    desc: '미래에셋페이 앱의 통계 및 고객관리자 페이지',
     skill: [
       {
         type: '프론트',
@@ -68,24 +68,23 @@ const projects = [
   },
   {
     title: 'MINIPIE(2022.05 ~ 2022.12)',
-    desc: 'React, typescript를 이용한 웹 페이지 제작 에디터 개발',
+    desc: 'Next.js를 이용한 브랜드 페이지',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'styled-component', 'swr']
+        skillTitle: ['Next.js', 'styled-component']
       },
       {
         type: 'CI/CD',
         skillTitle: ['tencent-cloud', 'jenkins']
       }
     ],
-    feeling:
-      '위쳇 앱에서 페이지를 만들어주는 미니파이라는 프로젝트로 모듈화된 요소들을 이용하여 페이지를 제작하는 웹 페이지 에디터를 제작하였습니다. 불필요한 전역 상태 사용을 지양하기 위해 SWR을 이용하여 캐싱의 효과도 볼 수 있었고, 필요하면 직접 API를 제작하기도 하여 백엔드 개발과 프론트 개발 모두 작업했습니다.',
+    feeling: '브랜드 페이지의 목적이기에 meta태그 등의 요소를 활용하여 SEO를 높였습니다.',
     links: []
   },
   {
     title: 'Key-visual 이미지 생성 서비스 PIXVAS',
-    desc: '생성형 AI를 이용하여 이미지를 생성, 수정할 수 있는 서비스.',
+    desc: '생성형 AI를 이용하여 이미지 에디팅 서비스',
     skill: [
       {
         type: '프론트',
@@ -102,7 +101,7 @@ const projects = [
   },
   {
     title: '자사 이벤트관리 서비스',
-    desc: '이벤트의 서버와 db, 페이지를 관리할 수 있는 서비스',
+    desc: '이벤트 생성을 위한 인프라 관리 서비스',
     skill: [
       {
         type: '프론트/백엔드',
@@ -114,7 +113,7 @@ const projects = [
       }
     ],
     feeling:
-      'aws의 ec2를 이용하여 사용자가 간편하게 이벤트 페이지 서버를 키고 이벤트를 열 수 있는 서비스입니다. 클릭 하나로 ec2, target-group, route53 등을 이용하여 이벤트 환경을 구축할 수 있게 작업했습니다.',
+      'AWS를 이용하여 사용자가 간편하게 이벤트 페이지를 개설하고 이벤트를 진행할수 있는 서비스입니다. 클릭 하나로 ec2, target-group, route53 등을 이용하여 이벤트 환경을 구축할 수 있게 작업했습니다.',
     links: []
   }
 ];
@@ -122,7 +121,7 @@ const projects = [
 export const Projects = () => {
   return (
     <ProjectsContainer>
-      <h2>My Projects</h2>
+      <h2 tabIndex={1}>프로젝트</h2>
       <div>
         <div className='projectContainer'>
           {projects.map(project => (
