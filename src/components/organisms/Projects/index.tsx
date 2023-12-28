@@ -17,15 +17,15 @@ const ProjectsContainer = styled.div`
 const projects = [
   {
     title: 'SHOOT POS(2021.02 ~ 2021.12)',
-    desc: '미래에셋페이 앱과 연동되는 window pos시스템',
+    desc: '미래에셋페이 앱과 연동되는 window용 POS',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'electron', 'styled-component']
+        skillTitle: ['React', 'Electron.js', 'Redux']
       },
       {
-        type: 'CI/CD',
-        skillTitle: ['AWS S3', 'ec2', 'jenkins']
+        type: 'etc',
+        skillTitle: ['AWS S3', 'AWS EC2']
       }
     ],
     feeling:
@@ -38,11 +38,11 @@ const projects = [
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'redux-toolkit', 'styled-component']
+        skillTitle: ['React', 'RTK', 'Typescript']
       },
       {
-        type: 'CI/CD',
-        skillTitle: ['ec2', 'jenkins']
+        type: 'etc',
+        skillTitle: ['AWS EC2', 'Jenkins']
       }
     ],
     feeling:
@@ -50,53 +50,54 @@ const projects = [
     links: []
   },
   {
-    title: 'DMS / CATALOG 서비스(2022.04 ~ 2023.12)',
-    desc: '지류 전단 및 모바일 전단지 제작 서비스',
+    title: 'DMS 서비스(2022.04 ~ 2023.12)',
+    desc: '지류 인쇄물 페이지 에디터 서비스',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'web-socket', 'styled-component']
+        skillTitle: ['React', 'Redux', 'styled-component']
       },
       {
-        type: 'CI/CD',
-        skillTitle: ['tencent-cloud', 'jenkins']
+        type: 'etc',
+        skillTitle: ['Tencent-cloud', 'Jenkins']
       }
     ],
     feeling:
-      '지류 전단지를 제작하는 DMS서비스와 잡지와 같은 상품 페이지를 제작할 수 있는 Catalog 서비스를 개발, 운영 했었습니다. 사용자의 UX에 흠이 되지 않게 성능 최적화도 진행해보고, 트래픽을 분석하여 서버 증설 등의 새로운 경험을 해볼 수 있었습니다. 특히 성능 최적화를 위해 컴포넌트 분리, 조건부 랜더링시 조건 최적화 등을 통해 데이터가 많은 페이지의 첫 랜더링이 5초 이상 걸렸던 페이지 초기 로딩 속도를 0.6초 정도 줄여 빠르게 보여줌으로 사용자 경험에 좋은 영향을 줄 수 있었습니다.',
+      '지류 인쇄물을 웹에서 제작하는 DMS서비스를 개발했습니다. 특히 서비스의 CI/CD 프로세스를 개선하여 빌드 속도를 단축 시킬 수 있었습니다.',
     links: []
   },
   {
-    title: 'MINIPIE(2022.05 ~ 2022.12)',
-    desc: 'Next.js를 이용한 브랜드 페이지',
+    title: 'CATALOG 서비스(2022.04 ~ 2023.12)',
+    desc: '모바일 전단 제작 서비스',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['Next.js', 'styled-component']
+        skillTitle: ['React', 'socket', 'styled-component']
       },
       {
-        type: 'CI/CD',
-        skillTitle: ['tencent-cloud', 'jenkins']
+        type: 'etc',
+        skillTitle: ['Tencent-cloud', 'Jenkins', 'Node.js']
       }
     ],
-    feeling: '브랜드 페이지의 목적이기에 meta태그 등의 요소를 활용하여 SEO를 높였습니다.',
+    feeling:
+      '모바일 전단지를 제작하는 Catalog서비스를 개발 했습니다. 특히 성능 최적화를 통해 콘텐츠가 많아 첫 랜더링이 5초 정도 걸렸던 페이지 초기 로딩 속도를 1초로 정도 개선할 수 있었습니다.',
     links: []
   },
   {
-    title: 'Key-visual 이미지 생성 서비스 PIXVAS',
+    title: '이미지AI 서비스 PIXVAS',
     desc: '생성형 AI를 이용하여 이미지 에디팅 서비스',
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'styled-component', 'fastApi', 'zustant']
+        skillTitle: ['React', 'styled-component', 'Zustant']
       },
       {
-        type: 'CI/CD',
-        skillTitle: ['tencent-cloud', 'jenkins']
+        type: 'etc',
+        skillTitle: ['Tencent-cloud', 'Docker', 'FastApi']
       }
     ],
     feeling:
-      '프롬프트를 기반으로 이미지를 생성하거나, 이미지를 수정할 수 있는 서비스 입니다. 이미지에서 인물의 포즈를 추출하거나, "OpenPose" 라는 오픈소스를 이용하여 사람의 동작이나 포즈를 추출하는 기능과 텍스트를 사용하는 기능을 메인으로 맡았습니다. ',
+      '프롬프트로 이미지를 생성하거나, 수정할 수 있는 서비스 입니다. "OpenPose" 라는 오픈소스를 이용하여 이미지 안의 사람의 동작이나 포즈를 추출하고 변경하는 기능과 텍스트를 켈리그라피 기능을  맡았습니다.',
     links: []
   },
   {
@@ -105,16 +106,34 @@ const projects = [
     skill: [
       {
         type: '프론트/백엔드',
-        skillTitle: ['React', 'nestjs', 'antd', 'SWR']
+        skillTitle: ['React', 'Nest.js', 'SWR']
       },
       {
-        type: 'CI/CD',
-        skillTitle: ['aws', 'docker']
+        type: 'etc',
+        skillTitle: ['AWS', 'Docker']
       }
     ],
     feeling:
-      'AWS를 이용하여 사용자가 간편하게 이벤트 페이지를 개설하고 이벤트를 진행할수 있는 서비스입니다. 클릭 하나로 ec2, target-group, route53 등을 이용하여 이벤트 환경을 구축할 수 있게 작업했습니다.',
+      'AWS를 이용하여 사용자가 간편하게 SI 이벤트 페이지를 개설하고 진행할수 있는 서비스입니다. 간단한 사용 flow로 EC2, target-group, Route53 등의 인프라 세팅을 구축할 수 있습니다.',
     links: []
+  },
+  {
+    title: '개인 프로젝트(트위치 멀티 뷰어)',
+    desc: '트위치 방송을 다중으로 시청 가능한 서비스',
+    skill: [
+      {
+        type: '프론트',
+        skillTitle: ['Next.js', 'styled-component', 'SWR']
+      }
+    ],
+    feeling:
+      '트위치의 open-api를 이용하여 자신의 트위치 아이디로 로그인하여 팔로우한 스트리머들의 방송을 최대 5개 까지 시청할 수 있는 서비스 입니다.',
+    links: [
+      {
+        link: 'https://www.white-win.dev/playground/multi-twitch',
+        desc: 'Twitch-multi-viewer'
+      }
+    ]
   }
 ];
 

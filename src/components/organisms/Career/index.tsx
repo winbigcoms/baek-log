@@ -3,7 +3,7 @@ import { PortpolloItemContainer } from 'src/components/atoms';
 const myCareer = [
   {
     name: 'IMFORM',
-    period: ['2021.01.02', ''],
+    period: ['2021.01.02', '2024.01.10'],
     desc: '모바일 솔루션 회사 아이엠폼의 미래에셋페이, Catalog등 다양한 프로젝트에 참여했습니다.'
   }
 ];

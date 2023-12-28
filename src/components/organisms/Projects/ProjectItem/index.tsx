@@ -53,7 +53,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
   const { title, desc, skill, links, feeling } = projectItemData;
 
   return (
-    <ProjectItemEle>
+    <ProjectItemEle data-aos='fade-up' data-aos-delay={100} data-aos-duration='700'>
       <h3>{title}</h3>
       <dl>
         <dt>소개</dt>
@@ -78,7 +78,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
             );
           })}
         </dd>
-        <dt>배운 점</dt>
+        <dt>설명</dt>
         <dd
           style={{
             lineHeight: 1.5
@@ -92,7 +92,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
             <dd>
               {links.map(({ desc, link }) => (
                 <a href={link} key={desc} target='_blank' rel='noreferrer'>
-                  {desc}
+                  <u>{desc}</u>
                 </a>
               ))}
             </dd>
