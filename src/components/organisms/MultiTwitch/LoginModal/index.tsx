@@ -21,7 +21,7 @@ const MultiTwitchLoginModalStyle = styled.div`
 
   main {
     width: 20vw;
-    height: 25vh;
+    min-width: 200px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -30,12 +30,16 @@ const MultiTwitchLoginModalStyle = styled.div`
     padding: 20px;
     gap: 20px;
 
+    h3 {
+      color: #8546f9;
+    }
+
     & > div {
       width: 100%;
       & > span {
         display: inline-block;
         font-size: 0.8rem;
-        color: #7db1ff;
+        color: #8546f9;
         margin: 20px 0px;
       }
 
@@ -62,7 +66,7 @@ const MultiTwitchLoginModalStyle = styled.div`
           padding: 10px 20px;
           border-radius: 5px;
           border: none;
-          background-color: #7db1ff;
+          background-color: #8546f9;
           color: #fff;
         }
       }
@@ -91,12 +95,12 @@ export const MultiTwitchLoginModal = () => {
   return (
     <MultiTwitchLoginModalStyle id='login_modal'>
       <main>
-        <h3>Login</h3>
+        <h3>TMV Login</h3>
         <div>
           <span>트위치 로그인이 필요한 서비스입니다.</span>
 
           <label>
-            <p>본인 트위치 아이디</p>
+            <p>트위치 아이디</p>
             <input
               type='text'
               value={userId}

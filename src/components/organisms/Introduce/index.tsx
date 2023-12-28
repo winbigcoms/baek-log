@@ -1,39 +1,31 @@
-import styled from 'styled-components';
-
-import { PortpolloItemContainer } from 'src/components/atoms';
-
-const IntroduceText = styled.p`
-  text-align: center;
-  font-size: 24px;
-  line-height: 48px;
-  word-break: keep-all;
-`;
+import { IntroduceText, PortpolloItemContainer } from 'src/components/atoms';
 
 export const Introduce = () => {
   return (
     <PortpolloItemContainer>
-      <h2 className='a11y-hidden'>소개</h2>
-      <IntroduceText
-        style={{
-          fontSize: 36
-        }}
-        data-aos='fade-up'
-        data-aos-duration='700'
-      >
-        안녕하세요!
-      </IntroduceText>
-      <IntroduceText
-        style={{
-          marginTop: '30px'
-        }}
-        data-aos='fade-up'
-        data-aos-delay='600'
-        data-aos-duration='700'
-      >
-        혼자서도 역량이 있지만, <br />
-        팀원과 함께할 때 더 빛나는 개발자가 목표인 <br />
-        프론트 엔드 개발자 백승일입니다!
-      </IntroduceText>
+      <div className='intro' style={{ display: 'flex', alignItems: 'center' }}>
+        <h2 tabIndex={1} style={{ flex: 1 }}>
+          <p className='a11y-hidden'>소개</p>
+          <p data-aos='fade-up' data-aos-duration='500'>
+            안녕하세요
+          </p>
+          <br />
+          <p data-aos='fade-up' data-aos-delay='200' data-aos-duration='700'>
+            개발자 백승일입니다!
+          </p>
+        </h2>
+        <div style={{ flex: 1 }} data-aos='fade-up' data-aos-delay='700' data-aos-duration='700'>
+          <IntroduceText>
+            대학에서 철학을 전공하였지만 <br />
+            새로운 것을 만들어내고,
+            <br /> 세상의 불편을 해결하고 싶어 개발자가 되었습니다.
+            <br /> 새로운 기술도 좋지만, 그 근본의 원리를 이해하는 것을 선호합니다.
+            <br /> 문제를 해결함에 있어서 `why` 에 집중하는 타입입니다.
+            <br /> 스킬에 욕심이 있어 다양한 분야에 관심이 많습니다.
+            <br /> 앞으로 더 다양한 비즈니스의 분야를 경험해보고 싶습니다.
+          </IntroduceText>
+        </div>
+      </div>
     </PortpolloItemContainer>
   );
 };

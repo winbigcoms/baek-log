@@ -5,6 +5,7 @@ const ArticleContainer = styled.div<{ color?: string }>`
   padding: 50px 0px;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
 `;
 
 const PortpolloItemContainerElement = styled.article`
@@ -15,9 +16,13 @@ const PortpolloItemContainerElement = styled.article`
   text-align: center;
 
   & > h2 {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     padding-bottom: 15px;
+
+    p {
+      font-size: transparent;
+    }
   }
 `;
 

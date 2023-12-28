@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
-import { FIVE_VIEWPORT_RATIO, VIEWPORT_RATIO, get_streamURL } from 'src/const';
+import {
+  FIVE_VIEWPORT_RATIO,
+  SELECT_MAIN_VIEWPORT_RATIO,
+  VIEWPORT_RATIO,
+  get_streamURL
+} from 'src/const';
 import { Channel_Info } from 'src/types';
 
 import styled from 'styled-components';
 
 interface MultiTwitchViewerProps {
   onOffChannel: (id: string) => void;
+  showLargeUserId: string;
   selectedList: Channel_Info[];
+  onSelectShowLarge: (channel_Info: Channel_Info) => void;
+  onCloseLargeMode: () => void;
 }
 
 const MultiTwitchViewerStyle = styled.div`
@@ -20,22 +28,47 @@ const MultiTwitchViewerStyle = styled.div`
   gap: 10px;
 
   .iframe_wrapper {
+    order: 2;
     position: relative;
     width: fit-content;
     height: fit-content;
 
+    &.large {
+      order: 1;
+    }
+
     .select_wrapper {
+      display: none;
       background-color: #ccc;
       position: absolute;
       right: 0px;
       top: 0px;
       text-align: center;
+
+      .btn {
+        cursor: pointer;
+      }
     }
+    &:hover {
+      .select_wrapper {
+        display: block;
+      }
+    }
+  }
+
+  .empty_chennel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    font-size: 1.5rem;
   }
 `;
 
 export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
-  const { onOffChannel, selectedList } = props;
+  const { onOffChannel, selectedList, onCloseLargeMode, onSelectShowLarge, showLargeUserId } =
+    props;
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerSize, setContainerSize] = useState({
@@ -62,6 +95,21 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
 
     const iframes = iframe_container.getElementsByTagName('iframe');
     if (iframes.length === 0) return;
+
+    if (showLargeUserId) {
+      const largeTargetIdx = selectedList.findIndex(channel => channel.user_id === showLargeUserId);
+
+      for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
+        const ratio =
+          largeTargetIdx === iframeIdx
+            ? SELECT_MAIN_VIEWPORT_RATIO[0]
+            : SELECT_MAIN_VIEWPORT_RATIO[1];
+        iframes[iframeIdx].width = String(width / ratio[0]);
+        iframes[iframeIdx].height = String(height / ratio[1]);
+      }
+
+      return;
+    }
 
     if (iframes.length === 5) {
       for (let iframeIdx = 0; iframeIdx < iframes.length; iframeIdx++) {
@@ -105,21 +153,37 @@ export const MultiTwitchViewer = (props: MultiTwitchViewerProps) => {
 
   useEffect(() => {
     calcIframeSize();
-  }, [containerSize, selectedList.length]);
+  }, [containerSize, selectedList.length, showLargeUserId]);
 
   return (
     <MultiTwitchViewerStyle id='iframe_container' ref={containerRef}>
-      {selectedList.map(channelInfo => (
-        <div key={channelInfo.user_id} className='iframe_wrapper'>
-          <iframe src={get_streamURL(channelInfo.user_login)} />
-          <div className='select_wrapper'>
-            <div className='btn'>크게보기</div>
-            <div className='btn' onClick={() => onOffChannel(channelInfo.user_id)}>
-              닫기
+      {selectedList.length > 0 ? (
+        selectedList.map(channelInfo => (
+          <div
+            key={channelInfo.user_id}
+            className={`iframe_wrapper ${channelInfo.user_id === showLargeUserId ? 'large' : ''}`}
+          >
+            <iframe src={get_streamURL(channelInfo.user_login)} />
+            <div className='select_wrapper'>
+              <div
+                className='btn'
+                onClick={() =>
+                  showLargeUserId === channelInfo.user_id
+                    ? onCloseLargeMode()
+                    : onSelectShowLarge(channelInfo)
+                }
+              >
+                {showLargeUserId === channelInfo.user_id ? '축소하기' : '확대하기'}
+              </div>
+              <div className='btn' onClick={() => onOffChannel(channelInfo.user_id)}>
+                닫기
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <div className='empty_chennel'>채널을 클릭하여 시청하세요</div>
+      )}
     </MultiTwitchViewerStyle>
   );
 };

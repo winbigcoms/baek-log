@@ -3,8 +3,10 @@ import styled from 'styled-components';
 const MultiTwitchHeaderStyle = styled.header`
   display: flex;
   justify-content: center;
-  background-color: #333;
-  color: #fff;
+  background-color: #121212;
+  border-bottom: 1px solid #ccc;
+
+  color: #ddd;
   padding: 10px 0px;
   height: 50px;
 

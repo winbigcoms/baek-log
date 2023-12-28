@@ -67,7 +67,7 @@ export const Skills = () => {
   return (
     <SkiilConatiner>
       <div>
-        <h2>MY SKILLS</h2>
+        <h2 tabIndex={1}>기 술</h2>
         <SkillBox>
           {skillSet.map(skill => (
             <div key={skill.title} className='skill_box'>

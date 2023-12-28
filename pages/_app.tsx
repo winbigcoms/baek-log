@@ -6,8 +6,7 @@ import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
 import AOS from 'aos';
 
-import { Footer, Header } from 'src/components/organisms';
-import { categoryToKorean } from 'src/const';
+import { Footer } from 'src/components/organisms';
 import { theme } from '../styles/Theme';
 import 'aos/dist/aos.css';
 import '../styles/globals.css';
@@ -16,7 +15,6 @@ const exceptRouter = ['year', 'playground/paint', 'playground/multi-twitch', 'pl
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const { category } = router.query;
   const isExceptRouter = exceptRouter.includes(router.pathname.replace('/', ''));
 
   useEffect(() => {
@@ -25,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      {!isExceptRouter && <Header path={categoryToKorean(category as string)} />}
+      {/* {!isExceptRouter && <Header path={categoryToKorean(category as string)} />} */}
       <Component {...pageProps} />
       {!isExceptRouter && <Footer />}
     </ThemeProvider>

@@ -7,6 +7,10 @@ import useSWR from 'swr';
 
 const MultiTwitchChenelListStyle = styled.nav`
   display: flex;
+
+  background: var(--real-black);
+  color: var(--real-white);
+
   flex-direction: column;
   height: calc(100vh - 50px);
   width: 200px;
@@ -15,7 +19,13 @@ const MultiTwitchChenelListStyle = styled.nav`
   transition: width 0.5s;
 
   &.slim {
-    width: 70px;
+    width: 80px;
+
+    .item {
+      img {
+        margin-right: 10px;
+      }
+    }
   }
 
   .channel_list_header {
@@ -31,6 +41,7 @@ const MultiTwitchChenelListStyle = styled.nav`
     }
     span {
       cursor: pointer;
+      line-height: 1;
     }
   }
 
@@ -49,14 +60,19 @@ const MultiTwitchChenelListStyle = styled.nav`
       display: flex;
       gap: 10px;
 
+      align-items: center;
+
       img {
         width: 50px;
         height: 50px;
         border-radius: 50px;
+        transition: all 0.5s;
+        margin-bottom: 8px;
       }
 
       .user_info {
         width: 8vw;
+        max-width: 120px;
 
         .title,
         .game,
@@ -95,7 +111,7 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
 
     debounceTimer = setTimeout(() => {
       target.classList.add('hide_scroll');
-    }, 500);
+    }, 1000);
   };
 
   const onClickSlim = () => {
@@ -108,7 +124,7 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
         <h3>채널</h3>
         <span onClick={onClickSlim}>{slimMode ? '>' : '<'}</span>
       </div>
-      <div className='channel_list hide_scroll' onScroll={onScroll}>
+      <div className='channel_list hide_scroll btn' onScroll={onScroll}>
         {requestList &&
           requestList.map(channel => (
             <div
@@ -119,6 +135,7 @@ export const MultiTwitchChenelList = (props: MultiTwitchChenelListProps) => {
                   : 'unSelected'
               }`}
               onClick={() => onSelectChannel(channel)}
+              title={channel.title}
             >
               {channel.profileImg && <img src={channel.profileImg} alt='' />}
               <div className='user_info'>

@@ -4,7 +4,11 @@ import styled from 'styled-components';
 const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
   margin: auto;
   padding: 100px 0px 30px;
+<<<<<<< HEAD
   min-height: calc(100vh - 172px);
+=======
+  height: calc(100vh - 172px);
+>>>>>>> c95517bbb03966e9b44de8e943d598ec52741641
 
   .greeting {
     text-align: center;
