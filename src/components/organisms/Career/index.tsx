@@ -19,7 +19,7 @@ export const Career = () => {
             data-aos='fade-up'
             data-aos-delay={idx * 100}
             data-aos-duration='700'
-            className='career_box'
+            className='career_box slide_when_moblie'
           >
             <div>
               <div>{career.name}</div>
@@ -27,7 +27,15 @@ export const Career = () => {
                 ({career.period[0]}~{career.period[1] || '재직중'})
               </div>
             </div>
-            <div style={{ maxWidth: 400, minWidth: 200, width: '60%', wordBreak: 'keep-all' }}>
+            <div
+              style={{
+                maxWidth: 400,
+                minWidth: 200,
+                width: '60%',
+                wordBreak: 'keep-all',
+                fontSize: 16
+              }}
+            >
               {career.desc}
             </div>
           </div>

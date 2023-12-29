@@ -3,7 +3,7 @@ import { IntroduceText, PortpolloItemContainer } from 'src/components/atoms';
 export const Introduce = () => {
   return (
     <PortpolloItemContainer>
-      <div className='intro' style={{ display: 'flex', alignItems: 'center' }}>
+      <div className='slide_when_moblie' style={{ display: 'flex', alignItems: 'center' }}>
         <h2 tabIndex={1} style={{ flex: 1 }}>
           <p className='a11y-hidden'>소개</p>
           <p data-aos='fade-up' data-aos-duration='500'>
