@@ -4,6 +4,7 @@ interface ProjectItemProps {
   projectItemData: {
     title: string;
     desc: string;
+    iDo: string[];
     skill: {
       type: string;
       skillTitle: string[];
@@ -44,13 +45,14 @@ const ProjectItemEle = styled.div`
 
     dl {
       margin: 0px;
+      flex: 1;
     }
   }
 `;
 
 export const ProjectItem = (props: ProjectItemProps) => {
   const { projectItemData } = props;
-  const { title, desc, skill, links, feeling } = projectItemData;
+  const { title, desc, skill, links, feeling, iDo } = projectItemData;
 
   return (
     <ProjectItemEle data-aos='fade-up' data-aos-delay={100} data-aos-duration='700'>
@@ -59,6 +61,16 @@ export const ProjectItem = (props: ProjectItemProps) => {
         <dt>소개</dt>
         <dd>
           <p>{desc}</p>
+        </dd>
+        <dt>I Do</dt>
+        <dd>
+          <ul>
+            {iDo.map((str, idx) => (
+              <li key={idx} style={{ marginBottom: 5 }}>
+                <p>{str}</p>
+              </li>
+            ))}
+          </ul>
         </dd>
         <dt>기술 스택</dt>
         <dd className='skills'>

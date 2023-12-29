@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ProjectItem } from './ProjectItem';
 
-const ProjectsContainer = styled.div`
+const ProjectsContainer = styled.article`
   width: 100%;
   max-width: 1024px;
   padding: 20px;
@@ -18,6 +18,12 @@ const projects = [
   {
     title: 'SHOOT POS(2021.02 ~ 2021.12)',
     desc: '미래에셋페이 앱과 연동되는 window용 POS',
+    iDo: [
+      '프론트엔드 환경 세팅 및 전체 기능 구현',
+      'S3를 이용한 앱 버전 관리와 자동 업데이트 기능 구현',
+      '결제API 연동',
+      'window환경에서의 영수증 프린트 기능구현'
+    ],
     skill: [
       {
         type: '프론트',
@@ -34,7 +40,8 @@ const projects = [
   },
   {
     title: '미래에셋페이(2021.05 ~ 2021.12)',
-    desc: '미래에셋페이 앱의 통계 및 고객관리자 페이지',
+    desc: '통계 및 관리자 페이지',
+    iDo: ['RTK를 이용한 전역 상태관리'],
     skill: [
       {
         type: '프론트',
@@ -52,10 +59,11 @@ const projects = [
   {
     title: 'DMS 서비스(2022.04 ~ 2023.12)',
     desc: '지류 인쇄물 페이지 에디터 서비스',
+    iDo: ['CI/CD 최적화'],
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'Redux', 'styled-component']
+        skillTitle: ['React', 'Redux', 'Styled-component', 'Typescript']
       },
       {
         type: 'etc',
@@ -69,10 +77,11 @@ const projects = [
   {
     title: 'CATALOG 서비스(2022.04 ~ 2023.12)',
     desc: '모바일 전단 제작 서비스',
+    iDo: ['에디터 페이지 성능 최적화', '모바일 전단 뷰어 페이지 최적화'],
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'socket', 'styled-component']
+        skillTitle: ['React', 'socket', 'Typescript', 'Styled-component']
       },
       {
         type: 'etc',
@@ -86,10 +95,11 @@ const projects = [
   {
     title: '이미지AI 서비스 PIXVAS',
     desc: '생성형 AI를 이용하여 이미지 에디팅 서비스',
+    iDo: ['프론트엔드 환경 세팅', 'openpose라이브러리 적용'],
     skill: [
       {
         type: '프론트',
-        skillTitle: ['React', 'styled-component', 'Zustant']
+        skillTitle: ['React', 'Styled-component', 'Zustant', 'Typescript', 'SWR']
       },
       {
         type: 'etc',
@@ -103,10 +113,11 @@ const projects = [
   {
     title: '자사 이벤트관리 서비스',
     desc: '이벤트 생성을 위한 인프라 관리 서비스',
+    iDo: ['프론트엔드/백엔드 환경 세팅', 'Docker를 이용한 CI/CD'],
     skill: [
       {
         type: '프론트/백엔드',
-        skillTitle: ['React', 'Nest.js', 'SWR']
+        skillTitle: ['React', 'Typescript', 'Nest.js', 'SWR']
       },
       {
         type: 'etc',
@@ -120,10 +131,11 @@ const projects = [
   {
     title: '개인 프로젝트(트위치 멀티 뷰어)',
     desc: '트위치 방송을 다중으로 시청 가능한 서비스',
+    iDo: ['트위치 openAPI 연동'],
     skill: [
       {
         type: '프론트',
-        skillTitle: ['Next.js', 'styled-component', 'SWR']
+        skillTitle: ['Next.js', 'Typescript', 'Styled-component', 'SWR']
       }
     ],
     feeling:

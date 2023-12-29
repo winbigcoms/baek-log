@@ -80,6 +80,43 @@ export const skillSet = [
   }
 ];
 
+export const skillDesc = [
+  {
+    title: 'Mind',
+    skill: [
+      '유저의 입장에서 편한 UI/UX를 추구합니다.',
+      '기술은 도구이며 상황에 따라 적절한 도구 선택이 있다고 생각합니다.',
+      '내 업무와 관련된 분야라면, 생소한 분야라도 흐름을 이해하고 소통하려고 노력합니다.'
+    ]
+  },
+  {
+    title: 'Front',
+    skill: [
+      '구조적인 html을 개발할 수 있습니다.',
+      'Media query를 이용한 반응형 웹 개발에 익숙합니다.',
+      'Javascript와 Typescript에 익숙합니다.',
+      'React와 Next를 이용한 개발에 익숙합니다.',
+      '컴포넌트를 논리적으로 분리합니다.',
+      'useCallback, useMemo등의 최적화 작업을 적절한 때 사용합니다.'
+    ]
+  },
+  {
+    title: 'Back',
+    skill: [
+      'Express, Nest.js등의 Node.js 서버 라이브러리로 api서버를 개발 한 경험이 있습니다.',
+      'MongoDB, Mysql, Radis 등의 DB를 이해하고 사용할 수 있습니다.'
+    ]
+  },
+  {
+    title: 'DevOps',
+    skill: [
+      'AWS Route53, EC2, S3등의 서비스 이용에 익숙합니다.',
+      'Jenkins를 이용한 CI/CD의 경험이 있습니다.',
+      '반복적인 업무를 Crontab같은 스케줄러를 이용하여 해결 할 수 있습니다.'
+    ]
+  }
+];
+
 export const ProjectItems = [
   {
     classification: 'main',

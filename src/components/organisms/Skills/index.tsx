@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { skillSet } from 'src/const';
+import { skillDesc } from 'src/const';
+import { Fragment } from 'react';
 
 const SkiilConatiner = styled.article`
   background-color: var(--bg-main);
@@ -8,6 +9,7 @@ const SkiilConatiner = styled.article`
 
   & > div {
     margin: auto;
+    padding: 20px;
   }
 
   div {
@@ -21,45 +23,9 @@ const SkiilConatiner = styled.article`
   }
 `;
 
-const SkillBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  .skill_box {
-    max-width: 350px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 24px;
-    margin-bottom: 15px;
-    text-align: center;
-
-    .skill_info {
-      font-weight: 400;
-      font-size: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-
-      img {
-        padding: 10px;
-        width: 100px;
-        object-fit: contain;
-        background-color: #fff;
-        flex: 0 0 20%;
-      }
-
-      &:first-child {
-        margin-top: 15px;
-      }
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    & > div {
-      width: 100%;
-    }
+const SkillStringBox = styled.div`
+  li {
+    list-style: disc;
   }
 `;
 
@@ -68,23 +34,20 @@ export const Skills = () => {
     <SkiilConatiner>
       <div>
         <h2 tabIndex={1}>기 술</h2>
-        <SkillBox>
-          {skillSet.map(skill => (
-            <div key={skill.title} className='skill_box'>
-              <div className='skill_title' style={{ textAlign: 'center' }}>
-                {skill.title}
-              </div>
-              <div className='skill_info'>
-                {skill.contents &&
-                  skill.contents
-                    .split(',')
-                    .map(text => (
-                      <img key={text} src={`/assets/img/logo/${text.trim()}.png`} alt={text} />
-                    ))}
-              </div>
-            </div>
+        <SkillStringBox>
+          {skillDesc.map(({ title, skill }) => (
+            <Fragment key={title}>
+              <h3>{title}</h3>
+              <ul style={{ lineHeight: '1.2' }}>
+                {skill.map((str, idx) => (
+                  <li key={title + idx} style={{ marginBottom: 5 }}>
+                    {str}
+                  </li>
+                ))}
+              </ul>
+            </Fragment>
           ))}
-        </SkillBox>
+        </SkillStringBox>
       </div>
     </SkiilConatiner>
   );
