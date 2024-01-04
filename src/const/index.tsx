@@ -92,12 +92,12 @@ export const skillDesc = [
   {
     title: 'Front',
     skill: [
-      '구조적인 html을 개발할 수 있습니다.',
+      '구조적인 HTML을 개발할 수 있습니다.',
       'Media query를 이용한 반응형 웹 개발에 익숙합니다.',
       'Javascript와 Typescript에 익숙합니다.',
       'React와 Next를 이용한 개발에 익숙합니다.',
       '컴포넌트를 논리적으로 분리합니다.',
-      'useCallback, useMemo등의 최적화 작업을 적절한 때 사용합니다.'
+      'useCallback, useMemo등의 최적화 작업을 적절하게 사용합니다.'
     ]
   },
   {

@@ -26,6 +26,7 @@ const SkiilConatiner = styled.article`
 const SkillStringBox = styled.div`
   li {
     list-style: disc;
+    word-break: keep-all;
   }
 `;
 

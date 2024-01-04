@@ -1,12 +1,6 @@
 import axios from 'axios';
 import { krChild, krChildUnder } from 'src/const';
-import {
-  Channel_Info,
-  Channel_List_info,
-  Get_Follow_Channels_List,
-  Streamer_Info,
-  userInfo
-} from 'src/types';
+import { Channel_Info, Channel_List_info, Streamer_Info, userInfo } from 'src/types';
 
 export const checkHomeHiddenCommand = (command: string[]) => {
   const targetCommand = ['ArrowUp', 'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
@@ -183,3 +177,29 @@ export class LocalStorageClient {
     return;
   }
 }
+
+export const get_falling_stuff = () => {
+  const date = new Date();
+  const nowMonth = date.getMonth();
+
+  switch (nowMonth) {
+    case 11:
+    case 0:
+    case 1:
+      return '*';
+    case 2:
+    case 3:
+    case 4:
+      return '🌸';
+    case 5:
+    case 6:
+    case 7:
+      return '🍀';
+    case 8:
+    case 9:
+    case 10:
+      return '🍁';
+    default:
+      return '*';
+  }
+};
