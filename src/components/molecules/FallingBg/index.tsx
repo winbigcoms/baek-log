@@ -10,6 +10,8 @@ interface FallingBgProps {
 const FallingBgContainer = styled.div`
   position: fixed;
   z-index: 0;
+  height: 1px;
+  user-select: none;
 `;
 
 export const FallingBg = (props: FallingBgProps) => {
@@ -23,11 +25,12 @@ export const FallingBg = (props: FallingBgProps) => {
         <div
           key={idx}
           style={{
-            position: 'absolute',
             fontSize: '15px',
             color: `#fff`,
-            left: `${data.x}px`,
-            top: `${data.y}px`
+            transform: `translate(${data.x}px, ${data.y}px)`,
+            position: 'absolute',
+            left: 0,
+            top: 0
           }}
         >
           {fallingStuff}

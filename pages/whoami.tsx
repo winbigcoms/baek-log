@@ -22,7 +22,7 @@ const WhoAmIPage = () => {
         <meta name='keyword' content='개발자, 기술이력서, 포트폴리오, 프론트엔드' />
       </Head>
       <Wrapper className={'dark'} darkMode={true}>
-        <FallingBg amount={20} />
+        <FallingBg amount={30} />
         <PortpolloTmp />
       </Wrapper>
     </>

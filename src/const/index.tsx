@@ -86,7 +86,8 @@ export const skillDesc = [
     skill: [
       '유저의 입장에서 편한 UI/UX를 추구합니다.',
       '기술은 도구이며 상황에 따라 적절한 도구 선택이 있다고 생각합니다.',
-      '내 업무와 관련된 분야라면, 생소한 분야라도 흐름을 이해하고 소통하려고 노력합니다.'
+      '내 업무와 관련된 분야라면, 생소한 분야라도 흐름을 이해하고 소통하려고 노력합니다.',
+      '프로젝트에 필요한 기술을 빠르게 이해하고 습득할 수 있습니다.'
     ]
   },
   {
@@ -96,8 +97,7 @@ export const skillDesc = [
       'Media query를 이용한 반응형 웹 개발에 익숙합니다.',
       'Javascript와 Typescript에 익숙합니다.',
       'React와 Next를 이용한 개발에 익숙합니다.',
-      '컴포넌트를 논리적으로 분리합니다.',
-      'useCallback, useMemo등의 최적화 작업을 적절하게 사용합니다.'
+      'Light house등의 성능 측정 도구를 사용하여 서비스를 최적화할 수 있습니다.'
     ]
   },
   {
@@ -110,7 +110,7 @@ export const skillDesc = [
   {
     title: 'DevOps',
     skill: [
-      'AWS Route53, EC2, S3등의 서비스 이용에 익숙합니다.',
+      'AWS Route53, EC2, ELB, S3등의 서비스 이용에 익숙합니다.',
       'Jenkins를 이용한 CI/CD의 경험이 있습니다.',
       '반복적인 업무를 Crontab같은 스케줄러를 이용하여 해결 할 수 있습니다.'
     ]
