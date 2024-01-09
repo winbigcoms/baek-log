@@ -117,48 +117,6 @@ export const skillDesc = [
   }
 ];
 
-export const ProjectItems = [
-  {
-    classification: 'main',
-    item: [
-      {
-        title: 'shoot-pos',
-        content: '가맹점용 웹뷰 윈도우 POS프로그램',
-        tools: ['react', 'redux', 'electron', 'styled-component'],
-        img: '',
-        impression:
-          '기획부터 배포까지 담당했던 프로젝트로 실제 서비스가 어떻게 돌아가는지에 대해 많이 배울 수 있었다'
-      }
-    ]
-  },
-  {
-    classification: 'maintenance',
-    item: [
-      {
-        title: 'DMS',
-        content: '지류 전단지 제작 에디터',
-        tools: 'react, redux',
-        img: '',
-        impression: '유지, 보수작업을 주로하면서 서버와 배포에 대해서 많이 공부할 수 있었습니다.'
-      },
-      {
-        title: 'CATALOG',
-        content: '모바일 이벤트 페이지 제작 에디터',
-        tools: 'react, redux, styled-component',
-        img: '',
-        impression: ''
-      },
-      {
-        title: 'miniprogram admin',
-        content: '',
-        tools: 'react, redux, styled-component',
-        img: '',
-        impression: ''
-      }
-    ]
-  }
-];
-
 export const krChild = [
   'ㄱ',
   'ㄲ',

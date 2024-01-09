@@ -14,11 +14,12 @@ interface ProjectItemProps {
       link: string;
       desc: string;
     }[];
+    mImgs: string[];
+    lImgs: string[];
   };
 }
 
 const ProjectItemEle = styled.div`
-  width: calc(50% - 5px);
   background-color: var(--bg-main);
   h3 ~ dl {
     padding: 0px 1rem;
@@ -31,12 +32,38 @@ const ProjectItemEle = styled.div`
   }
 
   p {
-    text-indent: 1rem;
+    padding-left: 1rem;
   }
 
   ul {
     margin: 0px;
     padding: 0px;
+
+    &.ido {
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .project_header {
+    display: flex;
+    justify-content: space-between;
+
+    .project_info {
+      width: 42%;
+    }
+    .project_img {
+      width: 55%;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+      }
+    }
   }
   .skills {
     display: flex;
@@ -48,48 +75,67 @@ const ProjectItemEle = styled.div`
       flex: 1;
     }
   }
+
+  @media (max-width: 800px) {
+    .project_header {
+      flex-direction: column-reverse;
+      gap: 10px;
+
+      & > div.project_img,
+      div.project_info {
+        width: 100%;
+      }
+    }
+  }
 `;
 
 export const ProjectItem = (props: ProjectItemProps) => {
   const { projectItemData } = props;
-  const { title, desc, skill, links, feeling, iDo } = projectItemData;
+  const { title, desc, skill, links, feeling, iDo, mImgs } = projectItemData;
 
   return (
     <ProjectItemEle data-aos='fade-up' data-aos-delay={100} data-aos-duration='700'>
       <h3>{title}</h3>
       <dl>
-        <dt>소개</dt>
-        <dd>
-          <p>{desc}</p>
-        </dd>
-        <dt>I Do</dt>
-        <dd>
-          <ul>
-            {iDo.map((str, idx) => (
-              <li key={idx} style={{ marginBottom: 5 }}>
-                <p>{str}</p>
-              </li>
-            ))}
-          </ul>
-        </dd>
-        <dt>기술 스택</dt>
-        <dd className='skills'>
-          {skill.map(skill => {
-            const { skillTitle, type } = skill;
-            return (
-              <dl key={skillTitle.join('')}>
-                <dt>{type}</dt>
-                <dd>
-                  <ul>
-                    {skillTitle.map(title => (
-                      <li key={title}>{title}</li>
-                    ))}
-                  </ul>
-                </dd>
-              </dl>
-            );
-          })}
-        </dd>
+        <div className='project_header'>
+          <div className='project_info'>
+            <dt>소개</dt>
+            <dd>
+              <p>{desc}</p>
+            </dd>
+            <dt>I Do</dt>
+            <dd>
+              <ul className='ido'>
+                {iDo.map((str, idx) => (
+                  <li key={idx}>
+                    <p>{str}</p>
+                  </li>
+                ))}
+              </ul>
+            </dd>
+            <dt>기술 스택</dt>
+            <dd className='skills'>
+              {skill.map(skill => {
+                const { skillTitle, type } = skill;
+                return (
+                  <dl key={skillTitle.join('')}>
+                    <dt>{type}</dt>
+                    <dd>
+                      <ul>
+                        {skillTitle.map(title => (
+                          <li key={title}>{title}</li>
+                        ))}
+                      </ul>
+                    </dd>
+                  </dl>
+                );
+              })}
+            </dd>
+          </div>
+          <div className='project_img'>
+            <img src={mImgs[0]} alt='projectImg' />
+          </div>
+        </div>
         <dt>설명</dt>
         <dd
           style={{
