@@ -23,7 +23,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* {!isExceptRouter && <Header path={categoryToKorean(category as string)} />} */}
       <Component {...pageProps} />
       {!isExceptRouter && <Footer />}
     </ThemeProvider>
