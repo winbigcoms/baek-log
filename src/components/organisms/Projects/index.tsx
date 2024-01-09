@@ -122,7 +122,7 @@ const projects = [
     feeling: [
       '프롬프트 혹은 이미지를 기반으로 이미지를 생성하거나, 수정할 수 있는 서비스 입니다.',
       '"OpenPose" 라는 오픈소스를 이용하여 이미지 안의 사람의 동작이나 포즈를 추출하고 변경하는 기능과 유저 친화적인 단축키, 작업 히스토리 기능등의 개발을 주로 맡았습니다.',
-      '이미지 Crop이나 스케치 기능을 구현함에 있어서 CanvasAPI를 이용하여 직접 구현하였고, list를 이용하여 작업 히스토리 기능을 개발할 수 있었습니다.'
+      '이미지 Crop이나 스케치 기능을 구현함에 있어서 CanvasAPI를 이용하여 직접 구현하였고, 스택 구조를 이용하여 작업 히스토리 기능을 개발할 수 있었습니다.'
     ],
     links: [],
     mImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/pixvas/pixvas-1.png'],
