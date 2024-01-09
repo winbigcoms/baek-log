@@ -3,9 +3,8 @@ import styled from 'styled-components';
 
 const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
   margin: auto;
-  padding: 100px 0px 30px;
+  padding: 100px 10px 30px;
   min-height: calc(100vh - 172px);
-  height: calc(100vh - 172px);
 
   .greeting {
     text-align: center;

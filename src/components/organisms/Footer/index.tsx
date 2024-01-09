@@ -65,7 +65,7 @@ export const FooterComponent = () => {
             <Image src={'/assets/img/velog.svg'} width='35px' height='35px' alt='벨로그 아이콘' />
           </a>
           <a href='/'>
-            <Image src={'/assets/img/Logo.svg'} width='35px' height='35px' alt='백로그 아이콘' />
+            <Image src={'/assets/img/logo.png'} width='35px' height='35px' alt='백로그 아이콘' />
           </a>
           <a
             href='https://sedate-stargazer-bc3.notion.site/d174986258ec4e6297723796e2986cac?pvs=4'
