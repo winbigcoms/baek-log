@@ -33,6 +33,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta name='keyword' content='개인 블로그' />
           <meta property='og:locale' content='ko_KR' />
+          <meta name='robots' content='index,follow' />
         </Head>
         <body id='body'>
           <Main />
