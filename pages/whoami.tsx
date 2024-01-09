@@ -20,7 +20,10 @@ const WhoAmIPage = () => {
         <title>백승일 기술이력서</title>
         <meta property='og:type' content='article' />
         <meta property='og:url' content='https://www.white-win.dev/whoami' />
-        <meta property='og:image' content='/assets/img/og.png' />
+        <meta
+          property='og:image'
+          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png'
+        />
         <meta name='og:title' content='웹 개발자 백승일 기술이력서' />
         <meta name='description' content='웹 개발자 백승일의 기술이력서' />
         <meta name='og:description' content='안녕하세요. 백승일입니다.' />
