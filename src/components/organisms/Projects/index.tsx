@@ -34,8 +34,12 @@ const projects = [
         skillTitle: ['AWS S3', 'AWS EC2']
       }
     ],
-    feeling:
-      '가맹점용 윈도우 프로그램으로 electron.js와 React.js로 개발했습니다. 기획팀과 디자인팀 같이 다른 팀과의 협업 또 NFC기능을 이용하기 위해 다른 회사의 개발자와 소통하여 개발을 진행하여 성공적으로 가맹점에 설치하고 운용할 수 있었습니다.',
+    feeling: [
+      '미래에셋페이 앱과 연동되는 가맹점용 POS입니다.',
+      '가맹점의 window PC에서 동작하는 것이 목적이기에 Electron.js를 이용하였고, 내부에 보여지는 화면은 pm2등을 이용한 무중단 배포의 이점을 위해 React.js를 이용한 웹뷰로 진행하였습니다.',
+      '결제, 거래 내역확인, 로그인 등 전체 기능을 개발하였고, 특히 electron의 기능들을 이용하여 영수증 프린트 기능과 시작 프로그램 등록을 통해 PC 시작시 자동으로 실행되는 기능을 개발하였습니다.',
+      '브라우저 환경이 아닌 윈도우 환경에서 동작하는 서비스여서 신선하고, 많은 직군의 사람들과 소통함으로 많은 것을 배울 수 있었습니다.'
+    ],
     links: [],
     mImgs: [
       'https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/shootpos/shoot-pos-1.png'
@@ -58,8 +62,11 @@ const projects = [
         skillTitle: ['Tencent-cloud', 'Jenkins']
       }
     ],
-    feeling:
-      '지류 인쇄물을 웹에서 제작하는 DMS서비스를 개발했습니다. 특히 서비스의 CI/CD 프로세스를 개선하여 빌드 속도를 단축 시킬 수 있었습니다.',
+    feeling: [
+      '지류 인쇄물을 웹에서 제작하는 서비스입니다.',
+      '웹 페이지를 puppeteer를 이용하여 스크린샷을 찍고, pdf나 여러 사이즈의 파일로 만들어 잡지형식의 뷰어로 보여주는 서비스로 프로젝트의 인프라 구조를 공부하면서 웹 서비스의 인프라 구조에 대해 깊게 배우는 계기가 되었습니다.',
+      '서비스의 유지보수를 맡았고, 특히 여러대의 pdf제작 서버에서의 jenkins를 이용한 빌드 과정을 직렬식에서 병렬식으로 변경함으로 빌드에 들어가는 시간을 줄일 수 있었습니다.'
+    ],
     links: [],
     mImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/DMS/dms-m-1.png'],
     lImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/DMS/dms-1.png']
@@ -78,8 +85,10 @@ const projects = [
         skillTitle: ['Tencent-cloud', 'Jenkins', 'Node.js']
       }
     ],
-    feeling:
-      '모바일 전단지를 제작하는 Catalog서비스를 개발 했습니다. 특히 성능 최적화를 통해 콘텐츠가 많아 첫 랜더링이 5초 정도 걸렸던 페이지 초기 로딩 속도를 1초로 정도 개선할 수 있었습니다.',
+    feeling: [
+      '여러 디자인의 모듈을 조합하여 하나의 페이지를 제작하고, 제작한 페이지들으로 모바일 전단지를 제작하는 서비스 입니다.',
+      '서비스의 유지보수를 맡았고, 페이지에 들어가는 모듈이나 콘텐츠가 많아 최초 랜더링이 3초 이상 걸리던 페이지 로딩 속도를 ObserverAPI를 이용하여 최적화 함으로 개선할 수 있었습니다.'
+    ],
     links: [],
     mImgs: [
       'https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/CATALOG/catalog-m-1.png'
@@ -93,8 +102,10 @@ const projects = [
       'openpose를 이용한 인물 Image to Image기능 및 포즈 추출 기능 개발',
       '이미지 Crop기능 개발',
       '텍스트 레이어 개발',
-      '단축키(풀 스크린, 시스템바 숨기기, 캔버스 확대 축소, 이미지 복사 붙여넣기, 레이어 이동, 작업 되돌리기 등)기능 개발',
+      '단축키(복사 붙여넣기, 작업 되돌리기 등)기능 개발',
       '작업 히스토리 기능 개발',
+      '브랜드 페이지 개발',
+      'I18n을 이용한 다국어(영어/한국어) 지원',
       '회원가입시 gspread를 이용하여 google docs연동',
       '미니 이벤트 페이지 개발'
     ],
@@ -108,8 +119,11 @@ const projects = [
         skillTitle: ['Tencent-cloud', 'Docker', 'FastApi']
       }
     ],
-    feeling:
-      '프롬프트로 이미지를 생성하거나, 수정할 수 있는 서비스 입니다. "OpenPose" 라는 오픈소스를 이용하여 이미지 안의 사람의 동작이나 포즈를 추출하고 변경하는 기능과 텍스트를 켈리그라피 기능을  맡았습니다.',
+    feeling: [
+      '프롬프트 혹은 이미지를 기반으로 이미지를 생성하거나, 수정할 수 있는 서비스 입니다.',
+      '"OpenPose" 라는 오픈소스를 이용하여 이미지 안의 사람의 동작이나 포즈를 추출하고 변경하는 기능과 유저 친화적인 단축키, 작업 히스토리 기능등의 개발을 주로 맡았습니다.',
+      '이미지 Crop이나 스케치 기능을 구현함에 있어서 CanvasAPI를 이용하여 직접 구현하였고, list를 이용하여 작업 히스토리 기능을 개발할 수 있었습니다.'
+    ],
     links: [],
     mImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/pixvas/pixvas-1.png'],
     lImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/pixvas/pixvas-m-1.png']
@@ -132,8 +146,12 @@ const projects = [
         skillTitle: ['AWS', 'Docker']
       }
     ],
-    feeling:
-      'AWS를 이용하여 사용자가 간편하게 SI 이벤트 페이지를 개설하고 진행할수 있는 서비스입니다. 간단한 사용 flow로 EC2, target-group, Route53 등의 인프라 세팅을 구축할 수 있습니다.',
+    feeling: [
+      '사용자가 간편하게 고정적인 이벤트 페이지를 개설하고 진행할수 있는 서비스입니다.',
+      '개발자가 아닌 사용자가 쉽게 사용하는 것을 목표로 개발하였습니다.',
+      'Nest.js와 AWS-sdk를 이용하여 AWS의 여러 서비스를 연동하여 클릭 한번으로 서버를 생성하고, 이벤트 페이지를 생성할 수 있습니다.',
+      '프로젝트를 진행하면서 웹 서비스의 인프라에 대해 좀 더 구체적으로 이해 할 수 있었습니다.'
+    ],
     links: [],
     mImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/event-auto/m-1.png'],
     lImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/event-auto/1.png']
@@ -148,8 +166,9 @@ const projects = [
         skillTitle: ['Next.js', 'Typescript', 'Styled-component', 'SWR']
       }
     ],
-    feeling:
-      '트위치의 open-api를 이용하여 자신의 트위치 아이디로 로그인하여 팔로우한 스트리머들의 방송을 최대 5개 까지 시청할 수 있는 서비스 입니다.',
+    feeling: [
+      '트위치의 open-api를 이용하여 자신의 트위치 아이디로 로그인하여 팔로우한 스트리머들의 방송을 최대 5개 까지 시청할 수 있는 서비스 입니다.'
+    ],
     links: [
       {
         link: 'https://www.white-win.dev/playground/multi-twitch',

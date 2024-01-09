@@ -9,7 +9,7 @@ interface ProjectItemProps {
       type: string;
       skillTitle: string[];
     }[];
-    feeling: string;
+    feeling: string[];
     links: {
       link: string;
       desc: string;
@@ -76,6 +76,12 @@ const ProjectItemEle = styled.div`
     }
   }
 
+  .explain {
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
   @media (max-width: 800px) {
     .project_header {
       flex-direction: column-reverse;
@@ -139,10 +145,13 @@ export const ProjectItem = (props: ProjectItemProps) => {
         <dt>설명</dt>
         <dd
           style={{
-            lineHeight: 1.5
+            lineHeight: 1.3
           }}
+          className='explain'
         >
-          {feeling}
+          {feeling.map((feel, idx) => (
+            <p key={idx}>{feel}</p>
+          ))}
         </dd>
         {Boolean(links.length) && (
           <>
