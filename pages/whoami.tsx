@@ -18,7 +18,12 @@ const WhoAmIPage = () => {
     <>
       <Head>
         <title>백승일 기술이력서</title>
+        <meta property='og:type' content='article' />
+        <meta property='og:url' content='https://www.white-win.dev/whoami' />
+        <meta property='og:image' content='/assets/img/og.png' />
+        <meta name='og:title' content='웹 개발자 백승일 기술이력서' />
         <meta name='description' content='웹 개발자 백승일의 기술이력서' />
+        <meta name='og:description' content='안녕하세요. 백승일입니다.' />
         <meta name='keyword' content='개발자, 기술이력서, 포트폴리오, 프론트엔드' />
       </Head>
       <Wrapper className={'dark'} darkMode={true}>
