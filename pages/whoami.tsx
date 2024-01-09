@@ -23,6 +23,9 @@ const WhoAmIPage = () => {
         <meta property='og:type' content='article' />
         <meta property='og:title' content='웹 개발자 백승일 기술이력서' />
         <meta property='og:description' content='안녕하세요. 백승일입니다.' />
+        <meta property='og:image' content='/assets/img/og.png' />
+        <meta property='og:image:type' content='image/png' />
+        <meta name='twitter:image' content='/assets/img/og.png' />
       </Head>
       <Wrapper className={'dark'} darkMode={true}>
         <FallingBg amount={30} />
