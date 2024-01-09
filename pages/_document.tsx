@@ -33,6 +33,10 @@ export default class MyDocument extends Document {
         <Head>
           <meta name='keyword' content='개인 블로그' />
           <meta property='og:locale' content='ko_KR' />
+          <meta
+            property='og:image'
+            content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png'
+          />
         </Head>
         <body id='body'>
           <Main />

@@ -21,10 +21,6 @@ const WhoAmIPage = () => {
         <meta name='description' content='웹 개발자 백승일의 기술이력서' />
         <meta name='keyword' content='개발자, 기술이력서, 포트폴리오, 프론트엔드' />
         <meta property='og:type' content='article' />
-        <meta
-          property='og:image'
-          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png'
-        />
         <meta name='og:title' content='웹 개발자 백승일 기술이력서' />
         <meta name='og:description' content='안녕하세요. 백승일입니다.' />
       </Head>
