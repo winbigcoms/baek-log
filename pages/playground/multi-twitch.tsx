@@ -7,6 +7,11 @@ const MultiViewerTwitch = () => {
       <Head>
         <title>multi-twitch</title>
         <meta name='description' content='트위치 다중화면 시청' />
+        <meta
+          property='og:image'
+          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/multi-og.png'
+          key='og-img'
+        />
       </Head>
       <MultiTwitchTmp />
     </>

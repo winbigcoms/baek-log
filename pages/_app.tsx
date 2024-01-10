@@ -36,7 +36,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png'
           key='og-img'
         />
-        <meta property='og:image:type' content='image/jpg' key='og-img-type' />
         <meta property='twitter:domain' content='https://www.white-win.dev' key='twitter-domain' />
         <meta property='twitter:url' content='https://www.white-win.dev/' key='twitter-url' />
         <meta name='twitter:card' content='summary_large_image' key='twitter-card' />
