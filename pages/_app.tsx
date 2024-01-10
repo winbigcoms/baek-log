@@ -26,19 +26,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name='keyword' content='개인 블로그' key='keyword' />
-        <meta property='og:locale' content='ko_KR' key='og-locale' />
         <meta name='robots' content='index,follow' key='robots' />
-        <meta property='og:url' content='https://www.white-win.dev/' key='og-url' />
-        <meta property='og:type' content='website' key='og-type' />
         <meta name='description' content='안녕하세요. 백승일입니다.' key='desc' />
+        <meta property='og:locale' content='ko_KR' key='og-locale' />
+        <meta property='og:type' content='website' key='og-type' />
         <meta property='og:description' content='안녕하세요. 백승일입니다.' key='og-desc' />
         <meta
           property='og:image'
           content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png'
           key='og-img'
         />
-        <meta property='twitter:domain' content='https://www.white-win.dev' key='twitter-domain' />
-        <meta property='twitter:url' content='https://www.white-win.dev/' key='twitter-url' />
         <meta name='twitter:card' content='summary_large_image' key='twitter-card' />
         <meta
           name='twitter:image'

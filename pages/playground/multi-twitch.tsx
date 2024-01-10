@@ -7,6 +7,11 @@ const MultiViewerTwitch = () => {
       <Head>
         <title>multi-twitch</title>
         <meta name='description' content='트위치 다중화면 시청' key='desc' />
+        <meta
+          property='og:url'
+          content='https://www.white-win.dev/playground/multi-twitch'
+          key='og-url'
+        />
         <meta property='og:description' content='트위치 다중화면 시청' key='og-desc' />
         <meta
           property='og:image'
