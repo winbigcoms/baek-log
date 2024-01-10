@@ -21,13 +21,13 @@ const WhoAmIPage = () => {
         <meta property='og:url' content='https://www.white-win.dev/whoami' key='og-url' />
         <meta
           property='og:image'
-          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png?v=1'
+          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png'
           key='og-img'
         />
         <meta property='twitter:url' content='https://www.white-win.dev/whoami' key='twitter-url' />
         <meta
           name='twitter:image'
-          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png?v=1'
+          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png'
           key='twitter-key'
         />
       </Head>

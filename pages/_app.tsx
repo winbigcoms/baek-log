@@ -30,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name='robots' content='index,follow' key='robots' />
         <meta property='og:url' content='https://www.white-win.dev/' key='og-url' />
         <meta property='og:type' content='website' key='og-type' />
+        <meta name='description' content='안녕하세요. 백승일입니다.' key='desc' />
         <meta property='og:description' content='안녕하세요. 백승일입니다.' key='og-desc' />
         <meta
           property='og:image'
