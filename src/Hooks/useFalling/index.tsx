@@ -48,7 +48,7 @@ const failling = (faillingData: FaillingData[]) =>
   });
 
 export const useFalling = (count: number): FaillingData[] => {
-  const [faillingDatas, setFaillingData] = useState<FaillingData[]>(makeDefaultFaillingData(count)); //배열
+  const [faillingDatas, setFaillingData] = useState<FaillingData[]>([]); //배열
   const fallingAnimationRef = useRef(0);
 
   const setSnowPosition = () => {
@@ -58,6 +58,7 @@ export const useFalling = (count: number): FaillingData[] => {
 
   useEffect(() => {
     if (window === undefined) return;
+    setFaillingData(makeDefaultFaillingData(count));
     fallingAnimationRef.current = requestAnimationFrame(setSnowPosition);
 
     return () => {

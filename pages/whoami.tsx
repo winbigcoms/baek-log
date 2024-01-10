@@ -18,6 +18,18 @@ const WhoAmIPage = () => {
     <>
       <Head>
         <title>백승일 기술이력서</title>
+        <meta property='og:url' content='https://www.white-win.dev/whoami' key='og-url' />
+        <meta
+          property='og:image'
+          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png?v=1'
+          key='og-img'
+        />
+        <meta property='twitter:url' content='https://www.white-win.dev/whoami' key='twitter-url' />
+        <meta
+          name='twitter:image'
+          content='https://baek-log-img.s3.ap-northeast-2.amazonaws.com/og.png?v=1'
+          key='twitter-key'
+        />
       </Head>
       <Wrapper className={'dark'} darkMode={true}>
         <FallingBg amount={30} />

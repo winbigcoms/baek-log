@@ -17,7 +17,7 @@ const exceptRouter = ['year', 'playground/paint', 'playground/multi-twitch', 'pl
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const isExceptRouter = exceptRouter.includes(router.pathname.replace('/', ''));
-  console.log(pageProps);
+
   useEffect(() => {
     AOS.init();
   }, []);
