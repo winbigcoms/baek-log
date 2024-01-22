@@ -11,7 +11,9 @@ const NotFoundContainer = styled.main<{ darkMode: boolean }>`
   background-color: ${props => (props.darkMode ? '#000' : '#fff')};
   color: ${props => (props.darkMode ? '#fff' : '#000')};
 
-  transition: background-color 400ms linear, color 400ms linear;
+  transition:
+    background-color 400ms linear,
+    color 400ms linear;
 
   text-align: center;
   font-size: 24px;
@@ -28,9 +30,7 @@ const NotFoundComponent = () => {
     <NotFoundContainer darkMode={true}>
       존재하지 않는 페이지인데! <br /> 어떻게 왔죠! <br />
       돌아가요!
-      <Link href='/whoami'>
-        <a> 홈으로 돌아가기</a>
-      </Link>
+      <Link href='/whoami'>홈으로 돌아가기</Link>
     </NotFoundContainer>
   );
 };

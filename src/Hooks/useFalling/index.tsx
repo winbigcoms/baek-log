@@ -7,24 +7,20 @@ interface FaillingData {
 } //정보
 
 const makeDefaultFaillingData = (count: number = 10) => {
-  if (typeof window !== 'undefined') {
-    const datas: FaillingData[] = [];
-    const innerWidth = window.innerWidth;
-    const innerHeight = window.innerHeight;
+  const datas: FaillingData[] = [];
+  const innerWidth = window.innerWidth;
+  const innerHeight = window.innerHeight;
 
-    for (let i = 0; i < count; i++) {
-      const data = {
-        x: Math.floor(Math.random() * innerWidth - 10),
-        y: Math.floor(Math.random() * innerHeight),
-        speedOfFall: Math.random() / 2 + 0.1
-      };
-      datas.push(data);
-    }
-
-    return datas;
-  } else {
-    return [];
+  for (let i = 0; i < count; i++) {
+    const data = {
+      x: Math.floor(Math.random() * innerWidth - 10),
+      y: Math.floor(Math.random() * innerHeight),
+      speedOfFall: Math.random() / 2 + 0.1
+    };
+    datas.push(data);
   }
+
+  return datas;
 };
 
 const failling = (faillingData: FaillingData[]) =>
@@ -48,7 +44,7 @@ const failling = (faillingData: FaillingData[]) =>
   });
 
 export const useFalling = (count: number): FaillingData[] => {
-  const [faillingDatas, setFaillingData] = useState<FaillingData[]>(makeDefaultFaillingData(count)); //배열
+  const [faillingDatas, setFaillingData] = useState<FaillingData[]>([]); //배열
   const fallingAnimationRef = useRef(0);
 
   const setSnowPosition = () => {
@@ -57,7 +53,10 @@ export const useFalling = (count: number): FaillingData[] => {
   };
 
   useEffect(() => {
-    if (window === undefined) return;
+    setFaillingData(makeDefaultFaillingData(count));
+  }, []);
+
+  useEffect(() => {
     fallingAnimationRef.current = requestAnimationFrame(setSnowPosition);
 
     return () => {

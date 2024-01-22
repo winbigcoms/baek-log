@@ -56,29 +56,29 @@ export const FooterComponent = () => {
           <a href='https://github.com/winbigcoms' target='_blank' rel='noreferrer'>
             <Image
               src={'/assets/img/github-white.png'}
-              width='35px'
-              height='35px'
+              width={35}
+              height={35}
               alt='깃허브 아이콘'
             />
           </a>
           <a href='https://velog.io/@winbigcoms' target='_blank' rel='noreferrer'>
-            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' alt='벨로그 아이콘' />
+            <Image src={'/assets/img/velog.svg'} width={35} height={35} alt='벨로그 아이콘' />
           </a>
           <a href='/'>
-            <Image src={'/assets/img/logo.png'} width='35px' height='35px' alt='백로그 아이콘' />
+            <Image src={'/assets/img/logo.png'} width={35} height={35} alt='백로그 아이콘' />
           </a>
           <a
             href='https://sedate-stargazer-bc3.notion.site/d174986258ec4e6297723796e2986cac?pvs=4'
             target='_blank'
             rel='noreferrer'
           >
-            <Image src={'/assets/img/notion.webp'} width='35px' height='35px' alt='백로그 아이콘' />
+            <Image src={'/assets/img/notion.webp'} width={35} height={35} alt='백로그 아이콘' />
           </a>
           <a href='https://more-then-yesterday.tistory.com/' target='_blank' rel='noreferrer'>
             <Image
               src={'/assets/img/logo/tstory.png'}
-              width='35px'
-              height='35px'
+              width={35}
+              height={35}
               alt='티스토리 아이콘'
             />
           </a>

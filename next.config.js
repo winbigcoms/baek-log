@@ -14,7 +14,14 @@ const nextConfig = {
     AWS_ACCSES_PW: process.env.AWS_ACCSES_PW
   },
   images: {
-    domains: ['baek-log-img.s3.ap-northeast-2.amazonaws.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'baek-log-img.s3.ap-northeast-2.amazonaws.com',
+        port: '',
+        pathname: '/projects/**'
+      }
+    ]
   },
   compiler: {
     styledComponents: true
