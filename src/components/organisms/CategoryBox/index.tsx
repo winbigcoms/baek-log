@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
-
+'use client';
 import styled from 'styled-components';
 
 import { CategoryText, MoreButton } from 'src/components/atoms';
 import { ImageBox } from 'src/components/molecules';
 import { useState } from 'react';
 import { CategoryItem } from 'src/model';
+import { useRouter } from 'next/navigation';
 
 const CategoryBoxElement = styled.section`
   max-width: 1024px;

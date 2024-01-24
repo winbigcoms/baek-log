@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router';
-
 import styled from 'styled-components';
 
 import {
@@ -11,6 +9,8 @@ import {
 import { ImageBox, ModalHeader } from 'src/components/molecules';
 
 import { useNewWrite } from 'src/Hooks';
+import { useSearchParams } from 'next/navigation';
+
 const ModalMain = styled.main`
   padding: 20px;
   min-height: calc(100% - 80px);
@@ -67,8 +67,8 @@ interface CategoryHiddenModalProps {
 export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
   const { switchModalState, initValue } = props;
 
-  const router = useRouter();
-  const { category } = router.query;
+  const router = useSearchParams();
+  const category = router.get('category') || '';
 
   const {
     writeRefs,

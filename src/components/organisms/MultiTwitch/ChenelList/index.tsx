@@ -1,4 +1,4 @@
-'ues client';
+'use client';
 import { UIEvent, useState } from 'react';
 import { Channel_Info } from 'src/types';
 import { LocalStorageClient, get_Follow_Streamers_With_Img } from 'src/utills';

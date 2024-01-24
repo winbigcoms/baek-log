@@ -1,10 +1,9 @@
-import { useRouter } from 'next/router';
-
 import styled, { keyframes } from 'styled-components';
 
 import { BannerText } from 'src/components/atoms';
 
 import { TypeingText } from 'src/components/atoms/TypIngText';
+import { usePathname } from 'next/navigation';
 
 const introduceAnimation = keyframes`
 0% {
@@ -80,9 +79,7 @@ const targetStrings = [
 export const Header = (props: HeaderProps) => {
   const { path } = props;
 
-  const router = useRouter();
-
-  const route = router.asPath;
+  const route = usePathname();
 
   return (
     <div
@@ -107,7 +104,6 @@ export const Header = (props: HeaderProps) => {
           )}
         </BannerText>
       </HeaderContainer>
-      {/* <SlideSwitch initState={true} onChange={() => {}} /> */}
     </div>
   );
 };

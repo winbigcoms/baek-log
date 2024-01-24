@@ -1,3 +1,4 @@
+'use client';
 import { useMemo } from 'react';
 import { useFalling } from 'src/Hooks';
 import { get_falling_stuff } from 'src/utills';
