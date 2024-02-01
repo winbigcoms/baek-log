@@ -4,8 +4,9 @@ if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({ path: './config/.env.development' });
 }
 
+const withTM = require('next-transpile-modules')();
+
 const nextConfig = {
-  reactStrictMode: true,
   env: {
     EDITOR_KEY: process.env.EDITOR_KEY,
     AWS_IMG_BUCKET: process.env.AWS_IMG_BUCKET,
@@ -28,4 +29,4 @@ const nextConfig = {
   }
 };
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig);

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { FallingBg } from 'src/components/molecules';
 
 import { PortpolloTmp } from 'src/components/templates';
@@ -15,15 +14,10 @@ const Wrapper = styled.div<{ darkMode: boolean }>`
 
 const WhoAmIPage = () => {
   return (
-    <>
-      <Head>
-        <title>백승일 기술이력서</title>
-      </Head>
-      <Wrapper className={'dark'} darkMode={true}>
-        <FallingBg amount={30} />
-        <PortpolloTmp />
-      </Wrapper>
-    </>
+    <Wrapper className={'dark'} darkMode={true}>
+      <FallingBg amount={30} />
+      <PortpolloTmp />
+    </Wrapper>
   );
 };
 
