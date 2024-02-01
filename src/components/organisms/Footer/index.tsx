@@ -1,12 +1,13 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import styled from 'styled-components';
 
-const FooterElement = styled.footer<{ darkMode: boolean }>`
-  background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-  color: ${props => (props.darkMode ? '#fff' : '#000')};
-  border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
+const FooterElement = styled.footer`
+  background-color: #000;
+  color: #fff;
+  border-top: 1px solid #ccc;
   transition:
     background-color 400ms linear,
     color 400ms linear;
@@ -50,7 +51,7 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
 
 export const FooterComponent = () => {
   return (
-    <FooterElement darkMode={true}>
+    <FooterElement>
       <div>
         <div>
           <a href='https://github.com/winbigcoms' target='_blank' rel='noreferrer'>

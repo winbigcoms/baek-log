@@ -1,9 +1,10 @@
+'use client';
 import { FallingBg } from 'src/components/molecules';
 
 import { PortpolloTmp } from 'src/components/templates';
 import styled from 'styled-components';
 
-const Wrapper = styled.div<{ darkMode: boolean }>`
+const Wrapper = styled.div`
   background-color: var(--bg-main);
   color: var(--text-main);
 
@@ -14,7 +15,7 @@ const Wrapper = styled.div<{ darkMode: boolean }>`
 
 const WhoAmIPage = () => {
   return (
-    <Wrapper className={'dark'} darkMode={true}>
+    <Wrapper className={'dark'}>
       <FallingBg amount={30} />
       <PortpolloTmp />
     </Wrapper>

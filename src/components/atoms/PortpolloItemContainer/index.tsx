@@ -26,7 +26,10 @@ const PortpolloItemContainerElement = styled.article`
   }
 `;
 
-export const PortpolloItemContainer: React.FC<{ color?: string }> = ({ children, color }) => {
+export const PortpolloItemContainer: React.FC<{
+  color?: string;
+  children: React.ReactNode | React.ReactNode[];
+}> = ({ children, color }) => {
   return (
     <ArticleContainer color={color}>
       <PortpolloItemContainerElement>{children}</PortpolloItemContainerElement>

@@ -1,3 +1,4 @@
+'use client';
 import Head from 'next/head';
 import { MultiTwitchTmp } from 'src/components/templates';
 
