@@ -1,16 +1,11 @@
-import { useRouter } from 'next/router';
-
 import styled from 'styled-components';
 
-import {
-  BlockItemContainer,
-  ContentsEditor,
-  ModalContainer,
-  SubmitButton
-} from 'src/components/atoms';
+import { BlockItemContainer, ModalContainer, SubmitButton } from 'src/components/atoms';
 import { ImageBox, ModalHeader } from 'src/components/molecules';
 
 import { useNewWrite } from 'src/Hooks';
+import { useSearchParams } from 'next/navigation';
+
 const ModalMain = styled.main`
   padding: 20px;
   min-height: calc(100% - 80px);
@@ -67,8 +62,8 @@ interface CategoryHiddenModalProps {
 export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
   const { switchModalState, initValue } = props;
 
-  const router = useRouter();
-  const { category } = router.query;
+  const router = useSearchParams();
+  const category = router.get('category') || '';
 
   const {
     writeRefs,
@@ -77,8 +72,7 @@ export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
     onEnterKeyword,
     removeKeyword,
     uploadThumbnail,
-    thumbnailPreview,
-    onChangeContents
+    thumbnailPreview
   } = useNewWrite((category as string) || '');
 
   const closeModal = () => {
@@ -128,7 +122,6 @@ export const CategoryHiddenModal = (props: CategoryHiddenModalProps) => {
               />
             </div>
           </label>
-          <ContentsEditor onContentChange={onChangeContents} height={700} />
           <SubmitButton onClick={() => {}} text={initValue ? '수정' : '저장'} />
         </div>
       </ModalMain>

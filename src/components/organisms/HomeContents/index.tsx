@@ -1,7 +1,7 @@
 import { ImageBox } from 'src/components/molecules';
 import styled from 'styled-components';
 
-const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
+const HomeContentsContainer = styled.main`
   margin: auto;
   padding: 100px 10px 30px;
   min-height: calc(100vh - 172px);
@@ -16,8 +16,8 @@ const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
     margin-bottom: 15px;
   }
 
-  background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-  color: ${props => (props.darkMode ? '#fff' : '#000')};
+  background-color: #000;
+  color: #fff;
   transition:
     background-color 400ms linear,
     color 400ms linear;
@@ -45,7 +45,7 @@ const HomeContentsContainer = styled.main<{ darkMode: boolean }>`
 
 export const HomeContents = () => {
   return (
-    <HomeContentsContainer darkMode={true}>
+    <HomeContentsContainer>
       <h2 className='a11y-hidden'>home</h2>
       <p className='greeting'>
         어서 오시게 낮선 이여. 여긴 아무것도 없다네. 다른 곳을 둘러보시게나

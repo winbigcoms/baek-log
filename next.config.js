@@ -4,8 +4,9 @@ if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({ path: './config/.env.development' });
 }
 
+const withTM = require('next-transpile-modules')();
+
 const nextConfig = {
-  reactStrictMode: true,
   env: {
     EDITOR_KEY: process.env.EDITOR_KEY,
     AWS_IMG_BUCKET: process.env.AWS_IMG_BUCKET,
@@ -14,11 +15,18 @@ const nextConfig = {
     AWS_ACCSES_PW: process.env.AWS_ACCSES_PW
   },
   images: {
-    domains: ['baek-log-img.s3.ap-northeast-2.amazonaws.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'baek-log-img.s3.ap-northeast-2.amazonaws.com',
+        port: '',
+        pathname: '/projects/**'
+      }
+    ]
   },
   compiler: {
     styledComponents: true
   }
 };
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig);

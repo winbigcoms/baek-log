@@ -1,3 +1,4 @@
+'use client';
 import { ChangeEvent, FormEvent, KeyboardEvent, useCallback, useRef, useState } from 'react';
 import { imgUploader } from 'src/utills';
 

@@ -1,12 +1,13 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import styled from 'styled-components';
 
-const FooterElement = styled.footer<{ darkMode: boolean }>`
-  background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-  color: ${props => (props.darkMode ? '#fff' : '#000')};
-  border-top: 1px solid ${props => (props.darkMode ? '#ccc' : '#000')};
+const FooterElement = styled.footer`
+  background-color: #000;
+  color: #fff;
+  border-top: 1px solid #ccc;
   transition:
     background-color 400ms linear,
     color 400ms linear;
@@ -50,35 +51,35 @@ const FooterElement = styled.footer<{ darkMode: boolean }>`
 
 export const FooterComponent = () => {
   return (
-    <FooterElement darkMode={true}>
+    <FooterElement>
       <div>
         <div>
           <a href='https://github.com/winbigcoms' target='_blank' rel='noreferrer'>
             <Image
               src={'/assets/img/github-white.png'}
-              width='35px'
-              height='35px'
+              width={35}
+              height={35}
               alt='깃허브 아이콘'
             />
           </a>
           <a href='https://velog.io/@winbigcoms' target='_blank' rel='noreferrer'>
-            <Image src={'/assets/img/velog.svg'} width='35px' height='35px' alt='벨로그 아이콘' />
+            <Image src={'/assets/img/velog.svg'} width={35} height={35} alt='벨로그 아이콘' />
           </a>
           <a href='/'>
-            <Image src={'/assets/img/logo.png'} width='35px' height='35px' alt='백로그 아이콘' />
+            <Image src={'/assets/img/logo.png'} width={35} height={35} alt='백로그 아이콘' />
           </a>
           <a
             href='https://sedate-stargazer-bc3.notion.site/d174986258ec4e6297723796e2986cac?pvs=4'
             target='_blank'
             rel='noreferrer'
           >
-            <Image src={'/assets/img/notion.webp'} width='35px' height='35px' alt='백로그 아이콘' />
+            <Image src={'/assets/img/notion.webp'} width={35} height={35} alt='백로그 아이콘' />
           </a>
           <a href='https://more-then-yesterday.tistory.com/' target='_blank' rel='noreferrer'>
             <Image
               src={'/assets/img/logo/tstory.png'}
-              width='35px'
-              height='35px'
+              width={35}
+              height={35}
               alt='티스토리 아이콘'
             />
           </a>

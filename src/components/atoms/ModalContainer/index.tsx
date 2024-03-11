@@ -27,7 +27,9 @@ const HomeHiddenModalContainer = styled.div`
   }
 `;
 
-export const ModalContainer: React.FC = props => {
+export const ModalContainer: React.FC<{
+  children: React.ReactNode;
+}> = props => {
   return (
     <HomeHiddenModalContainer>
       <div>{props.children}</div>

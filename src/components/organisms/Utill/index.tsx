@@ -1,3 +1,4 @@
+'use client';
 import { ChangeEvent, useState } from 'react';
 import { defaultAPI } from 'src/api/default';
 import { ResponseDefaultAPIUtillCompare } from 'src/types/apis/default';

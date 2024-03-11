@@ -1,7 +1,6 @@
 export * from './BannerText';
 export * from './CategoryText';
 export * from './CategoryMiddleText';
-export * from './ContentsEditor';
 
 export * from './MoreButton';
 export * from './CloseButton';

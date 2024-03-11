@@ -1,3 +1,4 @@
+'use client';
 import { useMemo } from 'react';
 import { useFalling } from 'src/Hooks';
 import { get_falling_stuff } from 'src/utills';
@@ -12,6 +13,11 @@ const FallingBgContainer = styled.div`
   z-index: 0;
   height: 1px;
   user-select: none;
+
+  & ~ div img {
+    position: relative;
+    z-index: 1;
+  }
 `;
 
 export const FallingBg = (props: FallingBgProps) => {

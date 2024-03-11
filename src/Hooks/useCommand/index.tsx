@@ -1,17 +1,12 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-
 import { useEffect, useRef } from 'react';
-
+import { useModal } from '../useModal';
 import { checkHomeHiddenCommand } from 'src/utills';
-import { useModal } from 'src/Hooks';
 
-import { HomeHiddenModal, HomeTmp } from 'src/components/templates';
-
-const Home: NextPage = () => {
+export const useCommand = (
+  modalEle: (props: { switchModalState: (state: boolean) => void }) => JSX.Element
+) => {
   const command = useRef<string[]>([]);
-  const { ModalComponent, modalState, switchModalState } = useModal({ Contents: HomeHiddenModal });
-
+  const { modalState, switchModalState } = useModal({ Contents: modalEle });
   useEffect(() => {
     const hiddenCommand = (e: KeyboardEvent) => {
       command.current.push(e.code);
@@ -35,17 +30,5 @@ const Home: NextPage = () => {
       window.removeEventListener('keydown', hiddenCommand);
     };
   }, []);
-
-  return (
-    <>
-      <Head>
-        <title>Baek log</title>
-        <meta name='description' content='웹 개발자 백승일의 개발자 블로그' />
-      </Head>
-      <HomeTmp />
-      {modalState && ModalComponent}
-    </>
-  );
+  return;
 };
-
-export default Home;
