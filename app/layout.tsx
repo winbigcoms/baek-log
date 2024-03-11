@@ -14,6 +14,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body>
+        <link
+          rel='preload'
+          href='https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
         <RootStyleRegistry>{children}</RootStyleRegistry>
       </body>
     </html>
