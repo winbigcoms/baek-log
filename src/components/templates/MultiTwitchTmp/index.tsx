@@ -1,6 +1,5 @@
-'use client';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useModal } from 'src/Hooks';
 import {
   MultiTwitchChenelList,
@@ -16,7 +15,6 @@ export const MultiTwitchTmp = () => {
   const [selectedList, setSelectList] = useState<Channel_Info[]>([]);
   const [isLogin, setLogin] = useState(false);
   const [showLargeUserId, selectShowLargeUserId] = useState('');
-  const router = useRouter();
   const access_token = LocalStorageClient.getItem('access_token');
   const userId = LocalStorageClient.getItem('userId');
 
@@ -55,7 +53,7 @@ export const MultiTwitchTmp = () => {
       return;
     }
 
-    const path = router.asPath;
+    const path = usePathname();
     // oauth ridirect 체크
     if (path.includes('#access_token')) {
       const get_query = path
