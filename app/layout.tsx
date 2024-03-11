@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import RootStyleRegistry from 'src/lib/registar';
 import 'src/styles/globals.css';
+
 export const metadata: Metadata = {
   title: 'BSL',
   description: '백승일 개인 작업실',
