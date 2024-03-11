@@ -8,6 +8,6 @@ interface LoginStore {
 
 export const useLoginStore = create<LoginStore>(set => ({
   isMaster: false,
-  login: () => set(state => ({ isMaster: true })),
-  logout: () => set(state => ({ isMaster: false }))
+  login: () => set(() => ({ isMaster: true })),
+  logout: () => set(() => ({ isMaster: false }))
 }));
