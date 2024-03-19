@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useModal } from 'src/Hooks';
@@ -17,6 +18,7 @@ export const MultiTwitchTmp = () => {
   const [showLargeUserId, selectShowLargeUserId] = useState('');
   const access_token = LocalStorageClient.getItem('access_token');
   const userId = LocalStorageClient.getItem('userId');
+  const path = usePathname();
 
   const { ModalComponent, modalState, switchModalState } = useModal({
     Contents: MultiTwitchLoginModal
@@ -53,7 +55,6 @@ export const MultiTwitchTmp = () => {
       return;
     }
 
-    const path = usePathname();
     // oauth ridirect 체크
     if (path.includes('#access_token')) {
       const get_query = path
