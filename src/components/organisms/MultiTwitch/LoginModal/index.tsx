@@ -1,4 +1,3 @@
-// 'use client';
 import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 
@@ -92,8 +91,6 @@ export const MultiTwitchLoginModal = () => {
     LocalStorageClient.setItem('userId', userId);
     router.push(twitchOauthUrl);
   };
-
-  console.log(MultiTwitchLoginModalStyle);
 
   return (
     <MultiTwitchLoginModalStyle id='login_modal'>
