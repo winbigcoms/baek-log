@@ -1,10 +1,9 @@
-'use client';
 import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 
 import { twitchOauthUrl } from 'src/const';
 import { LocalStorageClient } from 'src/utills';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const MultiTwitchLoginModalStyle = styled.div`
   position: fixed;
