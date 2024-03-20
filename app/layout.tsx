@@ -21,7 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type='font/woff2'
           crossOrigin='anonymous'
         />
-        <RootStyleRegistry>{children}</RootStyleRegistry>
+        <RootStyleRegistry>
+          {children}
+          <div id='portal'></div>
+        </RootStyleRegistry>
       </body>
     </html>
   );
