@@ -51,7 +51,7 @@ export const ImageBox = (props: ImageBoxProps) => {
     >
       <div style={{ position: 'relative', height: '100%' }}>
         {imgUrl ? (
-          <Image src={imgUrl} priority layout='fill' alt='업로드 된 이미지' />
+          <Image src={imgUrl} priority alt='업로드 된 이미지' />
         ) : (
           <NoImgBox>이미지를 넣어주세요</NoImgBox>
         )}
