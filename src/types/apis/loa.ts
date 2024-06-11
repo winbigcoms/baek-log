@@ -15,11 +15,11 @@ export interface LOA_CHARACTER {
     UsingSkillPoint: number;
     TotalSkillPoint: number;
     Stats: Stats[];
-    ServerName: '실리안';
-    CharacterName: '균의방패';
+    ServerName: string;
+    CharacterName: string;
     CharacterLevel: 60;
-    CharacterClassName: '워로드';
-    ItemAvgLevel: '1,643.33';
-    ItemMaxLevel: '1,643.33';
+    CharacterClassName: string;
+    ItemAvgLevel: string;
+    ItemMaxLevel: string;
   };
 }

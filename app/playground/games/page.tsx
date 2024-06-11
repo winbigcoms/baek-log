@@ -1,13 +1,15 @@
 'use client';
-import { Suspense } from 'react';
-import { GameChar } from 'src/components/organisms';
+
+import { GameCharacterWrapper } from 'src/components/molecules';
+import { LostarkCharacter } from 'src/components/molecules/LostarkCharacter';
 
 export default async function GamePage() {
   return (
     <div>
-      <Suspense fallback={'loading'}>
-        <GameChar />
-      </Suspense>
+      <h1>주인장의 게임 캐릭터</h1>
+      <GameCharacterWrapper gameTitle='로스트 아크'>
+        <LostarkCharacter />
+      </GameCharacterWrapper>
     </div>
   );
 }

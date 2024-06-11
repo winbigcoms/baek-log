@@ -13,5 +13,3 @@ export * from './CategoryBox';
 export * from './HomeContents';
 export * from './MultiTwitch';
 export * from './Utill';
-
-export * from './gameChar';
