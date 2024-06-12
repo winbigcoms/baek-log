@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -51,7 +52,7 @@ export const ImageBox = (props: ImageBoxProps) => {
     >
       <div style={{ position: 'relative', height: '100%' }}>
         {imgUrl ? (
-          <Image src={imgUrl} priority alt='업로드 된 이미지' layout='fill' />
+          <Image src={imgUrl} priority alt='업로드 된 이미지' fill />
         ) : (
           <NoImgBox>이미지를 넣어주세요</NoImgBox>
         )}

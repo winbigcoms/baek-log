@@ -13,5 +13,6 @@ export default function RootStyleRegistry({ children }: { children: React.ReactN
   useEffect(() => {
     AOS.init();
   }, []);
+
   return <StyledComponentsRegistry>{children}</StyledComponentsRegistry>;
 }
