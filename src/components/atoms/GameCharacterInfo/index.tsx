@@ -21,9 +21,13 @@ const GameCharacterInfoStyle = styled.div`
   display: flex;
   gap: 5px;
   color: var(--text-main);
+  align-itmes: center;
 
   .gameCharInfoTitle {
     padding: 10px 3px;
-    background-color: var(--box-bg);
+  }
+  .gameCharInfoData {
+    display: flex;
+    align-items: center;
   }
 `;

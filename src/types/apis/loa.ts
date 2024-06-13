@@ -17,7 +17,7 @@ export interface LOA_CHARACTER {
     Stats: Stats[];
     ServerName: string;
     CharacterName: string;
-    CharacterLevel: 60;
+    CharacterLevel: number;
     CharacterClassName: string;
     ItemAvgLevel: string;
     ItemMaxLevel: string;

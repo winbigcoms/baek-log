@@ -1,13 +1,18 @@
-import { GameCharacterWrapper } from 'src/components/molecules';
-import { LostarkCharacter } from 'src/components/molecules/LostarkCharacter';
+import { LostarkCharacterView } from 'src/components/templates/LostarkCharacterView';
+import { MapleCharacterView } from 'src/components/templates/MapleCharacterView';
 
 const GamePage = () => {
   return (
     <div className='dark'>
       <h1>주인장의 게임 캐릭터</h1>
-      <GameCharacterWrapper gameTitle='로스트 아크'>
-        <LostarkCharacter />
-      </GameCharacterWrapper>
+      <div
+        style={{
+          display: 'flex'
+        }}
+      >
+        <LostarkCharacterView />
+        <MapleCharacterView />
+      </div>
     </div>
   );
 };
