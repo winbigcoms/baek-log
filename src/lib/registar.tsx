@@ -7,11 +7,11 @@ import 'aos/dist/aos.css';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
 export default function RootStyleRegistry({ children }: { children: React.ReactNode }) {
-  const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
-
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement();
