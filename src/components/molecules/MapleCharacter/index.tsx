@@ -36,17 +36,19 @@ export const MapleCharacter = (props: MapleCharacterProps) => {
 
   return (
     <StyledWrapper>
-      <div className='gameCharBox'>
-        <div className='gameCharInfoBox'>
-          <GameCharacterInfo title='닉네임' data={data.character_name} />
-          <GameCharacterInfo title='서버' data={data.world_name} />
-          <GameCharacterInfo title='직업' data={data.character_class} />
-          <GameCharacterInfo title='캐릭터 레벨' data={data.character_level} />
+      {data && (
+        <div className='gameCharBox'>
+          <div className='gameCharInfoBox'>
+            <GameCharacterInfo title='닉네임' data={data.character_name} />
+            <GameCharacterInfo title='서버' data={data.world_name} />
+            <GameCharacterInfo title='직업' data={data.character_class} />
+            <GameCharacterInfo title='캐릭터 레벨' data={data.character_level} />
+          </div>
+          <div className='gameCharImg'>
+            <Image fill objectFit='contain' src={data.character_image} alt='메이플스토리 캐릭터' />
+          </div>
         </div>
-        <div className='gameCharImg'>
-          <Image fill objectFit='contain' src={data.character_image} alt='메이플스토리 캐릭터' />
-        </div>
-      </div>
+      )}
     </StyledWrapper>
   );
 };
