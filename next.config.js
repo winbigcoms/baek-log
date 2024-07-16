@@ -28,11 +28,25 @@ const nextConfig = {
         hostname: 'img.lostark.co.kr',
         port: '',
         pathname: '/armory/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'open.api.nexon.com',
+        port: '',
+        pathname: '/static/**'
       }
     ]
   },
   compiler: {
-    styledComponents: true
+    styledComponents: {
+      displayName: true,
+      ssr: true,
+      fileName: true,
+      minify: false,
+      transpileTemplateLiterals: false,
+      pure: true,
+      cssProp: true
+    }
   }
 };
 
