@@ -12,7 +12,9 @@ const SlideSwitchElement = styled.div<{ state: boolean }>`
 
   background-color: var(--bg-theme-switch);
   border: 1px solid var(--border-theme-switch);
-  transition: background-color 400ms linear, border 400ms linear;
+  transition:
+    background-color 400ms linear,
+    border 400ms linear;
   overflow: hidden;
 
   & > div {

@@ -155,30 +155,6 @@ const projects = [
     links: [],
     mImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/event-auto/m-1.png'],
     lImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/event-auto/1.png']
-  },
-  {
-    title: '개인 프로젝트(트위치 멀티 뷰어)',
-    desc: '트위치 방송을 다중으로 시청 가능한 서비스',
-    iDo: ['트위치 openAPI 연동'],
-    skill: [
-      {
-        type: '프론트',
-        skillTitle: ['Next.js', 'Typescript', 'Styled-component', 'SWR']
-      }
-    ],
-    feeling: [
-      '트위치의 open-api를 이용하여 자신의 트위치 아이디로 로그인하여 팔로우한 스트리머들의 방송을 최대 5개 까지 시청할 수 있는 서비스 입니다.'
-    ],
-    links: [
-      {
-        link: 'https://www.white-win.dev/playground/multi-twitch',
-        desc: 'Twitch-multi-viewer'
-      }
-    ],
-    mImgs: [
-      'https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/twitch-multi/twm-m-1.png'
-    ],
-    lImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/twitch-multi/twm-1.png']
   }
 ];
 
