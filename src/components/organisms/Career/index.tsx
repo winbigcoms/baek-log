@@ -5,6 +5,11 @@ const myCareer = [
     name: 'IMFORM',
     period: ['2021.01.02', '2024.01.10'],
     desc: '모바일 솔루션 회사 아이엠폼의 미래에셋페이, Catalog등 다양한 프로젝트에 참여했습니다.'
+  },
+  {
+    name: 'Lion Rocket',
+    period: ['2024.07.28'],
+    desc: '전문가용 이미지 생성 서비스 GENVAS를 개발하였습니다.'
   }
 ];
 
@@ -24,7 +29,9 @@ export const Career = () => {
             <div>
               <div>{career.name}</div>
               <div>
-                ({career.period[0]}~{career.period[1] || '재직중'})
+                {career.period[0]}
+                <span style={{ margin: '0px 6px' }}>~</span>
+                {career.period[1] || '재직중'}
               </div>
             </div>
             <div
