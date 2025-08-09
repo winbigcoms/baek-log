@@ -138,9 +138,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
               })}
             </dd>
           </div>
-          <div className='project_img'>
-            <img src={mImgs[0]} alt='projectImg' />
-          </div>
+          <div className='project_img'>{mImgs[0] && <img src={mImgs[0]} alt='projectImg' />}</div>
         </div>
         <dt>설명</dt>
         <dd

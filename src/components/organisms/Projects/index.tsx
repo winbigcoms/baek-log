@@ -18,6 +18,7 @@ const projects = [
   {
     title: 'SHOOT POS(2021.02 ~ 2021.12)',
     desc: '미래에셋페이 앱과 연동되는 window용 POS',
+    expose: true,
     iDo: [
       '프론트엔드 환경 세팅 및 기능 구현',
       'S3를 이용한 앱 버전 관리와 자동 업데이트 기능 구현',
@@ -51,6 +52,7 @@ const projects = [
   {
     title: 'DMS 서비스(2022.04 ~ 2023.12)',
     desc: '지류 인쇄물 페이지 에디터 서비스',
+    expose: false,
     iDo: ['CI/CD 최적화'],
     skill: [
       {
@@ -74,6 +76,7 @@ const projects = [
   {
     title: 'CATALOG 서비스(2022.04 ~ 2023.12)',
     desc: '모바일 전단 제작 서비스',
+    expose: true,
     iDo: ['에디터 페이지 성능 최적화', '모바일 전단 뷰어 페이지 최적화'],
     skill: [
       {
@@ -98,6 +101,7 @@ const projects = [
   {
     title: '이미지AI 서비스 PIXVAS',
     desc: '생성형 AI를 이용하여 이미지 에디팅 서비스',
+    expose: false,
     iDo: [
       'openpose를 이용한 인물 Image to Image기능 및 포즈 추출 기능 개발',
       '이미지 Crop기능 개발',
@@ -131,6 +135,7 @@ const projects = [
   {
     title: '이벤트자동화 서비스',
     desc: '이벤트 생성을 위한 인프라 관리 서비스',
+    expose: false,
     iDo: [
       '프론트엔드/백엔드 환경 세팅',
       'Nest.js에서 nest-aws-sdk를 이용한 AWS서비스 연동',
@@ -159,6 +164,7 @@ const projects = [
   {
     title: '개인 프로젝트(트위치 멀티 뷰어)',
     desc: '트위치 방송을 다중으로 시청 가능한 서비스',
+    expose: false,
     iDo: ['트위치 openAPI 연동'],
     skill: [
       {
@@ -179,6 +185,32 @@ const projects = [
       'https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/twitch-multi/twm-m-1.png'
     ],
     lImgs: ['https://baek-log-img.s3.ap-northeast-2.amazonaws.com/projects/twitch-multi/twm-1.png']
+  },
+  {
+    title: 'GENVAS',
+    desc: '캐릭터 이미지 생성 서비스',
+    expose: true,
+    iDo: ['GENVAS 프론트엔드 개발', '공용 기능 관리 및 함수화', '반응형 디자인 적용'],
+    skill: [
+      {
+        type: '프론트',
+        skillTitle: ['Next.js', 'Typescript', 'Tailwind', 'Tanstack Query', 'Zustand']
+      }
+    ],
+    feeling: [
+      '사용자가 학습하고 싶은 캐릭터의 이미지를 업로드하여 해당 이미지 기반으로 사용자만의 캐릭터 모델을 만들고, 해당 캐릭터 모델을 이용하여 이미지를 생성하는 서비스 입니다.',
+      '팝업 및 모달 등의 UI는 react의 dynamic import를 이용하여 비동기로 불러오는 방식으로 구현하였습니다.',
+      '이미지를 랜더링하는 컴포넌트의 상태변화가 잦았기에 React의 memo를 이용하여 Props에 따른 랜더링 최적화를 진행하였습니다.',
+      '상품 결제 기능을 개발하면서 새창으로 뜨는 결제 화면과 프로젝트간의 통신을 위해 BroadcastChannel을 이용하여 통신을 진행하였습니다.'
+    ],
+    links: [
+      {
+        link: 'https://www.lite-genvas.ai/welcome',
+        desc: 'GENVAS'
+      }
+    ],
+    mImgs: [],
+    lImgs: []
   }
 ];
 
@@ -188,9 +220,11 @@ export const Projects = () => {
       <h2 tabIndex={1}>프로젝트</h2>
       <div>
         <div className='projectContainer'>
-          {projects.map(project => (
-            <ProjectItem key={project.title} projectItemData={project} />
-          ))}
+          {projects
+            .filter(project => project.expose)
+            .map(project => (
+              <ProjectItem key={project.title} projectItemData={project} />
+            ))}
         </div>
       </div>
     </ProjectsContainer>

@@ -19,6 +19,13 @@ const SkiilConatiner = styled.article`
       margin-bottom: 15px;
       text-align: center;
       font-size: 30px;
+      z-index: 1;
+      position: relative;
+    }
+
+    h3 {
+      z-index: 1;
+      position: relative;
     }
   }
 `;
@@ -27,6 +34,11 @@ const SkillStringBox = styled.div`
   li {
     list-style: disc;
     word-break: keep-all;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
   }
 `;
 
@@ -42,7 +54,7 @@ export const Skills = () => {
               <ul style={{ lineHeight: '1.2' }}>
                 {skill.map((str, idx) => (
                   <li key={title + idx} style={{ marginBottom: 5 }}>
-                    {str}
+                    <span>{str}</span>
                   </li>
                 ))}
               </ul>
