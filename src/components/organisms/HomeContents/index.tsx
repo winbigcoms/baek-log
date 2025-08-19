@@ -60,15 +60,6 @@ export const HomeContents = () => {
             </>
           </a>
         </article>
-        <article>
-          <a href='/playground/multi-twitch'>
-            <>
-              <h3>트위치 멀티뷰어</h3>
-              <ImageBox imgUrl='/assets/img/twitch.png' useBGColor />
-              <p>한 화면에 5개의 트위치 방송을</p>
-            </>
-          </a>
-        </article>
       </div>
     </HomeContentsContainer>
   );

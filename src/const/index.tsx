@@ -97,6 +97,7 @@ export const skillDesc = [
       'Media query를 이용한 반응형 웹 개발에 익숙합니다.',
       'Javascript와 Typescript에 익숙합니다.',
       'React와 Next를 이용한 개발에 익숙합니다.',
+      'TailwindCSS, antd과 같은 디자인 시스템에 익숙합니다.',
       'Light house등의 성능 측정 도구를 사용하여 서비스를 최적화할 수 있습니다.'
     ]
   },

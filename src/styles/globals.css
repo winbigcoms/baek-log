@@ -130,6 +130,7 @@ input[type='number']::-webkit-outer-spin-button {
   align-items: center;
   gap: 10px;
   justify-content: center;
+  margin-bottom: 16px;
 }
 
 .channel_list::-webkit-scrollbar {
