@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 const WhoAmIPage = () => {
   return (
     <Wrapper className={'dark'}>
-      <FallingBg amount={30} />
+      <FallingBg amount={10} />
       <PortpolloTmp />
     </Wrapper>
   );
